@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programme Rémi Tierpel – Lyon 21 Mai 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;700&family=Oswald:wght@400;600;700&display=swap');
+:root{
+  --bg:#0b0b0d;--s1:#121215;--s2:#18181e;--s3:#1e1e26;
+  --br:#242430;--br2:#303040;
+  --o:#ff5526;--b:#4b9fff;--g:#2fd67a;--y:#f4c842;--p:#a77dfa;--cy:#38d9d9;--r:#ff4455;
+  --text:#e2e2ea;--dim:#606070;--dim2:#9090a8;
+  --fh:'Oswald',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
+  /* tinted bgs */
+  --bg-o:#0e0704;--bg-b:#070a12;--bg-g:#070d09;--bg-y:#0d0c06;
+  --bg-p:#0a0814;--bg-cy:#060d0d;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:13px;line-height:1.55;}
+
+/* ─── LAYOUT ─── */
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px 60px;}
+
+/* ─── HEADER ─── */
+.hdr{background:linear-gradient(150deg,#130806 0%,#08080e 55%,var(--bg) 100%);border-bottom:1px solid var(--br2);padding:40px 32px 28px;}
+.hdr-inner{max-width:1400px;margin:0 auto;}
+h1{font-family:var(--fh);font-size:clamp(36px,5vw,72px);font-weight:700;line-height:.9;letter-spacing:1px;}
+h1 .o{color:var(--o);} h1 .b{color:var(--b);}
+.hdr-meta{font-family:var(--fm);font-size:10px;color:var(--dim2);text-transform:uppercase;letter-spacing:3px;margin-top:10px;}
+.hdr-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.pill{font-family:var(--fm);font-size:9px;padding:5px 12px;border-radius:3px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:6px;}
+.pill-o{background:var(--bg-o);color:var(--o);border:1px solid #4a1a08;}
+.pill-b{background:var(--bg-b);color:var(--b);border:1px solid #183060;}
+.pill-g{background:var(--bg-g);color:var(--g);border:1px solid #285030;}
+
+/* ─── SECTION TITLE ─── */
+.st{display:flex;align-items:center;gap:10px;font-family:var(--fh);font-size:15px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--dim2);margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--br2);}
+.st::before{content:'';width:3px;height:14px;background:var(--o);border-radius:1px;}
+
+/* ─── GRIDS ─── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+
+/* ─── CARD ─── */
+.card{background:var(--s1);border:1px solid var(--br);border-radius:4px;padding:14px;}
+.card.lo{border-left:3px solid var(--o);}
+.card.lb{border-left:3px solid var(--b);}
+.card.lg{border-left:3px solid var(--g);}
+.card.ly{border-left:3px solid var(--y);}
+.card.lcy{border-left:3px solid var(--cy);}
+.card.lp{border-left:3px solid var(--p);}
+.ct{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;}
+.co{color:var(--o);}.cb{color:var(--b);}.cg{color:var(--g);}.cy-c{color:var(--cy);}
+.cy2{color:var(--y);}.cp{color:var(--p);}
+.cdim{color:var(--dim2);}
+.cv{font-family:var(--fh);font-size:28px;font-weight:700;line-height:1;}
+.cs{font-family:var(--fm);font-size:9px;color:var(--dim);margin-top:3px;}
+.ctxt{font-size:12px;color:var(--dim2);line-height:1.65;}
+.ctxt strong{color:var(--text);}
+
+/* ─── NOTE ─── */
+.note{font-family:var(--fm);font-size:10px;color:var(--dim2);padding:8px 13px;border-left:2px solid var(--br2);border-radius:0 3px 3px 0;background:var(--s1);line-height:1.6;}
+.note.o{border-left-color:var(--o);}
+.note.b{border-left-color:var(--b);}
+.note.g{border-left-color:var(--g);}
+.note.y{border-left-color:var(--y);}
+.note.cy{border-left-color:var(--cy);}
+.note.p{border-left-color:var(--p);}
+
+/* ─── WEEKLY STRUCTURE TABLE ─── */
+.wt{background:var(--s1);border:1px solid var(--br2);border-radius:4px;overflow:hidden;}
+.wt-row{display:grid;grid-template-columns:80px 90px 1fr 160px;border-bottom:1px solid var(--br);}
+.wt-row:last-child{border-bottom:none;}
+.wt-row>*{padding:10px 14px;}
+.wt-day{background:var(--s2);display:flex;flex-direction:column;justify-content:center;gap:2px;}
+.wt-day-name{font-family:var(--fh);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+.wt-day-sub{font-family:var(--fm);font-size:8px;color:var(--dim);text-transform:uppercase;}
+.wt-type{background:var(--s2);display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.wt-tl{display:flex;align-items:center;gap:5px;font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1px;}
+.wt-body{background:var(--bg);font-size:12px;color:var(--dim2);line-height:1.6;}
+.wt-body strong{color:var(--text);}
+.wt-body em{font-style:normal;color:var(--dim);font-size:11px;}
+.wt-role{background:var(--s1);display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.rtag{font-family:var(--fm);font-size:8px;padding:3px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:1px;display:inline-block;}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;display:inline-block;}
+.dv{background:var(--y);}
+.dh{background:var(--o);}
+.df{background:var(--b);}
+.dr{background:var(--g);}
+.dp{background:var(--p);}
+.dcy{background:var(--cy);}
+.doff{background:var(--dim);}
+
+/* ─── TIMELINE ─── */
+.timeline-wrap{background:var(--s1);border:1px solid var(--br2);border-radius:4px;padding:20px;overflow-x:auto;}
+.timeline-track{display:flex;gap:4px;min-width:900px;}
+.tl-week{flex:1;min-width:60px;}
+.tl-bar{height:28px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:8px;letter-spacing:.5px;margin-bottom:5px;cursor:default;}
+.tl-label{font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;line-height:1.3;}
+.tl-date{font-size:7px;color:var(--dim);text-align:center;}
+.tl-badge{display:flex;justify-content:center;margin-top:4px;}
+.tl-b{font-family:var(--fm);font-size:7px;padding:2px 5px;border-radius:2px;text-transform:uppercase;}
+.tb-race{background:var(--bg-o);color:var(--o);border:1px solid #4a1408;}
+.tb-tap{background:var(--bg-y);color:var(--y);border:1px solid #3a2a08;}
+.tb-ok{background:var(--bg-g);color:var(--g);border:1px solid #283820;}
+.tb-test{background:var(--bg-b);color:var(--b);border:1px solid #182040;}
+
+/* phase legend */
+.phase-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;}
+.pl{display:flex;align-items:center;gap:6px;font-family:var(--fm);font-size:9px;color:var(--dim2);}
+.pl-dot{width:12px;height:12px;border-radius:2px;}
+
+/* ─── PHASES ─── */
+.phase{border-radius:4px;overflow:hidden;border:1px solid var(--br2);margin-bottom:20px;}
+.ph{padding:12px 18px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--br2);}
+.ph-num{font-family:var(--fh);font-size:48px;font-weight:700;line-height:1;opacity:.1;flex-shrink:0;}
+.ph-info{flex:1;}
+.ph-title{font-family:var(--fh);font-size:18px;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+.ph-dates{font-family:var(--fm);font-size:10px;color:var(--dim2);margin-top:3px;}
+.ph-tag{font-family:var(--fm);font-size:9px;padding:4px 11px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;margin-left:auto;white-space:nowrap;}
+
+.ph1-c{background:linear-gradient(90deg,#060d08 0%,var(--s1) 55%);}
+.ph1-c .ph-num,.ph1-c .ph-title,.ph1-c .ph-tag{color:var(--g);}
+.ph1-c .ph-tag{background:var(--bg-g);border:1px solid #285030;}
+.ph2-c{background:linear-gradient(90deg,var(--bg-b) 0%,var(--s1) 55%);}
+.ph2-c .ph-num,.ph2-c .ph-title,.ph2-c .ph-tag{color:var(--b);}
+.ph2-c .ph-tag{background:var(--bg-b);border:1px solid #183060;}
+.ph3-c{background:linear-gradient(90deg,var(--bg-o) 0%,var(--s1) 55%);}
+.ph3-c .ph-num,.ph3-c .ph-title,.ph3-c .ph-tag{color:var(--o);}
+.ph3-c .ph-tag{background:var(--bg-o);border:1px solid #4a1808;}
+.ph4-c{background:linear-gradient(90deg,var(--bg-y) 0%,var(--s1) 55%);}
+.ph4-c .ph-num,.ph4-c .ph-title,.ph4-c .ph-tag{color:var(--y);}
+.ph4-c .ph-tag{background:var(--bg-y);border:1px solid #3a2808;}
+
+/* ─── WEEK BLOCK ─── */
+.wblock{display:grid;grid-template-columns:56px 1fr;border-bottom:1px solid var(--br);}
+.wblock:last-child{border-bottom:none;}
+.wnum{background:var(--s2);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 4px;border-right:1px solid var(--br2);gap:2px;}
+.wn{font-family:var(--fh);font-size:21px;font-weight:700;line-height:1;}
+.wd{font-family:var(--fm);font-size:7px;color:var(--dim);text-align:center;text-transform:uppercase;letter-spacing:.3px;}
+.wflag{font-family:var(--fm);font-size:7px;padding:2px 5px;border-radius:2px;margin-top:3px;text-transform:uppercase;}
+.f-race{background:var(--bg-o);color:var(--o);border:1px solid #3a1208;}
+.f-tap{background:var(--bg-y);color:var(--y);border:1px solid #3a2808;}
+.f-ok{background:var(--bg-g);color:var(--g);border:1px solid #283820;}
+.f-test{background:var(--bg-b);color:var(--b);border:1px solid #182040;}
+
+.wbody{padding:12px 14px;display:flex;flex-direction:column;gap:10px;}
+.wtheme{font-family:var(--fh);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--dim2);}
+
+/* ─── DAY GRID ─── */
+.dg{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
+.day{background:var(--s2);border:1px solid var(--br);border-radius:3px;padding:7px;}
+.day.ho{border-color:var(--o);background:var(--bg-o);}
+.day.hb{border-color:var(--b);background:var(--bg-b);}
+.day.hg{border-color:var(--g);background:var(--bg-g);}
+.day.hcy{border-color:var(--cy);background:var(--bg-cy);}
+.day.hp{border-color:var(--p);background:var(--bg-p);}
+.day.hy{border-color:var(--y);background:var(--bg-y);}
+.dn{font-family:var(--fm);font-size:7px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);border-bottom:1px solid var(--br);padding-bottom:3px;margin-bottom:4px;}
+.dtype{font-family:var(--fh);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:4px;margin-bottom:3px;}
+.dd{font-size:10px;color:var(--dim2);line-height:1.4;}
+.dm{font-family:var(--fm);font-size:8px;color:var(--dim);margin-top:3px;line-height:1.3;}
+
+/* ─── RENFO DETAIL ─── */
+.renfo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;}
+.renfo-box{background:var(--bg);border:1px solid var(--br);border-radius:3px;overflow:hidden;}
+.renfo-hdr{padding:7px 12px;font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1.5px;border-bottom:1px solid var(--br);}
+.renfo-hdr.lun{background:var(--bg-b);color:var(--b);border-bottom-color:var(--b);}
+.renfo-hdr.jeu{background:var(--bg-p);color:var(--p);border-bottom-color:var(--p);}
+.renfo-table{width:100%;border-collapse:collapse;}
+.renfo-table th{font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);padding:5px 10px;text-align:left;background:var(--s2);border-bottom:1px solid var(--br);}
+.renfo-table td{padding:6px 10px;font-size:11px;border-bottom:1px solid var(--br);vertical-align:middle;}
+.renfo-table tr:last-child td{border-bottom:none;}
+.renfo-table tr:hover td{background:var(--s2);}
+.mn{font-family:var(--fm);font-size:10px;}
+.tag-s{display:inline-block;font-family:var(--fm);font-size:8px;padding:1px 6px;border-radius:2px;}
+.tag-o{background:var(--bg-o);color:var(--o);border:1px solid #3a1208;}
+.tag-b{background:var(--bg-b);color:var(--b);border:1px solid #183060;}
+.tag-g{background:var(--bg-g);color:var(--g);border:1px solid #283820;}
+.rpe-badge{font-family:var(--fh);font-size:11px;font-weight:600;}
+
+/* ─── RACE BOX ─── */
+.race-box{background:#0e0806;border:1px solid var(--o);border-radius:4px;padding:20px;}
+.race-box h3{font-family:var(--fh);font-size:20px;font-weight:700;}
+.race-box h3 em{color:var(--o);font-style:normal;}
+.station-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px;}
+.stn{border-radius:3px;padding:10px;text-align:center;}
+.stn-n{font-family:var(--fh);font-size:11px;font-weight:600;text-transform:uppercase;}
+.stn-w{font-family:var(--fm);font-size:8px;margin-top:3px;text-transform:uppercase;}
+.stn-d{font-size:10px;color:var(--dim2);margin-top:3px;}
+
+footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;color:var(--br2);border-top:1px solid var(--br);margin-top:40px;}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div class="hdr">
+  <div class="hdr-inner">
+    <h1><span class="o">LYON</span> DOUBLES<br><span class="b">→ PARIS</span> SOLO</h1>
+    <div class="hdr-meta">Rémi Tierpel · 12 semaines · 2 Mars → 21 Mai 2026 · Programme complet</div>
+    <div class="hdr-pills">
+      <div class="pill pill-o">🏁 Doubles Open Lyon · Jeudi 21 Mai 2026 · avec Mélanie</div>
+      <div class="pill pill-b">🎯 Paris Solo · Automne 2026 · objectif principal</div>
+      <div class="pill pill-g">📅 S1 : 2 Mars · 12 semaines exactes</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ═══ STRUCTURE HEBDOMADAIRE ═══ -->
+<div class="st">Structure hebdomadaire – Gabarit fixe</div>
+<div class="wt">
+  <div class="wt-row">
+    <div class="wt-day" style="background:var(--bg-y)">
+      <div class="wt-day-name" style="color:var(--y)">Lundi</div>
+      <div class="wt-day-sub">Chargé</div>
+    </div>
+    <div class="wt-type">
+      <div class="wt-tl"><span class="dot dv"></span><span style="color:var(--y)">Velotaff Z1</span></div>
+      <div class="wt-tl"><span class="dot df"></span><span style="color:var(--b)">Renfo S1</span></div>
+      <div class="wt-tl"><span class="dot dv"></span><span style="color:var(--y)">Velotaff Z1</span></div>
+    </div>
+    <div class="wt-body">
+      <strong>Matin : Velotaff aller 23 km · Zone 1</strong><br>
+      <strong>Midi (~12h) : 💪 RENFO SÉANCE 1 — ~60 min</strong> · Lower dominant + Upper Push · salle complète + sled<br>
+      <strong>Soir : Velotaff retour 23 km · Zone 1</strong><br>
+      <em>Logique : corps frais le matin pour le renfo · Z1 retour = récup active post-renfo</em>
+    </div>
+    <div class="wt-role">
+      <div class="rtag" style="background:var(--bg-y);color:var(--y);border:1px solid #3a2808">🚴 AÉROBIE PASSIF</div>
+      <div class="rtag" style="background:var(--bg-b);color:var(--b);border:1px solid #183060;margin-top:4px">💪 RENFO S1</div>
+    </div>
+  </div>
+
+  <div class="wt-row">
+    <div class="wt-day">
+      <div class="wt-day-name" style="color:var(--y)">Mardi</div>
+      <div class="wt-day-sub">Yoga soir</div>
+    </div>
+    <div class="wt-type">
+      <div class="wt-tl"><span class="dot dv"></span><span style="color:var(--y)">Velotaff Z1</span></div>
+      <div class="wt-tl"><span class="dot dv"></span><span style="color:var(--y)">Velotaff Z1</span></div>
+      <div class="wt-tl"><span class="dot dp"></span><span style="color:var(--p)">Yoga</span></div>
+    </div>
+    <div class="wt-body">
+      <strong>Matin : Velotaff aller 23 km · Zone 1</strong><br>
+      <strong>~17h : Velotaff retour 23 km · Zone 1</strong><br>
+      <strong>18h30–19h30 : 🧘 YOGA</strong> — récup active, mobilité, respiratoire<br>
+      <em>Journée aérobie pure · pas de séance haute intensité · le yoga = récup optimale post-velotaff</em>
+    </div>
+    <div class="wt-role">
+      <div class="rtag" style="background:var(--bg-y);color:var(--y);border:1px solid #3a2808">🚴 AÉROBIE PASSIF</div>
+      <div class="rtag" style="background:var(--bg-p);color:var(--p);border:1px solid #382870;margin-top:4px">🧘 YOGA</div>
+    </div>
+  </div>
+
+  <div class="wt-row">
+    <div class="wt-day" style="background:var(--bg-o)">
+      <div class="wt-day-name" style="color:var(--o)">Mercredi</div>
+      <div class="wt-day-sub">HYROX Oria</div>
+    </div>
+    <div class="wt-type">
+      <div class="wt-tl"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div>
+    </div>
+    <div class="wt-body">
+      <strong>Soir : 🏋 HYROX Box Oria · programme non maîtrisable</strong><br>
+      Séance HYROX complète organisée par la box · stations + running · ~60–80 min<br>
+      <em>Tu suis le programme de la box · pas de modification possible · RPE variable selon séance</em>
+    </div>
+    <div class="wt-role">
+      <div class="rtag" style="background:var(--bg-o);color:var(--o);border:1px solid #4a1808">⚡ HYROX ORIA</div>
+    </div>
+  </div>
+
+  <div class="wt-row" style="background:var(--bg-b)">
+    <div class="wt-day" style="background:#070a14">
+      <div class="wt-day-name" style="color:var(--p)">Jeudi</div>
+      <div class="wt-day-sub">Renfo + Bran RC</div>
+    </div>
+    <div class="wt-type">
+      <div class="wt-tl"><span class="dot dp"></span><span style="color:var(--p)">Renfo S2</span></div>
+      <div class="wt-tl"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div>
+    </div>
+    <div class="wt-body">
+      <strong>Midi (~12h) : 💪 RENFO SÉANCE 2 — ~60 min</strong> · Upper dominant + Hinge léger · ⚠ jambes préservées<br>
+      <strong>Soir : 🏃 BRAN RUNNING CLUB</strong> · Run collectif + circuit fonctionnel<br>
+      <em>⚠ RÈGLE ABSOLUE jeudi : 0 back squat lourd · 0 fentes bulgares volumineuses · les jambes doivent courir le soir</em>
+    </div>
+    <div class="wt-role">
+      <div class="rtag" style="background:var(--bg-p);color:var(--p);border:1px solid #382870">💪 RENFO S2</div>
+      <div class="rtag" style="background:var(--bg-g);color:var(--g);border:1px solid #285030;margin-top:4px">🏃 BRAN RC</div>
+    </div>
+  </div>
+
+  <div class="wt-row">
+    <div class="wt-day" style="background:var(--bg-o)">
+      <div class="wt-day-name" style="color:var(--o)">Vendredi</div>
+      <div class="wt-day-sub">HYROX Force</div>
+    </div>
+    <div class="wt-type">
+      <div class="wt-tl"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div>
+    </div>
+    <div class="wt-body">
+      <strong>Soir : 🏋 HYROX Oria — orienté FORCE</strong><br>
+      Programme axé stations de force · sled, carries, lunges · charge lourde<br>
+      <em>Programme non maîtrisable · complémentaire de la renfo S2 jeudi · pas de doublon avec le vendredi</em>
+    </div>
+    <div class="wt-role">
+      <div class="rtag" style="background:var(--bg-o);color:var(--o);border:1px solid #4a1808">⚡ HYROX FORCE</div>
+    </div>
+  </div>
+
+  <div class="wt-row" style="background:var(--bg-cy)">
+    <div class="wt-day" style="background:#060e0e">
+      <div class="wt-day-name" style="color:var(--cy)">Samedi</div>
+      <div class="wt-day-sub">HYROX matin</div>
+    </div>
+    <div class="wt-type">
+      <div class="wt-tl"><span class="dot dcy"></span><span style="color:var(--cy)">HYROX / Brick</span></div>
+    </div>
+    <div class="wt-body">
+      <strong>Matin : HYROX / Brick / Simulation solo</strong> · programme Box Oria<br>
+      Conditioning · brick progressif · simulation selon phase · allure running ciblée<br>
+      <em>Séance running de qualité sous fatigue · essentielle pour progression Paris Solo</em>
+    </div>
+    <div class="wt-role">
+      <div class="rtag" style="background:var(--bg-cy);color:var(--cy);border:1px solid #1a4040">🎯 BRICK / SIM</div>
+    </div>
+  </div>
+
+  <div class="wt-row">
+    <div class="wt-day">
+      <div class="wt-day-name" style="color:var(--dim)">Dimanche</div>
+      <div class="wt-day-sub">OFF complet</div>
+    </div>
+    <div class="wt-type">
+      <div class="wt-tl"><span class="dot doff"></span><span style="color:var(--dim)">Repos</span></div>
+    </div>
+    <div class="wt-body" style="color:var(--dim)">Repos total · sommeil · mobilité passive · récupération</div>
+    <div class="wt-role"></div>
+  </div>
+</div>
+<div class="note o" style="margin-top:10px">⚠ Les séances Oria (Mer, Ven, Sam) ne sont pas maîtrisables — le programme est géré par la box. Les 2 séances de renfo (Lun midi + Jeu midi) sont conçues pour être <strong>complémentaires et non redondantes</strong> avec ce que tu fais à la box.</div>
+
+<!-- ═══ RÉSUMÉ CHARGE ═══ -->
+<div class="g4" style="margin-top:16px">
+  <div class="card ly"><div class="ct cy2">Velotaff Z1</div><div class="cv" style="color:var(--y)">~92km</div><div class="cs">4×23km · Lun+Mar · base aérobie passive</div></div>
+  <div class="card lb"><div class="ct cb">Renfo / sem</div><div class="cv" style="color:var(--b)">2×</div><div class="cs">Lun midi + Jeu midi · ~60 min chaque</div></div>
+  <div class="card lo"><div class="ct co">HYROX Oria</div><div class="cv" style="color:var(--o)">3×</div><div class="cs">Mer + Ven + Sam · programme box</div></div>
+  <div class="card lcy"><div class="ct cy-c">Running qualité</div><div class="cv" style="color:var(--cy)">2×</div><div class="cs">Bran RC Jeu + Brick/Sim Sam</div></div>
+</div>
+
+<!-- ═══ TIMELINE 12 SEMAINES ═══ -->
+<div class="st">Timeline 12 semaines · 2 Mars → 21 Mai 2026</div>
+<div class="timeline-wrap">
+  <div class="timeline-track">
+    <!-- Phase 1 : Fondations S1-S3 -->
+    <div class="tl-week"><div class="tl-bar" style="background:#060d08;color:var(--g);border:1px solid #285030">S1</div><div class="tl-label" style="color:var(--g)">Fond.</div><div class="tl-date">2–8 mars</div></div>
+    <div class="tl-week"><div class="tl-bar" style="background:#060d08;color:var(--g);border:1px solid #285030">S2</div><div class="tl-label" style="color:var(--g)">Fond.</div><div class="tl-date">9–15 mars</div></div>
+    <div class="tl-week"><div class="tl-bar" style="background:#060d08;color:var(--g);border:1px solid #285030">S3</div><div class="tl-label" style="color:var(--g)">Fond.</div><div class="tl-date">16–22 mars</div><div class="tl-badge"><span class="tl-b tb-ok">Bilan</span></div></div>
+    <!-- Phase 2 : HYROX Spé S4-S7 -->
+    <div class="tl-week"><div class="tl-bar" style="background:var(--bg-b);color:var(--b);border:1px solid #183060">S4</div><div class="tl-label" style="color:var(--b)">Spé</div><div class="tl-date">23–29 mars</div></div>
+    <div class="tl-week"><div class="tl-bar" style="background:var(--bg-b);color:var(--b);border:1px solid #183060">S5</div><div class="tl-label" style="color:var(--b)">Spé ↑↑</div><div class="tl-date">30m–5avr</div></div>
+    <div class="tl-week"><div class="tl-bar" style="background:var(--bg-b);color:var(--b);border:1px solid #183060">S6</div><div class="tl-label" style="color:var(--b)">Spé explo</div><div class="tl-date">6–12 avr</div></div>
+    <div class="tl-week"><div class="tl-bar" style="background:#0a0e0a;color:var(--g);border:1px solid #285030">S7</div><div class="tl-label" style="color:var(--g)">Décharge</div><div class="tl-date">13–19 avr</div><div class="tl-badge"><span class="tl-b tb-ok">Bilan</span></div></div>
+    <!-- Phase 3 : Pré-comp S8-S9 -->
+    <div class="tl-week"><div class="tl-bar" style="background:var(--bg-o);color:var(--o);border:1px solid #4a1808">S8</div><div class="tl-label" style="color:var(--o)">Pré-comp</div><div class="tl-date">20–26 avr</div><div class="tl-badge"><span class="tl-b tb-test">Paris ?</span></div></div>
+    <div class="tl-week"><div class="tl-bar" style="background:var(--bg-o);color:var(--o);border:1px solid #4a1808">S9</div><div class="tl-label" style="color:var(--o)">Pré-comp</div><div class="tl-date">27avr–3mai</div></div>
+    <!-- Phase 4 : Taper S10-S12 -->
+    <div class="tl-week"><div class="tl-bar" style="background:var(--bg-y);color:var(--y);border:1px solid #3a2808">S10</div><div class="tl-label" style="color:var(--y)">Taper −30%</div><div class="tl-date">4–10 mai</div></div>
+    <div class="tl-week"><div class="tl-bar" style="background:var(--bg-y);color:var(--y);border:1px solid #3a2808">S11</div><div class="tl-label" style="color:var(--y)">Taper −50%</div><div class="tl-date">11–17 mai</div></div>
+    <div class="tl-week"><div class="tl-bar" style="background:var(--bg-o);color:var(--o);border:1px solid var(--o)">S12</div><div class="tl-label" style="color:var(--o)">Race Week</div><div class="tl-date">18–24 mai</div><div class="tl-badge"><span class="tl-b tb-race">🏁 21 Mai</span></div></div>
+  </div>
+  <div class="phase-legend">
+    <div class="pl"><div class="pl-dot" style="background:#0a1a0c;border:1px solid var(--g)"></div>Fondations C1 (S1–S3)</div>
+    <div class="pl"><div class="pl-dot" style="background:var(--bg-b);border:1px solid var(--b)"></div>HYROX Spécifique C2 (S4–S7)</div>
+    <div class="pl"><div class="pl-dot" style="background:var(--bg-o);border:1px solid var(--o)"></div>Pré-Comp (S8–S9)</div>
+    <div class="pl"><div class="pl-dot" style="background:var(--bg-y);border:1px solid var(--y)"></div>Affûtage / Taper (S10–S12)</div>
+    <div class="pl"><div class="pl-dot" style="background:var(--bg-o);border:1px solid var(--o)"></div>🏁 Course Lyon Jeu 21 Mai</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PHASE 1 : FONDATIONS -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="st">Détail par semaine</div>
+
+<div class="phase">
+  <div class="ph ph1-c">
+    <div class="ph-num">01</div>
+    <div class="ph-info">
+      <div class="ph-title">Fondations</div>
+      <div class="ph-dates">S1–S3 · 2 Mars → 22 Mars · Cycle 1 · Renfo fondamentaux · Prise de repère</div>
+    </div>
+    <div class="ph-tag">RPE renfo 6.5→7.5 · Sam : conditioning base</div>
+  </div>
+
+  <!-- S1 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--g)">S1</div><div class="wd">2–8 Mars</div></div>
+    <div class="wbody">
+      <div class="wtheme">Reprise · Installation du gabarit · Prise de repère toutes séances</div>
+      <div class="dg">
+        <div class="day hy">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div>
+          <div class="dd">Aller 23km Z1 matin</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo S1</span></div>
+          <div class="dd">Midi · ~60 min</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div>
+          <div class="dd">Retour 23km Z1 soir</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div>
+          <div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div>
+          <div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho">
+          <div class="dn">Mercredi</div>
+          <div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div>
+          <div class="dd">Programme box · soir · noter les sensations</div>
+        </div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Renfo S2</span></div>
+          <div class="dd">Midi · ~60 min · haut du corps + hinge</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div>
+          <div class="dd">Soir · run + circuit fonctionnel</div>
+        </div>
+        <div class="day ho">
+          <div class="dn">Vendredi</div>
+          <div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div>
+          <div class="dd">Programme box · orienté force · soir</div>
+        </div>
+        <div class="day hcy">
+          <div class="dn">Samedi</div>
+          <div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">HYROX/Brick</span></div>
+          <div class="dd">Box Oria matin · conditioning base · noter allure run naturelle</div>
+          <div class="dm">Baseline allure brick à mesurer</div>
+        </div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+      <div class="renfo-grid">
+        <div class="renfo-box">
+          <div class="renfo-hdr lun">💪 Renfo S1 — Lundi midi · Lower + Upper Push · RPE 6.5 · repos 90"</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage vertical (lat pulldown ou tractions assistées)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
+            <tr><td>Développé couché barre</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
+            <tr><td>Back squat</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
+            <tr><td>Hip Thrust + Moyen fessier (superset)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12 + 30</td></tr>
+            <tr><td>Arch (gainage dorsal)</td><td class="mn" style="color:var(--b)">8</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td></tr>
+          </table>
+        </div>
+        <div class="renfo-box">
+          <div class="renfo-hdr jeu">💪 Renfo S2 — Jeudi midi · Upper + Hinge · RPE 6.5 · repos 90" · ⚠ 0 squat lourd</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage horizontal unilatéral (câble ou haltère)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12 / côté</td></tr>
+            <tr><td>Strict Press haltères</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
+            <tr><td>Soulevé de terre roumain barre</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
+            <tr><td>Leg Curl + Leg Extension (superset)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12 + 12</td></tr>
+            <tr><td>Hollow (gainage abdominal)</td><td class="mn" style="color:var(--b)">8</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S2 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--g)">S2</div><div class="wd">9–15 Mars</div></div>
+    <div class="wbody">
+      <div class="wtheme">Montée en charge · même structure · +1 série · RPE 7.0</div>
+      <div class="dg">
+        <div class="day hy">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo S1 ↑</span></div><div class="dd">Midi · 5×10 · RPE 7</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho"><div class="dn">Mercredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div><div class="dd">Programme box · soir</div></div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Renfo S2 ↑</span></div><div class="dd">Midi · 5×10 · RPE 7</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div><div class="dd">Soir · run + circuit</div>
+        </div>
+        <div class="day ho"><div class="dn">Vendredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div><div class="dd">Programme box · soir</div></div>
+        <div class="day hcy"><div class="dn">Samedi</div><div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">Brick intro</span></div><div class="dd">1er brick ciblé · noter allure</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+      <div class="renfo-grid">
+        <div class="renfo-box">
+          <div class="renfo-hdr lun">💪 Renfo S1 — Lundi midi · RPE 7.0 · repos 90"–2'</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage vertical</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td></tr>
+            <tr><td>Développé couché barre</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td></tr>
+            <tr><td>Back squat</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td></tr>
+            <tr><td>Hip Thrust + Moyen fessier</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10 + 25</td></tr>
+            <tr><td>Arch</td><td class="mn" style="color:var(--b)">10</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td></tr>
+          </table>
+        </div>
+        <div class="renfo-box">
+          <div class="renfo-hdr jeu">💪 Renfo S2 — Jeudi midi · RPE 7.0 · repos 90"–2'</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage horizontal unilatéral</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10 / côté</td></tr>
+            <tr><td>Strict Press haltères</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td></tr>
+            <tr><td>Soulevé de terre roumain barre</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td></tr>
+            <tr><td>Leg Curl + Leg Extension</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10 + 10</td></tr>
+            <tr><td>Hollow</td><td class="mn" style="color:var(--b)">10</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--g)">S3</div><div class="wd">16–22 Mars</div><div class="wflag f-ok">Bilan</div></div>
+    <div class="wbody">
+      <div class="wtheme">Peak Cycle 1 · charges max fondamentaux · RPE 7.5 · bilan fin de phase</div>
+      <div class="dg">
+        <div class="day hy">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo S1 Peak</span></div><div class="dd">Midi · 5×8 · RPE 7.5</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho"><div class="dn">Mercredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div><div class="dd">Programme box · vidéo sled technique</div></div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Renfo S2 Peak</span></div><div class="dd">Midi · 5×8 · RPE 7.5</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div><div class="dd">Soir · run + circuit</div>
+        </div>
+        <div class="day ho"><div class="dn">Vendredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div><div class="dd">Programme box</div></div>
+        <div class="day hcy"><div class="dn">Samedi</div><div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">Brick 4'50</span></div><div class="dd">Brick ciblé · viser 4'50/km après station</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+      <div class="renfo-grid">
+        <div class="renfo-box">
+          <div class="renfo-hdr lun">💪 Renfo S1 — Lundi midi · RPE 7.5 · repos 2'–2'30"</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage vertical</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">8</td></tr>
+            <tr><td>Développé couché barre</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">8</td></tr>
+            <tr><td>Back squat</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">8</td></tr>
+            <tr><td>Hip Thrust + Moyen fessier</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">8 + 20</td></tr>
+            <tr><td>Arch</td><td class="mn" style="color:var(--b)">12</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td></tr>
+          </table>
+        </div>
+        <div class="renfo-box">
+          <div class="renfo-hdr jeu">💪 Renfo S2 — Jeudi midi · RPE 7.5 · repos 2'–2'30"</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage horizontal unilatéral</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">8 / côté</td></tr>
+            <tr><td>Strict Press haltères</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">8</td></tr>
+            <tr><td>Soulevé de terre roumain barre</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">8</td></tr>
+            <tr><td>Leg Curl + Leg Extension</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">8 + 8</td></tr>
+            <tr><td>Hollow</td><td class="mn" style="color:var(--b)">12</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="note g">📊 Bilan S3 — Questions clés : allure naturelle brick sam ? Sled pull fluide ou cassé ? Sensations Bran RC (EF ou fractionné) ? → Ces données calibrent les cibles de la Phase 2.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PHASE 2 : HYROX SPÉCIFIQUE -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="phase">
+  <div class="ph ph2-c">
+    <div class="ph-num">02</div>
+    <div class="ph-info">
+      <div class="ph-title">HYROX Spécifique</div>
+      <div class="ph-dates">S4–S7 · 23 Mars → 19 Avril · Cycle 2 · Sled · Explosivité · Force HYROX</div>
+    </div>
+    <div class="ph-tag">RPE renfo 8.0→8.5 · Sam : brick allure ciblée</div>
+  </div>
+
+  <!-- S4 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--b)">S4</div><div class="wd">23–29 Mars</div></div>
+    <div class="wbody">
+      <div class="wtheme">Intro spécifique · superset fonctionnel · sled dans la renfo</div>
+      <div class="dg">
+        <div class="day hy">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo S1 C2</span></div><div class="dd">Midi · Sled intro · RPE 8</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho"><div class="dn">Mercredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div><div class="dd">Programme box · soir</div></div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Renfo S2 C2</span></div><div class="dd">Midi · Nordic · Rack Pull · RPE 8</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div><div class="dd">Soir · run + circuit</div>
+        </div>
+        <div class="day ho"><div class="dn">Vendredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div><div class="dd">Programme box</div></div>
+        <div class="day hcy"><div class="dn">Samedi</div><div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">Brick 4'50 ×4</span></div><div class="dd">4×(Rower 500m→Run 1km @ 4'50)</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+      <div class="renfo-grid">
+        <div class="renfo-box">
+          <div class="renfo-hdr lun">💪 Renfo S1 — Lundi midi · RPE 8.0 · repos 2'30"</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tractions australiennes + Sled Pull TRX <span class="tag-s tag-o">superset</span></td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10 + 12.5m</td></tr>
+            <tr><td>Développé couché barre + Push Ups <span class="tag-s tag-o">superset</span></td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">6 + 10</td></tr>
+            <tr><td>Front Squat* + Wall Ball Shots <span class="tag-s tag-o">superset</span> <span style="font-size:10px;color:var(--dim)">(*ou DB Squat)</span></td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">6 + 15</td></tr>
+            <tr><td>Paloff Press (anti-rotation)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">8 / côté</td></tr>
+          </table>
+        </div>
+        <div class="renfo-box">
+          <div class="renfo-hdr jeu">💪 Renfo S2 — Jeudi midi · RPE 8.0 · repos 2'30" · ⚠ 0 squat lourd</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage horizontal Sled (ou câble rowing lourd)</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">6</td></tr>
+            <tr><td>Strict Press haltères en position fentes (statique)</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">6 / côté</td></tr>
+            <tr><td>Rack Pull (hinge concentrique lourd)</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">6</td></tr>
+            <tr><td>Nordic Curl banded (excentrique contrôlé)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">6</td></tr>
+            <tr><td>Copenhagen Plank (adducteurs)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">15" / 15"</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--b)">S5</div><div class="wd">30 Mars–5 Avr</div></div>
+    <div class="wbody">
+      <div class="wtheme">Charge maximale · RPE peak · ↑ sled · brick ×5 stations variées</div>
+      <div class="dg">
+        <div class="day hy">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo S1 Peak</span></div><div class="dd">Midi · ↑ charge sled · RPE 8.5</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho"><div class="dn">Mercredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div><div class="dd">Programme box</div></div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Renfo S2 Peak</span></div><div class="dd">Midi · ↑ charges · RPE 8.5</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div><div class="dd">Soir · viser 4'40 si fractionné</div>
+        </div>
+        <div class="day ho"><div class="dn">Vendredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div><div class="dd">Programme box</div></div>
+        <div class="day hcy"><div class="dn">Samedi</div><div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">Brick 4'48 ×5</span></div><div class="dd">5 stations différentes→Run 1km@4'48</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+      <div class="renfo-grid">
+        <div class="renfo-box">
+          <div class="renfo-hdr lun">💪 Renfo S1 — Lundi midi · RPE 8.5 · repos 2'30"–3' · ↑ charge sled</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tractions australiennes + Sled Pull TRX ↑ charge <span class="tag-s tag-o">superset</span></td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">10 + 12.5m</td></tr>
+            <tr><td>Développé couché barre + Push Ups</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">4 + 10</td></tr>
+            <tr><td>Front Squat + Wall Ball Shots</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">4 + 20</td></tr>
+            <tr><td>Paloff Press</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">10 / côté</td></tr>
+          </table>
+        </div>
+        <div class="renfo-box">
+          <div class="renfo-hdr jeu">💪 Renfo S2 — Jeudi midi · RPE 8.5 · repos 2'30"–3'</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage horizontal Sled</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">4</td></tr>
+            <tr><td>Strict Press haltères en position fentes</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">4 / côté</td></tr>
+            <tr><td>Rack Pull ↑ charge max</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">4</td></tr>
+            <tr><td>Nordic Curl banded</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">6</td></tr>
+            <tr><td>Copenhagen Plank</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">20" / 20"</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S6 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--b)">S6</div><div class="wd">6–12 Avr</div></div>
+    <div class="wbody">
+      <div class="wtheme">Explosivité prioritaire · même RPE 8.0 · charges légères si nécessaire · brick ×6</div>
+      <div class="dg">
+        <div class="day hy">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo EXPLO</span></div><div class="dd">Midi · explosif · RPE 8</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho"><div class="dn">Mercredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div><div class="dd">Programme box</div></div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Renfo EXPLO</span></div><div class="dd">Midi · RPE 8 explosif</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div><div class="dd">Soir</div>
+        </div>
+        <div class="day ho"><div class="dn">Vendredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div><div class="dd">Programme box</div></div>
+        <div class="day hcy"><div class="dn">Samedi</div><div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">Brick 4'45 ×6</span></div><div class="dd">6 stations → Run 1km@4'45 · 6 différentes</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+      <div class="renfo-grid">
+        <div class="renfo-box">
+          <div class="renfo-hdr lun">💪 Renfo S1 EXPLO — Lundi midi · RPE 8.0 · repos 2'30" · PRIORITÉ VITESSE</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tractions australiennes + Sled Pull TRX</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10 + 12.5m</td></tr>
+            <tr><td>Développé couché EXPLO + Push Ups EXPLO</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">6 + 5</td></tr>
+            <tr><td>Front Squat EXPLO + Wall Ball Shots</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">6 + 25</td></tr>
+            <tr><td>Paloff Press</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">12 / côté</td></tr>
+          </table>
+        </div>
+        <div class="renfo-box">
+          <div class="renfo-hdr jeu">💪 Renfo S2 EXPLO — Jeudi midi · RPE 8.0 · repos 2'30"</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage horizontal Sled</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">6</td></tr>
+            <tr><td>Strict Press fentes EXPLO</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">6 / côté</td></tr>
+            <tr><td>Rack Pull EXPLO (focus vitesse conc.)</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">6</td></tr>
+            <tr><td>Nordic Curl banded</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">6</td></tr>
+            <tr><td>Copenhagen Plank</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">25" / 25"</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="note b">💡 S6 explosivité : la charge peut baisser vs S5. C'est normal et voulu. Ce qui compte = la vitesse d'exécution concentrique, pas le kilo sur la barre.</div>
+    </div>
+  </div>
+
+  <!-- S7 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--g)">S7</div><div class="wd">13–19 Avr</div><div class="wflag f-ok">Bilan</div></div>
+    <div class="wbody">
+      <div class="wtheme">Décharge −30% · récup avant pré-comp · évaluation mi-programme</div>
+      <div class="dg">
+        <div class="day hy">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo −30%</span></div><div class="dd">Midi · 3 séries · RPE 7</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho"><div class="dn">Mercredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div><div class="dd">Programme box · vidéo analyse</div></div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Renfo −30%</span></div><div class="dd">Midi · allégé · 3 séries</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div><div class="dd">Soir · ne pas forcer</div>
+        </div>
+        <div class="day ho"><div class="dn">Vendredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div><div class="dd">Programme box</div></div>
+        <div class="day hcy"><div class="dn">Samedi</div><div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">Test Brick ×4</span></div><div class="dd">4×station→Run 1km · comparer S4 · bilan</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+      <div class="renfo-grid">
+        <div class="renfo-box">
+          <div class="renfo-hdr lun">💪 Renfo S1 Décharge — Lundi midi · RPE 7.0 · repos 90" · volume −30%</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tractions australiennes + Sled Pull TRX (allégé)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">10 + 12.5m</td></tr>
+            <tr><td>Développé couché barre (−20% charge)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">8</td></tr>
+            <tr><td>Front Squat (−20% charge)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">6</td></tr>
+            <tr><td>Paloff Press</td><td class="mn" style="color:var(--b)">2</td><td class="mn" style="color:var(--g)">8 / côté</td></tr>
+          </table>
+        </div>
+        <div class="renfo-box">
+          <div class="renfo-hdr jeu">💪 Renfo S2 Décharge — Jeudi midi · RPE 7.0 · repos 90"</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage horizontal câble (allégé)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">8</td></tr>
+            <tr><td>Strict Press haltères (allégé)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">8</td></tr>
+            <tr><td>Rack Pull (−20% charge)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">6</td></tr>
+            <tr><td>Nordic Curl banded</td><td class="mn" style="color:var(--b)">2</td><td class="mn" style="color:var(--g)">6</td></tr>
+            <tr><td>Copenhagen Plank</td><td class="mn" style="color:var(--b)">2</td><td class="mn" style="color:var(--g)">15" / 15"</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="note g">📊 Bilan S7 — 3 critères : allure brick ≤ 4'48 ? Sled pull 25m fluide ? Bran RC fractionné tenu @ 4'40 ? → Oui = Phase 3. Non → contacter pour ajustement.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PHASE 3 : PRÉ-COMP -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="phase">
+  <div class="ph ph3-c">
+    <div class="ph-num">03</div>
+    <div class="ph-info">
+      <div class="ph-title">Pré-Compétition</div>
+      <div class="ph-dates">S8–S9 · 20 Avril → 3 Mai · Simulation stations · Force maintien · Paris optionnel S8</div>
+    </div>
+    <div class="ph-tag">RPE renfo 7.0 · Sam : simulation solo complète</div>
+  </div>
+
+  <!-- S8 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--o)">S8</div><div class="wd">20–26 Avr</div><div class="wflag f-test">Paris ?</div></div>
+    <div class="wbody">
+      <div class="wtheme">Simulation stations · race pace · Paris Grand Palais optionnel 23–26 avr</div>
+      <div class="dg">
+        <div class="day hy">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo Pré-comp</span></div><div class="dd">Midi · circuits stations</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho"><div class="dn">Mercredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div><div class="dd">Race pace · vidéo sled</div></div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Renfo Pré-comp</span></div><div class="dd">Midi · maintien force</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div><div class="dd">Soir · pousser si fractionné</div>
+        </div>
+        <div class="day ho"><div class="dn">Vendredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div><div class="dd">Programme box</div></div>
+        <div class="day hcy"><div class="dn">Samedi</div><div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">⭐ Sim Solo</span></div><div class="dd">8 stations+8km@allure · tout chronométrer</div><div class="dm">Référence absolue pré-Lyon</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+      <div class="renfo-grid">
+        <div class="renfo-box">
+          <div class="renfo-hdr lun">💪 Renfo S1 Pré-comp — Lundi midi · RPE 7.0 · repos 2' · circuits stations</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Sled Pull bras seuls 1 aller + 1 retour normal</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">12.5m + 12.5m</td></tr>
+            <tr><td>10 cals BikeErg + 12.5m Sled Push + 30m Empty Lunges <span class="tag-s tag-o">circuit</span></td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">enchaîné</td></tr>
+            <tr><td>10 Bench Press + 10 Push Ups + 10m Burpee Broad Jumps <span class="tag-s tag-o">circuit</span></td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">enchaîné</td></tr>
+            <tr><td>Wall Ball Shots</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">30</td></tr>
+          </table>
+        </div>
+        <div class="renfo-box">
+          <div class="renfo-hdr jeu">💪 Renfo S2 Pré-comp — Jeudi midi · RPE 7.0 · repos 2'</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage horizontal Sled (ou câble)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
+            <tr><td>15m Walking Lunges @30kg + Leg Extension</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">15m + 30</td></tr>
+            <tr><td>Strict Press haltères + DB Thrusters léger (même charge)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12 + 12</td></tr>
+            <tr><td>Leg Curl + Moyen fessier</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12 + 20</td></tr>
+            <tr><td>Copenhagen Plank</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">15" / 15"</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="note o">🏁 Paris Grand Palais 23–26 Avr (optionnel mais recommandé) : 1ère course avec Mélanie en conditions réelles à 4 semaines de Lyon. RPE 8.5 max · objectif = valider la répartition des stations, pas la performance. Inestimable.</div>
+    </div>
+  </div>
+
+  <!-- S9 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--o)">S9</div><div class="wd">27 Avr–3 Mai</div></div>
+    <div class="wbody">
+      <div class="wtheme">Affûtage pré-comp · volume ÷3 · conserver les sensations · arriver frais</div>
+      <div class="dg">
+        <div class="day hy">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo Affûtage</span></div><div class="dd">Midi · activation · ÷3 volume</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho"><div class="dn">Mercredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div><div class="dd">Programme box · garder fraîcheur</div></div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Renfo Léger</span></div><div class="dd">Midi · activation légère</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div><div class="dd">EF seulement · ne pas forcer</div>
+        </div>
+        <div class="day ho"><div class="dn">Vendredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div><div class="dd">Programme box · effort contrôlé</div></div>
+        <div class="day hcy"><div class="dn">Samedi</div><div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">Brick ×3 léger</span></div><div class="dd">3 stations→Run 1km@4'45 · RPE 7</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+      <div class="renfo-grid">
+        <div class="renfo-box">
+          <div class="renfo-hdr lun">💪 Renfo S1 Affûtage — Lundi midi · RPE 6.0 · volume ÷3 max</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Sled Push/Pull activation (charge habituelle)</td><td class="mn" style="color:var(--b)">2</td><td class="mn" style="color:var(--g)">12.5m × 2</td></tr>
+            <tr><td>Wall Ball Shots (conserver le geste)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">20</td></tr>
+            <tr><td>Burpee Broad Jumps technique</td><td class="mn" style="color:var(--b)">2</td><td class="mn" style="color:var(--g)">8</td></tr>
+          </table>
+        </div>
+        <div class="renfo-box">
+          <div class="renfo-hdr jeu">💪 Renfo S2 Affûtage — Jeudi midi · RPE 6.0 · léger</div>
+          <table class="renfo-table">
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
+            <tr><td>Tirage horizontal léger (activation)</td><td class="mn" style="color:var(--b)">3</td><td class="mn" style="color:var(--g)">10</td></tr>
+            <tr><td>Walking Lunges @20kg (activation)</td><td class="mn" style="color:var(--b)">2</td><td class="mn" style="color:var(--g)">15m</td></tr>
+            <tr><td>Strict Press haltères léger</td><td class="mn" style="color:var(--b)">2</td><td class="mn" style="color:var(--g)">10</td></tr>
+            <tr><td>Copenhagen Plank (court)</td><td class="mn" style="color:var(--b)">2</td><td class="mn" style="color:var(--g)">12" / 12"</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PHASE 4 : AFFÛTAGE / TAPER -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="phase">
+  <div class="ph ph4-c">
+    <div class="ph-num">04</div>
+    <div class="ph-info">
+      <div class="ph-title">Affûtage</div>
+      <div class="ph-dates">S10–S12 · 4 Mai → 21 Mai · Volume −30%→−70% · Fraîcheur · 🏁 Lyon Jeu 21 Mai</div>
+    </div>
+    <div class="ph-tag">Intensité maintenue · volume réduit · arriver frais</div>
+  </div>
+
+  <!-- S10 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--y)">S10</div><div class="wd">4–10 Mai</div><div class="wflag f-tap">−30%</div></div>
+    <div class="wbody">
+      <div class="wtheme">Début taper · volume −30% · intensité renfo conservée · fraîcheur recherchée</div>
+      <div class="dg">
+        <div class="day hy">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo Taper</span></div><div class="dd">Midi · −30% vol · RPE 7.5</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho"><div class="dn">Mercredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div><div class="dd">−30% effort · technique prioritaire</div></div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Renfo Taper</span></div><div class="dd">Midi · −30% vol · maintien</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div><div class="dd">Garder les jambes fraîches</div>
+        </div>
+        <div class="day ho"><div class="dn">Vendredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div><div class="dd">Programme box · effort modéré</div></div>
+        <div class="day hcy"><div class="dn">Samedi</div><div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">Brick ×3 allégé</span></div><div class="dd">3×station→Run@4'45 · RPE 7 · fraîcheur</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+      <div class="note y">S10 renfo lun+jeu : reprendre les exercices du Cycle 2 (tractions+sled, rack pull, nordic) mais −30% volume (3 séries au lieu de 5) · même charges · maintien neuromusculaire.</div>
+    </div>
+  </div>
+
+  <!-- S11 -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--y)">S11</div><div class="wd">11–17 Mai</div><div class="wflag f-tap">−50%</div></div>
+    <div class="wbody">
+      <div class="wtheme">Affûtage profond · sensations race · mémorisation du mouvement</div>
+      <div class="dg">
+        <div class="day">
+          <div class="dn">Lundi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot df"></span><span style="color:var(--b)">Renfo Léger</span></div><div class="dd">Midi · 2 séries max · activation</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mardi</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour 23km Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day ho"><div class="dn">Mercredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Oria</span></div><div class="dd">Court · vif · RPE 8 · pas plus</div></div>
+        <div class="day hp">
+          <div class="dn">Jeudi</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Activation 20'</span></div><div class="dd">Midi · charges légères · neuromus.</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dr"></span><span style="color:var(--g)">Bran RC</span></div><div class="dd">EF seulement · jambes fraîches</div>
+        </div>
+        <div class="day ho"><div class="dn">Vendredi</div><div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">HYROX Force</span></div><div class="dd">Léger · activation sled uniquement</div></div>
+        <div class="day hcy"><div class="dn">Samedi</div><div class="dtype"><span class="dot dcy"></span><span style="color:var(--cy)">Transitions ×3</span></div><div class="dd">3 stations technique + Run 2km@4'45</div></div>
+        <div class="day"><div class="dn">Dimanche</div><div class="dtype"><span class="dot doff"></span><span style="color:var(--dim)">OFF</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S12 RACE WEEK -->
+  <div class="wblock">
+    <div class="wnum"><div class="wn" style="color:var(--o)">S12</div><div class="wd">18–24 Mai</div><div class="wflag f-race">🏁 LYON</div></div>
+    <div class="wbody">
+      <div class="wtheme">Semaine de course · économiser · activer · briefing Mélanie · LYON JEUDI 21 MAI</div>
+      <div class="dg">
+        <div class="day">
+          <div class="dn">Lun 18</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller Z1 · pas de renfo</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour Z1</div>
+        </div>
+        <div class="day">
+          <div class="dn">Mar 19</div>
+          <div class="dtype"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Aller Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dv"></span><span style="color:var(--y)">Velotaff</span></div><div class="dd">Retour Z1</div>
+          <div class="dtype" style="margin-top:6px"><span class="dot dp"></span><span style="color:var(--p)">Yoga 18h30</span></div>
+        </div>
+        <div class="day">
+          <div class="dn">Mer 20</div>
+          <div class="dtype"><span class="dot dr"></span><span style="color:var(--g)">Run + strides</span></div>
+          <div class="dd">15 min EF + 4×100m strides libres · rester frais</div>
+        </div>
+        <div class="day">
+          <div class="dn">Jeu 21</div>
+          <div class="dtype"><span class="dot dp"></span><span style="color:var(--p)">Bran RC ?</span></div><div class="dd">Si EF au programme → OK · si fractionné → passer</div>
+        </div>
+        <div class="day">
+          <div class="dn">Ven 20</div>
+          <div class="dd" style="color:var(--dim)">Trajet Lyon · repos · reconnaître salle si possible</div>
+        </div>
+        <div class="day">
+          <div class="dn">Sam-Dim</div>
+          <div class="dd" style="color:var(--dim)">Repos absolu · sommeil 8h+ · glucides · visualisation · briefing Mélanie matin course</div>
+        </div>
+        <div class="day ho" style="border-color:var(--o)">
+          <div class="dn">JEU 21 MAI</div>
+          <div class="dtype"><span class="dot dh"></span><span style="color:var(--o)">🏁 LYON</span></div>
+          <div class="dd">Doubles Open · Mélanie · RPE 9+ · tout donner</div>
+          <div class="dm">4'40–4'50/km running</div>
+        </div>
+      </div>
+
+      <!-- RACE STRATEGY -->
+      <div class="race-box" style="margin-top:10px">
+        <h3>HYROX <em>LYON</em> — Jeudi 21 Mai 2026</h3>
+        <div style="font-family:var(--fm);font-size:9px;color:var(--dim2);margin-top:4px;text-transform:uppercase;letter-spacing:2px">Eurexpo · Chassieu · Doubles Open · 1 seule course · RPE 9+ dès le départ</div>
+        <div class="station-grid">
+          <div class="stn" style="background:var(--bg-o);border:1px solid var(--o)">
+            <div class="stn-n" style="color:var(--o)">Running ×8</div>
+            <div class="stn-w" style="color:var(--o)">RÉMI — pace-setter</div>
+            <div class="stn-d">8×1km · Rémi donne le rythme<br><strong>Cible : 4'40–4'50/km</strong></div>
+          </div>
+          <div class="stn" style="background:var(--bg-o);border:1px solid #3a1808">
+            <div class="stn-n" style="color:var(--o)">SkiErg · Rower</div>
+            <div class="stn-w" style="color:var(--o)">RÉMI prioritaire</div>
+            <div class="stn-d">Base aérobie cycliste = avantage naturel sur ergos</div>
+          </div>
+          <div class="stn" style="background:var(--bg-g);border:1px solid var(--g)">
+            <div class="stn-n" style="color:var(--g)">Sled · Farmers<br>Lunges</div>
+            <div class="stn-w" style="color:var(--g)">MÉLANIE prioritaire</div>
+            <div class="stn-d">CrossFit = force naturelle<br>Elle prend sans hésiter</div>
+          </div>
+          <div class="stn" style="background:var(--bg-b);border:1px solid var(--b)">
+            <div class="stn-n" style="color:var(--b)">WB · BJL</div>
+            <div class="stn-w" style="color:var(--b)">Alternance 50/50</div>
+            <div class="stn-d">Sets de 20 en alternance rapide · garder le rythme</div>
+          </div>
+        </div>
+        <div class="note o" style="margin-top:12px">💡 Briefing 15 min le matin de la course : valider la répartition stations à voix haute · signal de transition = main levée · Rémi prend la tête dès le Run 1 · 1 seule course = RPE 9 d'emblée · pas de stratégie conservatrice</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+<footer>Programme complet Rémi Tierpel · HYROX Lyon Doubles 21 Mai 2026 + Paris Solo Automne 2026 · 12 semaines · 2 Mars → 21 Mai · S1 lun 2 mars · Renfo : Lun midi + Jeu midi · Box Oria : Mer+Ven+Sam</footer>
+</body>
+</html>
