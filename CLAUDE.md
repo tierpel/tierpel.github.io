@@ -53,6 +53,29 @@ tierpel.github.io/
 - Cycliste expérimenté : 41 000+ km lifetime · base aérobie solide
 - Velotaff quotidien : 6h Zone 1-2 / semaine → cardio > moyenne HYROX
 - HYROX pratiqué depuis 2024 environ
+- **Hyresult** : https://www.hyresult.com/athlete/remi-peltier
+
+### Baselines physiologiques (posées Session 3 · 2 Mars 2026)
+| Métrique | Valeur | Source |
+|---|---|---|
+| HRV baseline | **~47 ms** | Garmin FR 970 · moy 8 nuits |
+| FC repos baseline | **~46 bpm** | Garmin FR 970 · moy 8 nuits |
+| Poids | **84.7 kg** | Garmin 2 mars |
+| VO2max estimé | **54 ml/kg/min** | Garmin |
+| SpO2 | **94-96%** | Garmin |
+| Respiration | **17.4 resp/min** | Garmin |
+| LTHR | **159-165 bpm** | intervals.icu |
+| eFTP vélo | **~244 W** | intervals.icu |
+
+### Charges de référence Renfo S1 (posées 2 Mars 2026)
+| Exercice | Charge | RPE réel | Ajustement S2 |
+|---|---|---|---|
+| Tirage vertical | 40 kg | 6→7 ✅ | Garder 40kg |
+| Développé couché | 45 kg | 7→8+ ⚠ | **Redescendre 40-42.5kg** |
+| Back squat | 40 kg | 6→8 | Garder 40kg |
+| SDT roumain | 70 kg | 5→7 ✅ | Garder 70kg |
+| Hip Thrust | 40 kg | 4→8 | Garder 40kg |
+| Arch | PDC | — | 8×20"/10" |
 
 ---
 
@@ -177,6 +200,38 @@ SOMMEIL · Xh · qualité X/5 · HRV XXms · FC repos XXbpm
 
 ---
 
+### Session 3 — 2 Mars 2026
+**Contexte** : Reprise du suivi · Mise à jour pré-S1 + début S1 · Données intervals.icu  
+**Réalisé** :
+- Vérification connectivité MCP intervals.icu ✅ (get_activities, get_wellness_data, get_events OK)
+- Récupération activités pré-S1 (24 fév → 1 mars) : 3× HYROX Oria, 310 WB, Run EF 7.3km, Rando Vaunaveys
+- Récupération wellness 8 nuits (23 fév → 2 mars) : baselines HRV ~47ms, FC repos ~46bpm
+- Identification alerte sommeil : 3 nuits < 4h sur 8 (37.5%), crash HRV 28.8ms le 28/02
+- Récupération détail Renfo S1 lundi 2 mars : charges de référence posées
+- Mise à jour complète `suivi.html` avec :
+  - Section Pré-S1 (bilan semaine 24 fév → 1 mars)
+  - Détail charges Renfo S1 avec RPE par série
+  - Tableau sommeil 8 nuits avec alertes visuelles
+  - Baselines physiologiques (HRV, FC, poids, VO2max)
+  - KPI semaine courante S1
+  - Journal des séances complet (7 entrées)
+  - Profil athlète avec données hyresult
+- Mise à jour `CLAUDE.md` avec baselines et charges de référence ✅
+- Lien hyresult identifié : https://www.hyresult.com/athlete/remi-peltier
+- Splits détaillés par station non récupérables (chargement JS dynamique) → Rémi doit copier manuellement
+
+**Problème identifié** : Sommeil critique (facteur limitant n°1). DC trop lourd à 45kg (RPE 8+ vs cible 6.5).
+
+**À faire en session 4** :
+- [ ] Rémi fournit les splits détaillés par station (Paris + Nice) depuis hyresult.com onglet "Timings"
+- [ ] Compléter la section stations dans suivi.html
+- [ ] Bilan fin de S1 (compliance 7 séances)
+- [ ] Vérifier ajustement DC à 40-42.5kg en S2
+- [ ] Suivi sommeil S1 : la cause des nuits courtes est-elle identifiée ?
+- [ ] Push git + vérification GitHub Pages
+
+---
+
 ## ⚠️ Points d'attention pour Claude
 
 ### Ne pas oublier
@@ -185,6 +240,10 @@ SOMMEIL · Xh · qualité X/5 · HRV XXms · FC repos XXbpm
 - Le remote utilise le compte **tierpel** (pas rpeltier-lpg)
 - Les 38 events sont déjà chargés sur intervals.icu → ne pas re-créer
 - Le programme HTML fait 82KB → il est volumineux, ne pas le régénérer à la légère
+- **Sommeil = facteur limitant n°1** : 3 nuits < 4h sur 8 → à surveiller chaque session
+- **DC 45kg trop lourd** → ajuster à 40-42.5kg en S2
+- **Baselines posées** : HRV ~47ms · FC repos ~46bpm · Poids 84.7kg · VO2max 54
+- **Hyresult** : https://www.hyresult.com/athlete/remi-peltier (splits par station à récupérer manuellement)
 
 ### Conventions de style (HTML généré)
 - Police titres : **Oswald**
@@ -204,12 +263,13 @@ SOMMEIL · Xh · qualité X/5 · HRV XXms · FC repos XXbpm
 
 ## 🎯 Objectifs de la prochaine session
 
-1. Vérifier connectivité MCP intervals.icu
-2. Récupérer activités réelles S1 (si séances déjà réalisées)
-3. Remplir suivi.html S1 avec premières données
-4. Récupérer splits officiels Paris/Nice depuis hyrox.com
-5. Push git + vérification GitHub Pages
+1. Rémi fournit les splits détaillés par station (Paris + Nice) depuis hyresult.com
+2. Compléter la section stations dans suivi.html avec les vrais temps
+3. Bilan fin de S1 (compliance 7 séances, allure brick baseline)
+4. Vérifier ajustement DC à 40-42.5kg en S2
+5. Suivi sommeil S1 : cause identifiée ? Amélioration ?
+6. Push git + vérification GitHub Pages
 
 ---
 
-*Dernière mise à jour : 2 Mars 2026 · Session 2*
+*Dernière mise à jour : 2 Mars 2026 · Session 3*

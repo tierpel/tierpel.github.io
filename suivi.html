@@ -12,7 +12,7 @@
   --o:#ff5526;--b:#4b9fff;--g:#2fd67a;--y:#f4c842;--p:#a77dfa;--cy:#38d9d9;--r:#ff4455;
   --text:#e2e2ea;--dim:#606070;--dim2:#9090a8;
   --bg-o:#0e0704;--bg-b:#070a12;--bg-g:#070d09;--bg-y:#0d0c06;
-  --bg-p:#0a0814;--bg-cy:#060d0d;
+  --bg-p:#0a0814;--bg-cy:#060d0d;--bg-r:#120606;
   --fh:'Oswald',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -49,6 +49,7 @@ h1 .b{color:var(--b);}h1 .o{color:var(--o);}
 .st.yellow::before{background:var(--y);}
 .st.purple::before{background:var(--p);}
 .st.cyan::before{background:var(--cy);}
+.st.red::before{background:var(--r);}
 
 /* ── GRIDS ── */
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -76,6 +77,7 @@ h1 .b{color:var(--b);}h1 .o{color:var(--o);}
 .note.b{border-left-color:var(--b);}
 .note.g{border-left-color:var(--g);}
 .note.y{border-left-color:var(--y);}
+.note.r{border-left-color:var(--r);}
 
 /* ── COMPLIANCE BADGE ── */
 .badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:9px;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;}
@@ -83,6 +85,7 @@ h1 .b{color:var(--b);}h1 .o{color:var(--o);}
 .badge.miss{background:var(--bg-o);color:var(--o);border:1px solid #4a1808;}
 .badge.part{background:var(--bg-y);color:var(--y);border:1px solid #3a2808;}
 .badge.plan{background:var(--s2);color:var(--dim2);border:1px solid var(--br2);}
+.badge.alert{background:var(--bg-r);color:var(--r);border:1px solid #4a1818;}
 
 /* ── WEEKLY TABLE ── */
 .week-table{background:var(--s1);border:1px solid var(--br2);border-radius:4px;overflow:hidden;}
@@ -132,13 +135,6 @@ h1 .b{color:var(--b);}h1 .o{color:var(--o);}
 .hrv-val{font-family:var(--fm);font-size:11px;}
 .resting-hr{font-family:var(--fm);font-size:11px;}
 
-/* ── HRV SPARK ── */
-.hrv-chart{background:var(--s1);border:1px solid var(--br2);border-radius:4px;padding:16px 20px;}
-.hrv-bars{display:flex;align-items:flex-end;gap:4px;height:60px;}
-.hrv-b{flex:1;border-radius:2px 2px 0 0;min-width:8px;}
-.hrv-lbl-row{display:flex;gap:4px;margin-top:4px;}
-.hrv-l{flex:1;font-family:var(--fm);font-size:7px;color:var(--dim);text-align:center;}
-
 /* ── STATION TEMPS ── */
 .station-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
 .stn-card{background:var(--s2);border:1px solid var(--br);border-radius:4px;padding:12px;}
@@ -153,13 +149,6 @@ h1 .b{color:var(--b);}h1 .o{color:var(--o);}
 .delta{font-family:var(--fm);font-size:9px;padding:2px 6px;border-radius:2px;}
 .delta.pos{background:var(--bg-g);color:var(--g);}
 .delta.neg{background:var(--bg-r);color:var(--r);}
-
-/* ── RPE TIMELINE ── */
-.rpe-row{display:flex;gap:4px;align-items:flex-end;height:70px;margin-top:8px;}
-.rpe-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
-.rpe-bar{width:100%;border-radius:2px 2px 0 0;}
-.rpe-val{font-family:var(--fm);font-size:8px;color:var(--dim2);}
-.rpe-day{font-family:var(--fm);font-size:7px;color:var(--dim);text-transform:uppercase;}
 
 /* ── COMMENT LOG ── */
 .log{background:var(--s1);border:1px solid var(--br2);border-radius:4px;overflow:hidden;}
@@ -190,6 +179,19 @@ h1 .b{color:var(--b);}h1 .o{color:var(--o);}
 .pb-right{display:flex;gap:8px;align-items:center;}
 .pb-week{font-family:var(--fh);font-size:36px;font-weight:700;color:var(--b);}
 .pb-week-lbl{font-family:var(--fm);font-size:8px;color:var(--dim2);text-transform:uppercase;letter-spacing:1px;}
+
+/* ── RENFO DETAIL ── */
+.renfo-detail{background:var(--s1);border:1px solid var(--br2);border-radius:4px;overflow:hidden;}
+.renfo-detail-hdr{padding:10px 16px;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:2px;border-bottom:1px solid var(--br2);}
+.renfo-detail table{width:100%;border-collapse:collapse;}
+.renfo-detail th{font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);padding:6px 12px;text-align:left;background:var(--s2);border-bottom:1px solid var(--br);}
+.renfo-detail td{padding:7px 12px;font-size:11px;border-bottom:1px solid var(--br);vertical-align:middle;}
+.renfo-detail tr:last-child td{border-bottom:none;}
+.rpe-cell{font-family:var(--fh);font-size:12px;font-weight:600;}
+.rpe-ok{color:var(--g);}
+.rpe-warn{color:var(--y);}
+.rpe-high{color:var(--o);}
+.rpe-over{color:var(--r);}
 
 footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;color:var(--br2);border-top:1px solid var(--br);margin-top:40px;}
 </style>
@@ -225,81 +227,130 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 <div class="st blue">Phase courante</div>
 <div class="phase-banner">
   <div class="pb-left">
-    <!--
-      [MISE À JOUR HEBDO]
-      Changer pb-phase avec la phase courante :
-      "FONDATIONS" → S1–S3
-      "HYROX SPÉCIFIQUE" → S4–S7
-      "PRÉ-COMPÉTITION" → S8–S9
-      "AFFÛTAGE" → S10–S12
-    -->
     <div class="pb-phase">Fondations</div>
     <div class="pb-sub">Cycle 1 · S1–S3 · RPE renfo 6.5→7.5 · Prise de repères</div>
   </div>
   <div class="pb-right">
     <div>
-      <!--
-        [MISE À JOUR HEBDO] Numéro de semaine courante
-      -->
-      <div class="pb-week" id="current-week">S1</div>
+      <div class="pb-week">S1</div>
       <div class="pb-week-lbl">Semaine<br>en cours</div>
     </div>
   </div>
 </div>
 
 <!-- ══ KPI SEMAINE COURANTE ══ -->
-<div class="st blue">KPI · Semaine courante</div>
-<!--
-  [MISE À JOUR HEBDO - COMMENTAIRES DE SÉANCES]
-  Remplir ces données à partir des commentaires sur Strava/intervals.icu :
-  - Allure brick (commentaire séance samedi) : format "4'52/km" ou "4:52"
-  - RPE ressenti (commentaire séance) : 1-10
-  - Sommeil (commentaire matin, HRV si Garmin/Polar/Oura) : heures + qualité
-  - Compliance : 0/5 → 5/5 (velotaff+yoga+Oria×3+renfo×2+Bran RC = types identifiés)
--->
+<div class="st blue">KPI · Semaine courante · S1 (2–8 mars)</div>
 <div class="g4">
   <div class="card lg">
     <div class="ct cg">Compliance</div>
-    <div class="cv" style="color:var(--g)">—<span class="cv-sub">/7</span></div>
-    <div class="cs">Séances planifiées vs réalisées</div>
-    <div class="pbar-wrap"><div class="pbar g" style="width:0%"></div></div>
+    <div class="cv" style="color:var(--g)">1<span class="cv-sub">/7</span></div>
+    <div class="cs">Renfo S1 lun ✅ · reste : Oria mer, Renfo jeu, Bran RC jeu, Oria ven, Brick sam</div>
+    <div class="pbar-wrap"><div class="pbar g" style="width:14%"></div></div>
   </div>
   <div class="card lb">
     <div class="ct cb">Allure brick samedi</div>
     <div class="cv" style="color:var(--b)">—<span class="cv-sub">/km</span></div>
-    <div class="cs">Cible S1 : allure naturelle (baseline)</div>
+    <div class="cs">Cible S1 : allure naturelle (baseline) · sam 7 mars</div>
     <div class="pbar-wrap"><div class="pbar b" style="width:0%"></div></div>
   </div>
   <div class="card lp">
-    <div class="ct cp">HRV matin</div>
-    <div class="cv" style="color:var(--p)">—<span class="cv-sub">ms</span></div>
-    <div class="cs">Garmin / Polar / Oura · commentaire matin</div>
-    <div class="pbar-wrap"><div class="pbar" style="width:0%;background:var(--p)"></div></div>
+    <div class="ct cp">HRV baseline</div>
+    <div class="cv" style="color:var(--p)">47<span class="cv-sub">ms</span></div>
+    <div class="cs">Moyenne 8 nuits (hors nuit 28/02 à 28.8ms) · Garmin FR 970</div>
+    <div class="pbar-wrap"><div class="pbar" style="width:60%;background:var(--p)"></div></div>
   </div>
   <div class="card ly">
     <div class="ct cy2">Sommeil moy.</div>
-    <div class="cv" style="color:var(--y)">—<span class="cv-sub">h</span></div>
-    <div class="cs">Moyenne 7 nuits · cible 7h30+</div>
-    <div class="pbar-wrap"><div class="pbar y" style="width:0%"></div></div>
+    <div class="cv" style="color:var(--r)">5h9<span class="cv-sub">h</span></div>
+    <div class="cs">⚠ Moyenne 8 nuits · 3 nuits &lt; 4h · cible 7h30+</div>
+    <div class="pbar-wrap"><div class="pbar" style="width:35%;background:var(--r)"></div></div>
+  </div>
+</div>
+<div class="note r" style="margin-top:8px">
+  🔴 <strong>ALERTE SOMMEIL :</strong> 3 nuits sous 4h sur les 8 dernières (24 fév : 3h53, 28 fév : 2h16, 2 mars : 1h40). HRV chute à 28.8ms le 28/02, FC repos monte à 57bpm. Le sommeil est le facteur limitant n°1 actuellement.
+</div>
+
+<!-- ══ PRÉ-S1 · BILAN SEMAINE 24 FÉV – 1 MARS ══ -->
+<div class="st orange">Pré-S1 · Bilan semaine 24 fév – 1 mars</div>
+<div class="g3">
+  <div class="card lo">
+    <div class="ct co">Séances HYROX Oria</div>
+    <div class="cv" style="color:var(--o)">3<span class="cv-sub">séances</span></div>
+    <div class="cs">Mar 25 · Jeu 27 · Ven 28 · Engine + WB EMOM</div>
+  </div>
+  <div class="card lb">
+    <div class="ct cb">Wall Balls accumulés</div>
+    <div class="cv" style="color:var(--b)">310<span class="cv-sub">reps</span></div>
+    <div class="cs">100 WB @16lb (mar) + 110 WB @16lb (jeu) + 100 WB @6kg (ven)</div>
+  </div>
+  <div class="card lg">
+    <div class="ct cg">Running pré-S1</div>
+    <div class="cv" style="color:var(--g)">15.3<span class="cv-sub">km</span></div>
+    <div class="cs">Run EF 7.3km (mer 26) + Engine 5.2km (mar 25) + Engine 2.7km (jeu 27)</div>
+  </div>
+</div>
+
+<!-- ══ RENFO S1 · DÉTAIL CHARGES ══ -->
+<div class="st blue">Renfo S1 · Lundi 2 mars · Charges de référence</div>
+<div class="renfo-detail">
+  <div class="renfo-detail-hdr" style="color:var(--b);background:var(--bg-b)">💪 Séance 1 — Lower + Upper Push · RPE cible 6.5 · Repos 2'30"</div>
+  <table>
+    <tr><th>Exercice</th><th>Séries</th><th>Charge</th><th>RPE réel</th><th>Notes</th></tr>
+    <tr>
+      <td>Tirage vertical (lat pulldown)</td>
+      <td style="font-family:var(--fm);font-size:11px;color:var(--b)">4×12</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--g)">40 kg</td>
+      <td><span class="rpe-cell rpe-ok">6→7</span></td>
+      <td style="font-size:10px;color:var(--dim2)">Progressif, bien maîtrisé</td>
+    </tr>
+    <tr>
+      <td>Développé couché barre</td>
+      <td style="font-family:var(--fm);font-size:11px;color:var(--b)">4×12</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o)">45 kg</td>
+      <td><span class="rpe-cell rpe-over">7→8+</span></td>
+      <td style="font-size:10px;color:var(--r)">⚠ Au-dessus de la cible 6.5 · rester à 40-42.5kg en S2</td>
+    </tr>
+    <tr>
+      <td>Back squat</td>
+      <td style="font-family:var(--fm);font-size:11px;color:var(--b)">4×12</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--g)">40 kg</td>
+      <td><span class="rpe-cell rpe-warn">6→8</span></td>
+      <td style="font-size:10px;color:var(--dim2)">Échauff air squat + 10×20kg · dernière série dure</td>
+    </tr>
+    <tr>
+      <td>Soulevé de terre roumain</td>
+      <td style="font-family:var(--fm);font-size:11px;color:var(--b)">4×12</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--g)">70 kg</td>
+      <td><span class="rpe-cell rpe-ok">5→7</span></td>
+      <td style="font-size:10px;color:var(--dim2)">Échauff 10×20kg · montée progressive 50→70kg</td>
+    </tr>
+    <tr>
+      <td>Hip Thrust</td>
+      <td style="font-family:var(--fm);font-size:11px;color:var(--b)">4×12</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y)">40 kg</td>
+      <td><span class="rpe-cell rpe-warn">4→8</span></td>
+      <td style="font-size:10px;color:var(--dim2)">Démarré à 20kg, monté à 40kg · dernière série dure</td>
+    </tr>
+    <tr>
+      <td>Arch (gainage dorsal)</td>
+      <td style="font-family:var(--fm);font-size:11px;color:var(--b)">8×20"</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2)">PDC</td>
+      <td><span class="rpe-cell rpe-ok">—</span></td>
+      <td style="font-size:10px;color:var(--dim2)">20" ON / 10" OFF · Tabata style</td>
+    </tr>
+  </table>
+</div>
+<div class="g2" style="margin-top:10px">
+  <div class="note b">
+    📊 <strong>Données Garmin :</strong> FC moy 79bpm · FC max 123bpm · Durée 1h29 · Calories 329 · Poids 84.7kg
+  </div>
+  <div class="note o">
+    ⚠ <strong>Ajustement S2 :</strong> DC trop lourd à 45kg (RPE 8+). Redescendre à 40-42.5kg pour rester dans la cible RPE 7.0. Squat et Hip Thrust OK mais dernières séries dures → garder 40kg en S2.
   </div>
 </div>
 
 <!-- ══ COMPLIANCE HEBDOMADAIRE ══ -->
 <div class="st green">Compliance des séances · S1 → S12</div>
-<!--
-  [MISE À JOUR HEBDO]
-  Pour chaque semaine terminée, ajouter une ligne dans la table.
-  Remplir à partir des activités Strava (commentaires de séances) :
-  - Score /5 : velotaff(1) + renfo×2(2) + Oria×3(3) + Bran RC(4) + brick/sim(5)
-  - Notes : issues du commentaire de la séance la plus dure
-  - Status : badge ok/part/miss
-  
-  COMMENTAIRES À SAISIR SUR STRAVA/INTERVALS pour alimenter ce tableau :
-  ➤ Séance Renfo (lundi/jeudi) : "RENFO S1 OK · squat 80kg · RPE 7 · énergie ✓"
-  ➤ Séance Oria (mer/ven) : "ORIA OK · sled lourd · jambes fatigues · RPE 8"
-  ➤ Brick samedi : "BRICK · allure 4'52 · RPE 7.5 · 4 stations · jambes légères"
-  ➤ Bran RC : "BRAN RC · EF 5'10 · circuit OK · 45min"
--->
 <div class="week-table">
   <div class="week-row header">
     <div>Sem.</div>
@@ -309,19 +360,29 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     <div>Statut</div>
   </div>
 
+  <!-- PRÉ-S1 -->
+  <div class="week-row" style="background:var(--bg-o)">
+    <div><span class="wk-num" style="color:var(--o)">Pré</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">24 fév–1 mars</span></div>
+    <div><span class="wk-phase" style="color:var(--o)">Pré-programme</span></div>
+    <div class="wk-notes">
+      3× HYROX Oria (mar/jeu/ven) · 310 WB accumulés · Run EF 7.3km mer · Rando Vaunaveys sam 7km/388m D+ · <span style="color:var(--r)">⚠ 3 nuits &lt;4h</span>
+    </div>
+    <div><span class="wk-score" style="color:var(--o)">—</span></div>
+    <div class="wk-status"><span class="badge part">Pré-prog</span></div>
+  </div>
+
   <!-- S1 - EN COURS -->
   <div class="week-row">
     <div><span class="wk-num" style="color:var(--b)">S1</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">2–8 mars</span></div>
     <div><span class="wk-phase" style="color:var(--g)">Fondations</span></div>
     <div class="wk-notes">
-      <!-- [À REMPLIR] Exemple : "Renfo lun OK · squat baseline 75kg · sled léger · Oria mer dynamique · brick baseline 5'05/km · jambes ok" -->
-      <span style="color:var(--dim)">À compléter en fin de semaine…</span>
+      Renfo S1 lun ✅ · Tirage 40kg · DC 45kg (RPE 8+ ⚠) · Squat 40kg · SDT roumain 70kg · Hip Thrust 40kg · <strong>Charges de référence posées</strong>
     </div>
-    <div><span class="wk-score" style="color:var(--dim2)">—/5</span></div>
+    <div><span class="wk-score" style="color:var(--b)">1/7</span></div>
     <div class="wk-status"><span class="badge plan">⏳ En cours</span></div>
   </div>
 
-  <!-- S2-S12 : template vide pour remplissage progressif -->
+  <!-- S2-S12 -->
   <div class="week-row">
     <div><span class="wk-num" style="color:var(--g)">S2</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">9–15 mars</span></div>
     <div><span class="wk-phase" style="color:var(--g)">Fondations</span></div>
@@ -400,42 +461,16 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     <div class="wk-status"><span class="badge miss" style="background:var(--bg-o);color:var(--o);border-color:#4a1408">RACE DAY</span></div>
   </div>
 </div>
-<div class="note o" style="margin-top:10px">
-  💡 <strong>Comment alimenter ce tableau :</strong> Après chaque séance sur Strava ou intervals.icu, ajoute un commentaire structuré → 
-  <strong>Brick sam :</strong> "BRICK · allure 4'52 · RPE 7.5 · 4 stations" · 
-  <strong>Renfo :</strong> "RENFO OK · squat 80kg · sled 40kg · RPE 7" · 
-  <strong>Oria :</strong> "ORIA · programme stations + run · RPE 8 · note sensations sled"
-</div>
 
 <!-- ══ PROGRESSION BRICK ══ -->
 <div class="st cyan">Progression allure brick · Samedi</div>
-<!--
-  [MISE À JOUR HEBDO]
-  Mettre à jour les barres ci-dessous avec l'allure réelle saisie dans les commentaires.
-  Format commentaire Strava : "BRICK S2 · allure 4'50/km · RPE 7.5 · 4 stations · sled ok"
-  Convertir l'allure en secondes pour calculer la hauteur de barre :
-  ex. 4'50 = 290s, 4'45 = 285s, 4'40 = 280s
-  
-  Cibles par phase :
-  S1 : baseline (noter allure naturelle sans cible)
-  S2 : 4'52–4'55
-  S3 : 4'50
-  S4 : 4'50 × 4 reps
-  S5 : 4'48 × 5 reps
-  S6 : 4'45 × 6 reps
-  S7 : test brick (comparer S4)
-  S8 : simulation complète 8 stations + 8km
-  S9–S11 : 4'45 maintien
--->
 <div class="brick-chart">
   <div class="brick-track">
-    <!-- Barres brick S1–S12. Hauteur = (allure_cible - allure_réelle) normalisée -->
-    <!-- Exemple de structure : -->
     <div class="brick-bar-wrap">
       <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
       <div class="brick-bar-bg" style="height:100px;">
         <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
-        <div class="brick-target" style="border-color:var(--cy);bottom:60%"></div><!-- cible S1 = baseline -->
+        <div class="brick-target" style="border-color:var(--cy);bottom:60%"></div>
       </div>
       <div class="brick-val" style="color:var(--dim)">—</div>
       <div class="brick-lbl">S1</div>
@@ -444,7 +479,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
       <div class="brick-bar-bg" style="height:100px;">
         <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
-        <div class="brick-target" style="border-color:var(--cy);bottom:55%"></div><!-- cible 4'52 -->
+        <div class="brick-target" style="border-color:var(--cy);bottom:55%"></div>
       </div>
       <div class="brick-val" style="color:var(--dim)">—</div>
       <div class="brick-lbl">S2</div>
@@ -453,7 +488,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
       <div class="brick-bar-bg" style="height:100px;">
         <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
-        <div class="brick-target" style="border-color:var(--cy);bottom:60%"></div><!-- cible 4'50 -->
+        <div class="brick-target" style="border-color:var(--cy);bottom:60%"></div>
       </div>
       <div class="brick-val" style="color:var(--dim)">—</div>
       <div class="brick-lbl">S3</div>
@@ -462,7 +497,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
       <div class="brick-bar-bg" style="height:100px;">
         <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
-        <div class="brick-target" style="border-color:var(--b);bottom:60%"></div><!-- cible 4'50 ×4 -->
+        <div class="brick-target" style="border-color:var(--b);bottom:60%"></div>
       </div>
       <div class="brick-val" style="color:var(--dim)">—</div>
       <div class="brick-lbl">S4</div>
@@ -471,7 +506,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
       <div class="brick-bar-bg" style="height:100px;">
         <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
-        <div class="brick-target" style="border-color:var(--b);bottom:65%"></div><!-- cible 4'48 -->
+        <div class="brick-target" style="border-color:var(--b);bottom:65%"></div>
       </div>
       <div class="brick-val" style="color:var(--dim)">—</div>
       <div class="brick-lbl">S5</div>
@@ -480,7 +515,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
       <div class="brick-bar-bg" style="height:100px;">
         <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
-        <div class="brick-target" style="border-color:var(--b);bottom:70%"></div><!-- cible 4'45 -->
+        <div class="brick-target" style="border-color:var(--b);bottom:70%"></div>
       </div>
       <div class="brick-val" style="color:var(--dim)">—</div>
       <div class="brick-lbl">S6</div>
@@ -489,7 +524,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
       <div class="brick-bar-bg" style="height:100px;">
         <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
-        <div class="brick-target" style="border-color:var(--g);bottom:65%"></div><!-- test ≤ 4'48 -->
+        <div class="brick-target" style="border-color:var(--g);bottom:65%"></div>
       </div>
       <div class="brick-val" style="color:var(--dim)">—</div>
       <div class="brick-lbl">S7 test</div>
@@ -498,7 +533,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <div style="font-family:var(--fm);font-size:8px;color:var(--o);text-align:center;margin-bottom:4px;">⭐ SIM</div>
       <div class="brick-bar-bg" style="height:100px;">
         <div class="brick-bar" style="height:0%;background:var(--o);"></div>
-        <div class="brick-target" style="border-color:var(--o);bottom:80%"></div><!-- cible <1h15 sim complète -->
+        <div class="brick-target" style="border-color:var(--o);bottom:80%"></div>
       </div>
       <div class="brick-val" style="color:var(--dim)">—</div>
       <div class="brick-lbl">S8 sim</div>
@@ -507,7 +542,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
       <div class="brick-bar-bg" style="height:100px;">
         <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
-        <div class="brick-target" style="border-color:var(--y);bottom:70%"></div><!-- 4'45 léger -->
+        <div class="brick-target" style="border-color:var(--y);bottom:70%"></div>
       </div>
       <div class="brick-val" style="color:var(--dim)">—</div>
       <div class="brick-lbl">S9</div>
@@ -548,64 +583,39 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 </div>
 
 <!-- ══ SOMMEIL & RÉCUPÉRATION ══ -->
-<div class="st purple">Sommeil &amp; Récupération · Semaine courante</div>
-<!--
-  [MISE À JOUR HEBDO - COMMENTAIRES DE SÉANCES]
-  
-  Comment saisir tes données de sommeil :
-  
-  Option A — Montre/tracker (Garmin Connect, Polar Flow, Oura, Fitbit) :
-    → Exporte les données chaque matin ou relève manuellement
-    → Ajoute dans le commentaire Strava/intervals du lendemain :
-       "Nuit : 7h20 · HRV 52ms · FC repos 47bpm · qualité ✓"
-  
-  Option B — Saisie manuelle rapide :
-    → Le soir, note dans le commentaire de la séance du jour :
-       "Sommeil hier : 7h · ok" ou "Nuit courte 6h · fatigue"
-  
-  Indicateurs clés à surveiller :
-  → HRV (Heart Rate Variability) : si -20% vs ta baseline → récup insuffisante
-  → FC repos : si +5bpm vs normal → ne pas forcer la séance
-  → Durée sommeil : cible 7h30–8h30 les nuits précédant Oria/brick
-  → Qualité subjective : 1 (mauvais) → 5 (excellent)
-  
-  Signaux d'alarme :
-  → 3 jours consécutifs HRV bas → réduire RPE séance suivante
-  → FC repos +8bpm → reporter la séance renfo du jour
-  → Sommeil < 6h avant brick samedi → adapter allure cible
--->
+<div class="st purple">Sommeil &amp; Récupération · Pré-S1 + Début S1 (23 fév → 2 mars)</div>
 
 <!-- Indicateurs de récupération globaux -->
 <div class="rec-grid">
   <div class="rec-card">
     <div class="rec-icon">🛌</div>
-    <div class="rec-val" style="color:var(--p)">—</div>
-    <div class="rec-lbl">Sommeil moy.<br>7 nuits (h)</div>
-    <div class="rec-trend trend-flat">Cible : 7h30</div>
+    <div class="rec-val" style="color:var(--r)">5h9</div>
+    <div class="rec-lbl">Sommeil moy.<br>8 nuits (h)</div>
+    <div class="rec-trend trend-down">⚠ Cible : 7h30</div>
   </div>
   <div class="rec-card">
     <div class="rec-icon">💜</div>
-    <div class="rec-val" style="color:var(--p)">—</div>
+    <div class="rec-val" style="color:var(--p)">47.3</div>
     <div class="rec-lbl">HRV moyen<br>(ms)</div>
-    <div class="rec-trend trend-flat">Ta baseline : ?</div>
+    <div class="rec-trend trend-flat">Baseline posée</div>
   </div>
   <div class="rec-card">
     <div class="rec-icon">❤️</div>
-    <div class="rec-val" style="color:var(--r)">—</div>
+    <div class="rec-val" style="color:var(--g)">46.4</div>
     <div class="rec-lbl">FC repos<br>moy. (bpm)</div>
-    <div class="rec-trend trend-flat">Ta baseline : ?</div>
+    <div class="rec-trend trend-flat">Baseline posée</div>
   </div>
   <div class="rec-card">
-    <div class="rec-icon">🔋</div>
-    <div class="rec-val" style="color:var(--g)">—</div>
-    <div class="rec-lbl">Énergie subj.<br>moy. /5</div>
-    <div class="rec-trend trend-flat">Commentaires séances</div>
+    <div class="rec-icon">⚖️</div>
+    <div class="rec-val" style="color:var(--b)">84.7</div>
+    <div class="rec-lbl">Poids<br>(kg)</div>
+    <div class="rec-trend trend-flat">Garmin 2 mars</div>
   </div>
   <div class="rec-card">
-    <div class="rec-icon">😤</div>
-    <div class="rec-val" style="color:var(--y)">—</div>
-    <div class="rec-lbl">Stress subj.<br>moy. /5</div>
-    <div class="rec-trend trend-flat">Commentaires séances</div>
+    <div class="rec-icon">🫁</div>
+    <div class="rec-val" style="color:var(--cy)">54</div>
+    <div class="rec-lbl">VO2 Max<br>(ml/kg/min)</div>
+    <div class="rec-trend trend-flat">Garmin estimé</div>
   </div>
 </div>
 
@@ -614,102 +624,96 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
   <div class="sleep-row header">
     <div>Nuit</div>
     <div>Durée</div>
-    <div>Qualité /5</div>
+    <div>Score</div>
     <div>HRV</div>
     <div>FC repos</div>
-    <div>Notes · commentaire séance lendemain</div>
+    <div>Notes</div>
   </div>
-  <!--
-    [MISE À JOUR HEBDO]
-    Remplir chaque ligne matin par matin.
-    Format commentaire intervals.icu : "Nuit : 7h20 · HRV 52 · FC 47 · qualité 4/5 · ok"
-    
-    Nuit du dim→lun : importante (avant renfo lundi)
-    Nuit du ven→sam : CRITIQUE (avant brick samedi)
-  -->
+  <!-- 23 fév -->
   <div class="sleep-row">
-    <div class="sleep-night">Dim → Lun</div>
-    <div class="sleep-dur" style="color:var(--p)">—</div>
-    <div class="sleep-score" style="color:var(--p)">—</div>
-    <div class="hrv-val" style="color:var(--p)">—</div>
-    <div class="resting-hr" style="color:var(--r)">—</div>
-    <div class="sleep-note">Avant renfo lundi · important</div>
+    <div class="sleep-night">22→23 fév</div>
+    <div class="sleep-dur" style="color:var(--g)">7h14</div>
+    <div class="sleep-score" style="color:var(--g)">85</div>
+    <div class="hrv-val" style="color:var(--g)">49.9</div>
+    <div class="resting-hr" style="color:var(--g)">45</div>
+    <div class="sleep-note">✅ Bonne nuit · Readiness 66</div>
   </div>
+  <!-- 24 fév -->
+  <div class="sleep-row" style="background:var(--bg-y)">
+    <div class="sleep-night" style="color:var(--y)">23→24 fév ⚠</div>
+    <div class="sleep-dur" style="color:var(--y)">3h53</div>
+    <div class="sleep-score" style="color:var(--y)">48</div>
+    <div class="hrv-val" style="color:var(--g)">50.2</div>
+    <div class="resting-hr" style="color:var(--g)">44</div>
+    <div class="sleep-note" style="color:var(--y)">⚠ Nuit très courte · HRV encore OK · Readiness 45</div>
+  </div>
+  <!-- 25 fév -->
   <div class="sleep-row">
-    <div class="sleep-night">Lun → Mar</div>
-    <div class="sleep-dur" style="color:var(--p)">—</div>
-    <div class="sleep-score" style="color:var(--p)">—</div>
-    <div class="hrv-val" style="color:var(--p)">—</div>
-    <div class="resting-hr" style="color:var(--r)">—</div>
-    <div class="sleep-note">Post renfo + 2×velotaff</div>
+    <div class="sleep-night">24→25 fév</div>
+    <div class="sleep-dur" style="color:var(--g)">8h02</div>
+    <div class="sleep-score" style="color:var(--g)">79</div>
+    <div class="hrv-val" style="color:var(--y)">44.0</div>
+    <div class="resting-hr" style="color:var(--g)">44</div>
+    <div class="sleep-note">Rattrapage · HRV en baisse post nuit courte · Readiness 51</div>
   </div>
+  <!-- 26 fév -->
   <div class="sleep-row">
-    <div class="sleep-night">Mar → Mer</div>
-    <div class="sleep-dur" style="color:var(--p)">—</div>
-    <div class="sleep-score" style="color:var(--p)">—</div>
-    <div class="hrv-val" style="color:var(--p)">—</div>
-    <div class="resting-hr" style="color:var(--r)">—</div>
-    <div class="sleep-note">Avant HYROX Oria mercredi</div>
+    <div class="sleep-night">25→26 fév</div>
+    <div class="sleep-dur" style="color:var(--g)">8h01</div>
+    <div class="sleep-score" style="color:var(--g)">88</div>
+    <div class="hrv-val" style="color:var(--g)">46.3</div>
+    <div class="resting-hr" style="color:var(--y)">49</div>
+    <div class="sleep-note">✅ Bonne nuit · FC repos un peu haute post HYROX Oria · Readiness 54</div>
   </div>
+  <!-- 27 fév -->
   <div class="sleep-row">
-    <div class="sleep-night">Mer → Jeu</div>
-    <div class="sleep-dur" style="color:var(--p)">—</div>
-    <div class="sleep-score" style="color:var(--p)">—</div>
-    <div class="hrv-val" style="color:var(--p)">—</div>
-    <div class="resting-hr" style="color:var(--r)">—</div>
-    <div class="sleep-note">Avant renfo jeudi + Bran RC · jambes fraîches !</div>
+    <div class="sleep-night">26→27 fév</div>
+    <div class="sleep-dur" style="color:var(--g)">7h10</div>
+    <div class="sleep-score" style="color:var(--g)">87</div>
+    <div class="hrv-val" style="color:var(--g)">47.4</div>
+    <div class="resting-hr" style="color:var(--g)">47</div>
+    <div class="sleep-note">✅ OK · Readiness 64 · Poids 85.2kg</div>
   </div>
+  <!-- 28 fév -->
+  <div class="sleep-row" style="background:var(--bg-r)">
+    <div class="sleep-night" style="color:var(--r)">27→28 fév 🔴</div>
+    <div class="sleep-dur" style="color:var(--r)">2h16</div>
+    <div class="sleep-score" style="color:var(--r)">32</div>
+    <div class="hrv-val" style="color:var(--r)">28.8</div>
+    <div class="resting-hr" style="color:var(--r)">57</div>
+    <div class="sleep-note" style="color:var(--r)"><strong>🔴 ALERTE</strong> · HRV −39% vs baseline · FC repos +11bpm · Readiness 6/100 · Respiration 18.2</div>
+  </div>
+  <!-- 1 mars -->
   <div class="sleep-row">
-    <div class="sleep-night">Jeu → Ven</div>
-    <div class="sleep-dur" style="color:var(--p)">—</div>
-    <div class="sleep-score" style="color:var(--p)">—</div>
-    <div class="hrv-val" style="color:var(--p)">—</div>
-    <div class="resting-hr" style="color:var(--r)">—</div>
-    <div class="sleep-note">Avant HYROX Force vendredi</div>
+    <div class="sleep-night">28 fév→1 mars</div>
+    <div class="sleep-dur" style="color:var(--g)">9h17</div>
+    <div class="sleep-score" style="color:var(--g)">80</div>
+    <div class="hrv-val" style="color:var(--y)">44.2</div>
+    <div class="resting-hr" style="color:var(--g)">48</div>
+    <div class="sleep-note">✅ Gros rattrapage · HRV remonte · Rando Vaunaveys récup active · Readiness 62</div>
   </div>
-  <div class="sleep-row" style="background:var(--bg-p)">
-    <div class="sleep-night" style="color:var(--p)">Ven → Sam ⚠</div>
-    <div class="sleep-dur" style="color:var(--p)">—</div>
-    <div class="sleep-score" style="color:var(--p)">—</div>
-    <div class="hrv-val" style="color:var(--p)">—</div>
-    <div class="resting-hr" style="color:var(--r)">—</div>
-    <div class="sleep-note" style="color:var(--p)"><strong>CRITIQUE</strong> · avant brick samedi · cible 7h30+ · si &lt;6h → adapter allure</div>
-  </div>
-  <div class="sleep-row">
-    <div class="sleep-night">Sam → Dim</div>
-    <div class="sleep-dur" style="color:var(--p)">—</div>
-    <div class="sleep-score" style="color:var(--p)">—</div>
-    <div class="hrv-val" style="color:var(--p)">—</div>
-    <div class="resting-hr" style="color:var(--r)">—</div>
-    <div class="sleep-note">Post brick · récupération · OFF dimanche</div>
+  <!-- 2 mars -->
+  <div class="sleep-row" style="background:var(--bg-r)">
+    <div class="sleep-night" style="color:var(--r)">1→2 mars 🔴</div>
+    <div class="sleep-dur" style="color:var(--r)">1h40</div>
+    <div class="sleep-score" style="color:var(--r)">26</div>
+    <div class="hrv-val" style="color:var(--g)">47.4</div>
+    <div class="resting-hr" style="color:var(--g)">47</div>
+    <div class="sleep-note" style="color:var(--r)"><strong>🔴 ALERTE</strong> · Nuit la plus courte · HRV OK malgré tout · Readiness 13 · Renfo S1 réalisée quand même</div>
   </div>
 </div>
 
 <div class="g2" style="margin-top:12px">
-  <div class="note p">
-    ⚠ <strong>Signaux d'alarme :</strong> HRV &lt; baseline −20% sur 3 jours consécutifs → réduire RPE · FC repos +8bpm → reporter renfo · Sommeil &lt; 6h avant brick → adapter allure −5 sec/km
+  <div class="note r">
+    🔴 <strong>Bilan sommeil critique :</strong> 3 nuits sur 8 sous 4h (37.5%). La nuit du 28/02 a provoqué un crash HRV (28.8ms, −39%) et FC repos à 57bpm. Le corps a récupéré le lendemain (9h17 de sommeil) mais la nuit du 1→2 mars est à nouveau catastrophique. <strong>Priorité absolue : identifier et corriger la cause.</strong>
   </div>
   <div class="note b">
-    💡 <strong>Protocole récup post-brick samedi :</strong> Protéines 30g dans les 30min · glucides 60–80g · 20min jambes surélevées · hydratation 500ml · sommeil 8h+ nuit sam→dim
+    📊 <strong>Baselines posées :</strong> HRV ~47ms · FC repos ~46bpm · Poids 84.7kg · VO2max 54 ml/kg/min · SpO2 94-96% · Respiration 17.4 resp/min. Ces valeurs serviront de référence pour détecter la fatigue tout au long du programme.
   </div>
 </div>
 
 <!-- ══ JOURNAL DE SÉANCES ══ -->
-<div class="st orange">Journal des séances · Commentaires clés</div>
-<!--
-  [MISE À JOUR HEBDO]
-  Copier ici les commentaires les plus significatifs de tes séances.
-  Prioriser : brick samedi, sled pull, simulation, Bran RC fractionné.
-  
-  Format recommandé dans Strava/intervals :
-  TYPE · allure/charge · RPE X · [note technique] · [sensation récup]
-  
-  Exemples :
-  "BRICK S2 · 4'50/km · RPE 7.5 · 4 stations · sled fluide · jambes ok fin"
-  "ORIA · sled pull 45kg · RPE 8 · posture dos améliorée · bras cassés au début"
-  "BRAN RC · fractionné 6×400m · RPE 8.5 · 4'38 moy · très bien"
-  "RENFO S1 · squat 85kg · sled 50kg pull · RPE 7.5 · épaules ok"
--->
+<div class="st orange">Journal des séances · Pré-S1 + S1</div>
 <div class="log">
   <div class="log-entry" style="background:var(--s2)">
     <div class="le-date" style="font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim)">Date</div>
@@ -717,66 +721,96 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     <div style="font-family:var(--fm);font-size:8px;color:var(--dim);padding:10px 14px;text-transform:uppercase;letter-spacing:1.5px">Commentaire · données clés</div>
   </div>
 
-  <!-- S1 - à compléter -->
-  <div class="log-entry">
-    <div class="le-date">Sam 7 mars</div>
-    <div class="le-type" style="color:var(--cy)">🎯 Brick S1</div>
+  <!-- S1 -->
+  <div class="log-entry" style="background:var(--bg-b)">
+    <div class="le-date" style="color:var(--b)">Lun 2 mars</div>
+    <div class="le-type" style="color:var(--b)">💪 Renfo S1</div>
     <div class="le-note">
-      <!-- [À REMPLIR] ex: "BRICK S1 baseline · 4'58/km · RPE 6.5 · 3 stations · allure naturelle notée · sled ok" -->
-      <span style="color:var(--dim)">À compléter après la séance</span>
+      <strong>Charges de référence posées :</strong> Tirage 40kg (RPE 6-7 ✅) · DC 45kg (RPE 7→8+ ⚠ trop lourd) · Squat 40kg (RPE 6→8) · SDT roumain 70kg (RPE 5→7 ✅) · Hip Thrust 20→40kg (RPE 4→8) · Arch 8×20"/10" ✅<br>
+      <span style="color:var(--dim)">FC moy 79bpm · FC max 123bpm · 1h29 · 329 cal · Poids 84.7kg · Nuit précédente : 1h40 🔴</span>
+    </div>
+  </div>
+
+  <!-- Pré-S1 -->
+  <div class="log-entry">
+    <div class="le-date">Sam 1 mars</div>
+    <div class="le-type" style="color:var(--g)">🥾 Rando</div>
+    <div class="le-note">
+      <strong>Vaunaveys</strong> · 7km · 388m D+ · FC moy 78bpm · Récup active post nuit 2h16 · 12 416 pas · Temp 24°C
     </div>
   </div>
   <div class="log-entry">
-    <div class="le-date">Mer 4 mars</div>
-    <div class="le-type" style="color:var(--o)">🏋 Oria</div>
-    <div class="le-note"><span style="color:var(--dim)">À compléter</span></div>
+    <div class="le-date">Ven 28 fév</div>
+    <div class="le-type" style="color:var(--o)">🏋 Oria + WB</div>
+    <div class="le-note">
+      <strong>Interval Strength & Engine</strong> · 4 rounds (1'ON/30"OFF × 7 mvts : Front Squat DB, SkiErg, Z Press, Row, Mountain Climbers, Run 150-300m, Sandbag Lunges) · RPE 5 · Feel 3/5<br>
+      + <strong>EMOM 10' – 100 Wall Balls @6kg</strong> · FC max 148bpm
+    </div>
   </div>
   <div class="log-entry">
-    <div class="le-date">Lun 2 mars</div>
-    <div class="le-type" style="color:var(--b)">💪 Renfo S1</div>
-    <div class="le-note"><span style="color:var(--dim)">À compléter · charges de référence S1</span></div>
+    <div class="le-date">Jeu 27 fév</div>
+    <div class="le-type" style="color:var(--o)">🏋 Oria + WB</div>
+    <div class="le-note">
+      <strong>Full Engine Builder</strong> · Every 5' × 8 rounds (40') : Run 400m + SkiErg 500m, Sled Push + Shuttle, Run + Row, Thrusters + WB, Run + BikeErg, Farmer Lunges + Burpee DL, Run + Echo Bike, KB Swings + Box Jumps · RPE 5 · Feel 2/5 · 2.7km run<br>
+      + <strong>EMOM 11' – 110 Wall Balls @16lb</strong> · FC max 151bpm
+    </div>
   </div>
-
-  <!-- Lignes vides pour les semaines suivantes - à remplir au fil de l'eau -->
   <div class="log-entry">
-    <div class="le-date" style="color:var(--dim)">—</div>
-    <div class="le-type" style="color:var(--dim)">—</div>
-    <div class="le-note"><span style="color:var(--dim)">Prochaines séances…</span></div>
+    <div class="le-date">Mer 26 fév</div>
+    <div class="le-type" style="color:var(--g)">🏃 Run EF</div>
+    <div class="le-note">
+      <strong>Run + Exo</strong> (5' run / 1' exo) · 7.3km · ~7'/km global · FC moy 102bpm · FC max 119bpm · Z2 cardio 74% · Allure pure ~6'55-7'15/km<br>
+      <span style="color:var(--dim)">Temp 21°C · Vent faible · Bonne séance aérobie</span>
+    </div>
+  </div>
+  <div class="log-entry">
+    <div class="le-date">Mar 25 fév</div>
+    <div class="le-type" style="color:var(--o)">🏋 Oria + WB</div>
+    <div class="le-note">
+      <strong>Engine & Run Session</strong> · AMRAP 20' (400m Run + 12 DB Thrusters + 500m Erg + 10 BBJ) + Bloc Run (4×200m/30"rest + 4×400m/1'rest + 3×200m/30"rest) · RPE 7 · Feel 2/5 · 5.2km run · FC max 163bpm · 47% en Z5 HR<br>
+      + <strong>EMOM 10' – 100 Wall Balls @16lb</strong> · FC max 151bpm
+    </div>
+  </div>
+  <div class="log-entry">
+    <div class="le-date">Dim 23 fév</div>
+    <div class="le-type" style="color:var(--dim)">🥾 Rando</div>
+    <div class="le-note">
+      <strong>Pruines</strong> · 2km · 56m D+ · FC moy 63bpm · Balade légère · Récup
+    </div>
   </div>
 </div>
 
 <!-- ══ TEMPS PAR STATION (ANALYSE COURSE) ══ -->
-<div class="st orange">Analyse stations · Paris vs Nice → Cibles Lyon</div>
-<!--
-  Ces données viennent des résultats officiels HYROX.
-  Mettre à jour après chaque course officielle.
-  Source : resultats.hyrox.com → rechercher "Tierpel"
--->
+<div class="st orange">Analyse stations · Paris 1:28:43 vs Nice 1:26:01 → Cibles Lyon</div>
+<div class="note o" style="margin-bottom:12px">
+  📋 <strong>Source :</strong> <a href="https://www.hyresult.com/athlete/remi-peltier" style="color:var(--o)" target="_blank">hyresult.com/athlete/remi-peltier</a> · Catégorie MEN 40-44 · Paris #1821 · Nice #1300<br>
+  ⏳ <strong>Splits détaillés par station à compléter</strong> — les temps globaux sont confirmés. Rémi : copie les splits depuis l'onglet "Timings" de chaque course sur hyresult.
+</div>
 <div class="station-grid">
   <div class="stn-card">
     <div class="stn-name" style="color:var(--y)">SkiErg</div>
     <div class="stn-times">
-      <div class="stn-row"><span class="stn-label">Nice 1:26</span><span class="stn-actual stn-val">—</span></div>
       <div class="stn-row"><span class="stn-label">Paris 1:28</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Nice 1:26</span><span class="stn-actual stn-val">—</span></div>
       <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">~3:00</span></div>
     </div>
   </div>
   <div class="stn-card">
     <div class="stn-name" style="color:var(--r)">Sled Push</div>
     <div class="stn-times">
-      <div class="stn-row"><span class="stn-label">Nice</span><span class="stn-actual stn-val">—</span></div>
       <div class="stn-row"><span class="stn-label">Paris</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Nice</span><span class="stn-actual stn-val">—</span></div>
       <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">~2:30</span></div>
     </div>
   </div>
-  <div class="stn-card">
-    <div class="stn-name" style="color:var(--r)">Sled Pull</div>
+  <div class="stn-card" style="border-color:var(--r)">
+    <div class="stn-name" style="color:var(--r)">Sled Pull ⚠</div>
     <div class="stn-times">
       <div class="stn-row"><span class="stn-label">Paris 1:28</span><span class="stn-actual stn-val" style="color:var(--r)">7:07</span></div>
-      <div class="stn-row"><span class="stn-label">Nice 1:26</span><span class="stn-actual stn-val" style="color:var(--r)">—</span></div>
+      <div class="stn-row"><span class="stn-label">Nice 1:26</span><span class="stn-actual stn-val">—</span></div>
       <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">~2:10</span></div>
     </div>
-    <span class="delta neg" style="margin-top:6px;display:inline-block">⚠ Priorité technique</span>
+    <span class="delta neg" style="margin-top:6px;display:inline-block">⚠ Priorité technique · −5min à gagner</span>
   </div>
   <div class="stn-card">
     <div class="stn-name" style="color:var(--b)">Burpee BJ</div>
@@ -821,17 +855,10 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 </div>
 
 <!-- ══ RUNNING SPLIT ══ -->
-<div class="st green">Running · Allure par kilomètre · Paris 1:28:43</div>
-<!--
-  Données issues du résultat HYROX Paris (référence).
-  Compléter avec Nice 1:26:01 une fois les splits disponibles.
-  Source : résultats officiels HYROX → onglet "Splits"
--->
+<div class="st green">Running · Allure par kilomètre · Paris 1:28:43 vs Nice 1:26:01</div>
 <div class="card" style="overflow-x:auto;">
   <div class="ct cb">Objectif : maintenir 4'40–4'50/km constant · éviter le drift</div>
   <div style="display:flex;gap:8px;align-items:flex-end;height:80px;margin-top:8px;min-width:600px;">
-    <!-- Paris data - les splits exacts sont à compléter depuis les résultats officiels -->
-    <!-- Plus la barre est haute = plus l'allure est lente = mauvais -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
       <div style="width:100%;background:var(--g);border-radius:2px 2px 0 0;" id="sp1"></div>
       <div style="font-family:var(--fm);font-size:7px;color:var(--dim)">K1</div>
@@ -866,14 +893,40 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     </div>
   </div>
   <div style="font-family:var(--fm);font-size:9px;color:var(--dim2);margin-top:8px;">Paris 1:28:43 · K1 ~3:59/km → K8 ~5:10/km · drift +70sec = problème principal à résoudre</div>
+  <div style="font-family:var(--fm);font-size:9px;color:var(--g);margin-top:4px;">Nice 1:26:01 · Progression +2:42 · Splits détaillés à compléter</div>
 </div>
 <div class="note o" style="margin-top:8px">
   🎯 <strong>Cible Lyon Doubles :</strong> 4'40–4'50/km constant sur les 8km · Rémi pace-setter · pas de sprint K1 · énergie réservée pour les stations force Mélanie
 </div>
 
+<!-- ══ PROFIL ATHLÈTE ══ -->
+<div class="st blue">Profil athlète · Baselines</div>
+<div class="g4">
+  <div class="card lb">
+    <div class="ct cb">Courses HYROX</div>
+    <div class="cv" style="color:var(--b)">2</div>
+    <div class="cs">Paris Nov 2025 : 1:28:43 · Nice Fév 2026 : 1:26:01</div>
+  </div>
+  <div class="card lo">
+    <div class="ct co">Catégorie</div>
+    <div class="cv" style="color:var(--o);font-size:22px">MEN 40-44</div>
+    <div class="cs">Open · Classement Nice #1300</div>
+  </div>
+  <div class="card lg">
+    <div class="ct cg">Progression</div>
+    <div class="cv" style="color:var(--g)">+2:42</div>
+    <div class="cs">Paris → Nice · −3.1% temps total</div>
+  </div>
+  <div class="card lp">
+    <div class="ct cp">Cible Lyon</div>
+    <div class="cv" style="color:var(--p);font-size:22px">DOUBLES</div>
+    <div class="cs">Avec Mélanie · Jeu 21 Mai 2026</div>
+  </div>
+</div>
+
 </div><!-- /wrap -->
 
-<footer>suivi.html · tierpel.github.io · HYROX Lyon Doubles 21 Mai 2026 · Mise à jour manuelle hebdomadaire via commentaires Strava/intervals.icu</footer>
+<footer>suivi.html · tierpel.github.io · HYROX Lyon Doubles 21 Mai 2026 · Dernière mise à jour : 2 Mars 2026 · Session 3</footer>
 
 <script>
 // Countdown
@@ -888,9 +941,6 @@ updateCountdown();
 setInterval(updateCountdown, 60000);
 
 // Running splits Paris (allure en sec/km, normalisé pour affichage barre)
-// Plus c'est lent = plus la barre est haute (problème visible)
-// Paris : K1 ~239s (3:59), K2 ~255s, ..., K8 ~310s (5:10)
-// Min représenté = 240s (4:00), Max = 320s (5:20)
 const splits = [239, 255, 262, 270, 278, 285, 295, 310];
 const minS = 230, maxS = 320;
 splits.forEach((s, i) => {
