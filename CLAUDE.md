@@ -43,11 +43,44 @@ tierpel.github.io/
 | **Cible Lyon** | **21 Mai 2026** | **TBD Doubles** | Avec Mélanie |
 | **Cible Paris** | **Automne 2026** | **< 1:15:00** | Solo |
 
-### Points faibles identifiés (Paris 1:28:43)
-1. **Sled Pull** : 7:07 réalisé vs 2:10 cible → priorité technique absolue
-2. **Burpee Broad Jump** : inefficacité technique
-3. **Sandbag Lunges** : à retravailler
-4. **Running sous fatigue** : drift 3:59/km (K1) → 5:10/km (K8) = +70sec perdus
+### Splits détaillés par station (hyresult.com · récupérés Session 3)
+
+| Station | Paris Nov 2025 | Nice Fév 2026 | Delta | Lyon Doubles |
+|---|---|---|---|---|
+| SkiErg | 4:35 | **4:30** | −5s ✅ | Rémi · cible 4:15 |
+| Sled Push | 3:25 | **3:09** | −16s ✅ | Mélanie |
+| Sled Pull | **7:07** | **5:15** | **−1:52 🔥** | Mélanie |
+| Burpee BJ | 7:05 | **6:59** | −6s | 50/50 · cible ~6:00 |
+| Rowing | **4:58** | 5:08 | +10s ⚠ | Rémi · cible 4:45 |
+| Farmers Carry | **1:26** | 1:32 | +6s | Mélanie |
+| Sandbag Lunges | 6:22 | **6:00** | −22s ✅ | Mélanie |
+| Wall Balls | **8:35** | 9:00 | +25s ⚠ | 50/50 · cible ~7:00 |
+| **TOTAL STATIONS** | **43:23** | **41:33** | **−1:50** | |
+
+### Running splits par segment
+
+| Segment | Paris | Nice | Delta | Note |
+|---|---|---|---|---|
+| K1 (départ) | 3:59 | 4:28 | +29s | Nice plus conservateur ✅ |
+| K2 (post SkiErg) | 4:23 | 4:17 | −6s | |
+| K3 (post Sled Push) | 4:59 | 4:42 | −17s | |
+| K4 (post Sled Pull) | 4:56 | 4:45 | −11s | |
+| K5 (post BBJ) | 4:55 | 4:57 | +2s | |
+| K6 (post Row) | 4:53 | 4:51 | −2s | |
+| K7 (post Farmers) | 5:01 | 5:05 | +4s | |
+| K8 (post Lunges) | 5:24 | 5:14 | −10s | |
+| **TOTAL RUNNING** | **38:30** | **38:19** | **−11s** | Moy 4:49 → 4:47/km |
+| **DRIFT K1→K8** | **+1:25** | **+0:46** | **−39s ✅** | Stratégie conservatrice fonctionne |
+
+### Temps de transition (Roxzones)
+- Paris : ~6:50 total transitions
+- Nice : ~6:09 total transitions (−41s)
+
+### Points faibles identifiés
+1. **Sled Pull** : 7:07 (Paris) → 5:15 (Nice) → grosse progression mais reste élevé → **Mélanie à Lyon**
+2. **Wall Balls** : régression +25s (8:35→9:00) → fatigue dernière station → **50/50 à Lyon**
+3. **Rowing** : régression +10s (4:58→5:08) → **Rémi à travailler**
+4. **Running drift** : amélioré (1:25→0:46) mais encore présent → continuer stratégie conservatrice K1
 
 ### Profil athlète
 - Cycliste expérimenté : 41 000+ km lifetime · base aérobie solide
@@ -223,12 +256,43 @@ SOMMEIL · Xh · qualité X/5 · HRV XXms · FC repos XXbpm
 **Problème identifié** : Sommeil critique (facteur limitant n°1). DC trop lourd à 45kg (RPE 8+ vs cible 6.5).
 
 **À faire en session 4** :
-- [ ] Rémi fournit les splits détaillés par station (Paris + Nice) depuis hyresult.com onglet "Timings"
-- [ ] Compléter la section stations dans suivi.html
+- [x] Rémi fournit les splits détaillés par station (Paris + Nice) → **FAIT Session 3 bis**
+- [x] Compléter la section stations dans suivi.html → **FAIT Session 3 bis**
 - [ ] Bilan fin de S1 (compliance 7 séances)
 - [ ] Vérifier ajustement DC à 40-42.5kg en S2
 - [ ] Suivi sommeil S1 : la cause des nuits courtes est-elle identifiée ?
 - [ ] Push git + vérification GitHub Pages
+
+---
+
+### Session 3 bis — 2 Mars 2026 (suite)
+**Contexte** : Rémi fournit les splits détaillés Paris + Nice depuis hyresult.com  
+**Réalisé** :
+- Récupération et analyse complète des splits Paris (Nov 2025) et Nice (Fév 2026)
+- Calcul des temps par station, running splits, transitions (Roxzones)
+- Mise à jour complète `suivi.html` :
+  - Tableau comparatif stations Paris vs Nice avec deltas et attribution Lyon Doubles
+  - Analyse progressions (🔥 Sled Pull −1:52) et régressions (⚠ WB +25s, Row +10s)
+  - Tableau running splits 8 segments avec contexte post-station
+  - Graphique barres comparatif Paris vs Nice (double barres)
+  - Analyse drift : 1:25 (Paris) → 0:46 (Nice) = −39s ✅
+  - Résumé temps totaux : Running 38:30→38:19 (−11s) · Stations 43:23→41:33 (−1:50)
+  - Cards stations visuelles avec PB marqués (★)
+- Mise à jour `CLAUDE.md` avec splits détaillés et analyse
+
+**Insights clés** :
+1. **Sled Pull = meilleure progression** : −1:52 (7:07→5:15) → assigné à Mélanie à Lyon
+2. **Wall Balls = seule vraie régression** : +25s (8:35→9:00) → fatigue accumulée dernière station
+3. **Running drift réduit de 39s** grâce au départ plus conservateur à Nice (4:28 vs 3:59)
+4. **Gain total −2:42** dont −1:50 sur stations et −11s sur running + −41s transitions
+5. **Stratégie Doubles Lyon** : Rémi (Run+SkiErg+Row) / Mélanie (Sleds+Farmers+Lunges) / 50/50 (BBJ+WB)
+
+**À faire en session 4** :
+- [ ] Bilan fin de S1 (compliance 7 séances)
+- [ ] Vérifier ajustement DC à 40-42.5kg en S2
+- [ ] Suivi sommeil S1 : cause identifiée ? Amélioration ?
+- [ ] Push git + vérification GitHub Pages
+- [ ] Commencer à remplir les données Brick S1 (samedi 8 mars)
 
 ---
 
@@ -243,7 +307,8 @@ SOMMEIL · Xh · qualité X/5 · HRV XXms · FC repos XXbpm
 - **Sommeil = facteur limitant n°1** : 3 nuits < 4h sur 8 → à surveiller chaque session
 - **DC 45kg trop lourd** → ajuster à 40-42.5kg en S2
 - **Baselines posées** : HRV ~47ms · FC repos ~46bpm · Poids 84.7kg · VO2max 54
-- **Hyresult** : https://www.hyresult.com/athlete/remi-peltier (splits par station à récupérer manuellement)
+- **Hyresult** : https://www.hyresult.com/athlete/remi-peltier → **Splits complets récupérés ✅**
+- **Splits clés** : Sled Pull 7:07→5:15 (−1:52) · WB 8:35→9:00 (+25s) · Row 4:58→5:08 (+10s) · Drift 1:25→0:46 (−39s)
 
 ### Conventions de style (HTML généré)
 - Police titres : **Oswald**
@@ -263,13 +328,12 @@ SOMMEIL · Xh · qualité X/5 · HRV XXms · FC repos XXbpm
 
 ## 🎯 Objectifs de la prochaine session
 
-1. Rémi fournit les splits détaillés par station (Paris + Nice) depuis hyresult.com
-2. Compléter la section stations dans suivi.html avec les vrais temps
-3. Bilan fin de S1 (compliance 7 séances, allure brick baseline)
-4. Vérifier ajustement DC à 40-42.5kg en S2
-5. Suivi sommeil S1 : cause identifiée ? Amélioration ?
-6. Push git + vérification GitHub Pages
+1. Bilan fin de S1 (compliance 7 séances, allure brick baseline samedi 8 mars)
+2. Vérifier ajustement DC à 40-42.5kg en S2
+3. Suivi sommeil S1 : cause identifiée ? Amélioration ?
+4. Push git + vérification GitHub Pages
+5. Commencer à remplir les données Brick S1
 
 ---
 
-*Dernière mise à jour : 2 Mars 2026 · Session 3*
+*Dernière mise à jour : 2 Mars 2026 · Session 3 bis (splits complets)*
