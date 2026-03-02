@@ -2,14 +2,117 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=programme_complet_remi.html">
-<title>Rémi Tierpel — HYROX Training</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rémi Tierpel — HYROX Lyon 2026</title>
 <style>
-  body { background: #0b0b0d; color: #e2e2ea; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-  a { color: #ff5526; }
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&family=Oswald:wght@400;600;700&display=swap');
+:root{
+  --bg:#0b0b0d;--s1:#121215;--s2:#18181e;
+  --br:#242430;--br2:#303040;
+  --o:#ff5526;--b:#4b9fff;--g:#2fd67a;--y:#f4c842;--p:#a77dfa;
+  --text:#e2e2ea;--dim:#606070;--dim2:#9090a8;
+  --bg-o:#0e0704;--bg-b:#070a12;--bg-g:#070d09;
+  --fh:'Oswald',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb);}
+body{display:flex;flex-direction:column;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(ellipse 60% 50% at 20% 20%, #1a0a06 0%, transparent 60%),
+  radial-gradient(ellipse 50% 40% at 80% 80%, #06091a 0%, transparent 60%);
+  pointer-events:none;z-index:0;}
+.wrap{flex:1;max-width:860px;margin:0 auto;padding:80px 32px 60px;position:relative;z-index:1;}
+.hdr{margin-bottom:56px;}
+.tag{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:3px;color:var(--o);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.tag::before{content:'';width:20px;height:1px;background:var(--o);}
+h1{font-family:var(--fh);font-size:clamp(48px,8vw,96px);font-weight:700;line-height:.88;letter-spacing:1px;}
+h1 .o{color:var(--o);}
+h1 .dim{color:var(--dim);}
+.subtitle{font-family:var(--fm);font-size:11px;color:var(--dim2);text-transform:uppercase;letter-spacing:2px;margin-top:16px;}
+.countdown{display:flex;gap:20px;margin:32px 0 48px;flex-wrap:wrap;align-items:center;}
+.cd-block{background:var(--s1);border:1px solid var(--br);border-radius:4px;padding:14px 18px;min-width:80px;text-align:center;}
+.cd-val{font-family:var(--fh);font-size:36px;font-weight:700;color:var(--o);line-height:1;}
+.cd-lbl{font-family:var(--fm);font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;}
+.cd-sep{font-family:var(--fh);font-size:32px;color:var(--dim);}
+.cd-info{font-family:var(--fm);font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;line-height:1.8;}
+.nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.nav-card{display:block;text-decoration:none;background:var(--s1);border:1px solid var(--br2);border-radius:6px;padding:28px;position:relative;overflow:hidden;transition:transform .15s;}
+.nav-card:hover{transform:translateY(-2px);}
+.nav-card.primary{border-left:3px solid var(--o);}
+.nav-card.secondary{border-left:3px solid var(--b);}
+.nav-card::after{content:'→';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-family:var(--fh);font-size:24px;color:var(--br2);transition:right .15s,color .15s;}
+.nav-card:hover::after{right:18px;color:var(--dim);}
+.nc-tag{font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;}
+.nav-card.primary .nc-tag{color:var(--o);}
+.nav-card.secondary .nc-tag{color:var(--b);}
+.nc-title{font-family:var(--fh);font-size:22px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text);}
+.nc-desc{font-size:12px;color:var(--dim2);margin-top:8px;line-height:1.6;max-width:260px;}
+.nc-meta{font-family:var(--fm);font-size:9px;color:var(--dim);margin-top:14px;text-transform:uppercase;letter-spacing:1px;}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:40px;}
+.pill{font-family:var(--fm);font-size:9px;padding:5px 12px;border-radius:3px;text-transform:uppercase;letter-spacing:1px;}
+.pill-o{background:var(--bg-o);color:var(--o);border:1px solid #4a1a08;}
+.pill-b{background:var(--bg-b);color:var(--b);border:1px solid #183060;}
+.pill-g{background:var(--bg-g);color:var(--g);border:1px solid #285030;}
+footer{font-family:var(--fm);font-size:9px;color:var(--br2);text-align:center;padding:20px 32px;border-top:1px solid var(--br);position:relative;z-index:1;}
+@media(max-width:600px){.nav-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-  <p>Redirection → <a href="programme_complet_remi.html">Programme Rémi Tierpel</a></p>
+<div class="wrap">
+  <div class="hdr">
+    <div class="tag">Rémi Tierpel · HYROX 2026</div>
+    <h1><span class="o">LYON</span><br><span class="dim">×</span> PARIS</h1>
+    <div class="subtitle">12 semaines · 2 Mars → 21 Mai 2026 · Doubles Open + Solo Automne</div>
+  </div>
+
+  <div class="countdown">
+    <div class="cd-block"><div class="cd-val" id="cd-j">—</div><div class="cd-lbl">Jours</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><div class="cd-val" id="cd-h">—</div><div class="cd-lbl">Heures</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><div class="cd-val" id="cd-m">—</div><div class="cd-lbl">Min</div></div>
+    <div class="cd-info">→ HYROX<br>LYON<br>21 MAI 2026</div>
+  </div>
+
+  <div class="nav-grid">
+    <a href="programme_complet_remi.html" class="nav-card primary">
+      <div class="nc-tag">📋 Planning</div>
+      <div class="nc-title">Programme<br>12 semaines</div>
+      <div class="nc-desc">Phases, séances de renfo détaillées, brick progression, stratégie de course Lyon Doubles.</div>
+      <div class="nc-meta">S1–S12 · 2 Mars → 21 Mai</div>
+    </a>
+    <a href="suivi.html" class="nav-card secondary">
+      <div class="nc-tag">📊 Dashboard</div>
+      <div class="nc-title">Suivi &amp;<br>Compliance</div>
+      <div class="nc-desc">Progression brick, compliance des séances, sommeil, récupération et données de performance.</div>
+      <div class="nc-meta">Mis à jour chaque semaine</div>
+    </a>
+  </div>
+
+  <div class="pills">
+    <div class="pill pill-o">🏁 Lyon Doubles Open · Jeu 21 Mai 2026 · avec Mélanie</div>
+    <div class="pill pill-b">🎯 Paris Solo · Automne 2026</div>
+    <div class="pill pill-g">✅ 38 événements chargés intervals.icu</div>
+  </div>
+</div>
+
+<footer>tierpel.github.io · HYROX Lyon 2026</footer>
+
+<script>
+function updateCountdown(){
+  const race = new Date('2026-05-21T08:00:00');
+  const now = new Date();
+  const diff = race - now;
+  if(diff <= 0){ document.getElementById('countdown').innerHTML='<div style="font-family:var(--fh);font-size:48px;color:var(--o)">🏁 RACE DAY</div>'; return; }
+  const j = Math.floor(diff/86400000);
+  const h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  document.getElementById('cd-j').textContent = j;
+  document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 60000);
+</script>
 </body>
 </html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suivi Entraînement · Rémi Tierpel · HYROX Lyon 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;700&family=Oswald:wght@400;600;700&display=swap');
+:root{
+  --bg:#0b0b0d;--s1:#121215;--s2:#18181e;--s3:#1e1e26;
+  --br:#242430;--br2:#303040;
+  --o:#ff5526;--b:#4b9fff;--g:#2fd67a;--y:#f4c842;--p:#a77dfa;--cy:#38d9d9;--r:#ff4455;
+  --text:#e2e2ea;--dim:#606070;--dim2:#9090a8;
+  --bg-o:#0e0704;--bg-b:#070a12;--bg-g:#070d09;--bg-y:#0d0c06;
+  --bg-p:#0a0814;--bg-cy:#060d0d;
+  --fh:'Oswald',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:13px;line-height:1.55;}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px 80px;}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--s1);border-bottom:1px solid var(--br2);padding:10px 32px;display:flex;align-items:center;justify-content:space-between;font-family:var(--fm);font-size:9px;color:var(--dim2);text-transform:uppercase;letter-spacing:2px;position:sticky;top:0;z-index:100;}
+.topbar a{color:var(--dim2);text-decoration:none;}
+.topbar a:hover{color:var(--o);}
+.topbar-right{display:flex;gap:20px;align-items:center;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--g);display:inline-block;margin-right:4px;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+/* ── HEADER ── */
+.hdr{background:linear-gradient(150deg,#0a0e18 0%,#080806 55%,var(--bg) 100%);border-bottom:1px solid var(--br2);padding:40px 32px 28px;}
+.hdr-inner{max-width:1400px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+h1{font-family:var(--fh);font-size:clamp(28px,4vw,56px);font-weight:700;line-height:.9;letter-spacing:1px;}
+h1 .b{color:var(--b);}h1 .o{color:var(--o);}
+.hdr-meta{font-family:var(--fm);font-size:10px;color:var(--dim2);text-transform:uppercase;letter-spacing:3px;margin-top:8px;}
+.hdr-right{text-align:right;}
+.countdown-mini{font-family:var(--fh);font-size:48px;font-weight:700;color:var(--o);line-height:1;}
+.countdown-lbl{font-family:var(--fm);font-size:9px;color:var(--dim2);text-transform:uppercase;letter-spacing:2px;}
+
+/* ── SECTION TITLE ── */
+.st{display:flex;align-items:center;gap:10px;font-family:var(--fh);font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--dim2);margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--br2);}
+.st::before{content:'';width:3px;height:14px;border-radius:1px;}
+.st.blue::before{background:var(--b);}
+.st.orange::before{background:var(--o);}
+.st.green::before{background:var(--g);}
+.st.yellow::before{background:var(--y);}
+.st.purple::before{background:var(--p);}
+.st.cyan::before{background:var(--cy);}
+
+/* ── GRIDS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+
+/* ── CARD ── */
+.card{background:var(--s1);border:1px solid var(--br);border-radius:4px;padding:16px;}
+.card.lo{border-left:3px solid var(--o);}
+.card.lb{border-left:3px solid var(--b);}
+.card.lg{border-left:3px solid var(--g);}
+.card.ly{border-left:3px solid var(--y);}
+.card.lp{border-left:3px solid var(--p);}
+.card.lcy{border-left:3px solid var(--cy);}
+.card.lr{border-left:3px solid var(--r);}
+.ct{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;}
+.co{color:var(--o);}.cb{color:var(--b);}.cg{color:var(--g);}.cy2{color:var(--y);}.cp{color:var(--p);}.ccy{color:var(--cy);}.cr{color:var(--r);}
+.cv{font-family:var(--fh);font-size:32px;font-weight:700;line-height:1;}
+.cv-sub{font-family:var(--fh);font-size:16px;font-weight:400;color:var(--dim2);margin-left:4px;}
+.cs{font-family:var(--fm);font-size:9px;color:var(--dim);margin-top:4px;}
+.cdim{color:var(--dim2);}
+.note{font-family:var(--fm);font-size:10px;color:var(--dim2);padding:8px 13px;border-left:2px solid var(--br2);border-radius:0 3px 3px 0;background:var(--s1);line-height:1.6;margin-top:8px;}
+.note.o{border-left-color:var(--o);}
+.note.b{border-left-color:var(--b);}
+.note.g{border-left-color:var(--g);}
+.note.y{border-left-color:var(--y);}
+
+/* ── COMPLIANCE BADGE ── */
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:9px;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;}
+.badge.ok{background:var(--bg-g);color:var(--g);border:1px solid #285030;}
+.badge.miss{background:var(--bg-o);color:var(--o);border:1px solid #4a1808;}
+.badge.part{background:var(--bg-y);color:var(--y);border:1px solid #3a2808;}
+.badge.plan{background:var(--s2);color:var(--dim2);border:1px solid var(--br2);}
+
+/* ── WEEKLY TABLE ── */
+.week-table{background:var(--s1);border:1px solid var(--br2);border-radius:4px;overflow:hidden;}
+.week-row{display:grid;grid-template-columns:60px 110px 1fr 80px 100px;border-bottom:1px solid var(--br);}
+.week-row:last-child{border-bottom:none;}
+.week-row.header{background:var(--s2);}
+.week-row>*{padding:10px 14px;font-size:12px;}
+.week-row.header>*{font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);padding:8px 14px;}
+.wk-num{font-family:var(--fh);font-size:16px;font-weight:700;}
+.wk-phase{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:1px;}
+.wk-notes{color:var(--dim2);font-size:11px;line-height:1.5;}
+.wk-score{font-family:var(--fh);font-size:18px;font-weight:700;text-align:center;}
+.wk-status{display:flex;align-items:center;}
+
+/* ── PROGRESS BAR ── */
+.pbar-wrap{background:var(--s2);border-radius:2px;height:4px;overflow:hidden;margin-top:6px;}
+.pbar{height:100%;border-radius:2px;transition:width .4s;}
+.pbar.g{background:var(--g);}
+.pbar.o{background:var(--o);}
+.pbar.b{background:var(--b);}
+.pbar.y{background:var(--y);}
+
+/* ── BRICK CHART ── */
+.brick-chart{background:var(--s1);border:1px solid var(--br2);border-radius:4px;padding:20px;overflow-x:auto;}
+.brick-track{display:flex;align-items:flex-end;gap:8px;height:140px;min-width:700px;padding:0 4px;}
+.brick-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.brick-bar-bg{width:100%;background:var(--s2);border-radius:2px 2px 0 0;position:relative;display:flex;align-items:flex-end;}
+.brick-bar{width:100%;border-radius:2px 2px 0 0;transition:height .4s;}
+.brick-target{position:absolute;bottom:0;left:0;right:0;border-top:1px dashed;opacity:.5;}
+.brick-val{font-family:var(--fm);font-size:8px;text-align:center;line-height:1.2;}
+.brick-lbl{font-family:var(--fm);font-size:7px;color:var(--dim);text-transform:uppercase;}
+.brick-legend{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;}
+.bl{display:flex;align-items:center;gap:5px;font-family:var(--fm);font-size:9px;color:var(--dim2);}
+.bl-dot{width:10px;height:4px;border-radius:1px;}
+
+/* ── SLEEP GRID ── */
+.sleep-week{background:var(--s1);border:1px solid var(--br2);border-radius:4px;overflow:hidden;}
+.sleep-row{display:grid;grid-template-columns:90px 80px 80px 60px 60px 1fr;border-bottom:1px solid var(--br);}
+.sleep-row:last-child{border-bottom:none;}
+.sleep-row.header{background:var(--s2);}
+.sleep-row>*{padding:9px 14px;font-size:12px;}
+.sleep-row.header>*{font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);padding:7px 14px;}
+.sleep-night{font-family:var(--fm);font-size:10px;color:var(--dim2);text-transform:uppercase;}
+.sleep-dur{font-family:var(--fh);font-size:14px;font-weight:600;}
+.sleep-score{font-family:var(--fh);font-size:14px;font-weight:600;}
+.sleep-note{font-size:11px;color:var(--dim2);}
+.hrv-val{font-family:var(--fm);font-size:11px;}
+.resting-hr{font-family:var(--fm);font-size:11px;}
+
+/* ── HRV SPARK ── */
+.hrv-chart{background:var(--s1);border:1px solid var(--br2);border-radius:4px;padding:16px 20px;}
+.hrv-bars{display:flex;align-items:flex-end;gap:4px;height:60px;}
+.hrv-b{flex:1;border-radius:2px 2px 0 0;min-width:8px;}
+.hrv-lbl-row{display:flex;gap:4px;margin-top:4px;}
+.hrv-l{flex:1;font-family:var(--fm);font-size:7px;color:var(--dim);text-align:center;}
+
+/* ── STATION TEMPS ── */
+.station-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.stn-card{background:var(--s2);border:1px solid var(--br);border-radius:4px;padding:12px;}
+.stn-name{font-family:var(--fh);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.stn-times{display:flex;flex-direction:column;gap:4px;}
+.stn-row{display:flex;justify-content:space-between;align-items:center;font-family:var(--fm);font-size:10px;}
+.stn-label{color:var(--dim2);}
+.stn-val{font-weight:500;}
+.stn-target{color:var(--g);}
+.stn-actual{color:var(--b);}
+.stn-best{color:var(--o);}
+.delta{font-family:var(--fm);font-size:9px;padding:2px 6px;border-radius:2px;}
+.delta.pos{background:var(--bg-g);color:var(--g);}
+.delta.neg{background:var(--bg-r);color:var(--r);}
+
+/* ── RPE TIMELINE ── */
+.rpe-row{display:flex;gap:4px;align-items:flex-end;height:70px;margin-top:8px;}
+.rpe-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.rpe-bar{width:100%;border-radius:2px 2px 0 0;}
+.rpe-val{font-family:var(--fm);font-size:8px;color:var(--dim2);}
+.rpe-day{font-family:var(--fm);font-size:7px;color:var(--dim);text-transform:uppercase;}
+
+/* ── COMMENT LOG ── */
+.log{background:var(--s1);border:1px solid var(--br2);border-radius:4px;overflow:hidden;}
+.log-entry{display:grid;grid-template-columns:100px 90px 1fr;border-bottom:1px solid var(--br);}
+.log-entry:last-child{border-bottom:none;}
+.log-entry>*{padding:10px 14px;}
+.le-date{font-family:var(--fm);font-size:9px;color:var(--dim2);text-transform:uppercase;}
+.le-type{font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:1px;}
+.le-note{font-size:11px;color:var(--dim2);line-height:1.6;}
+.le-note strong{color:var(--text);}
+
+/* ── RECOVERY INDICATORS ── */
+.rec-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.rec-card{background:var(--s2);border:1px solid var(--br);border-radius:4px;padding:12px;text-align:center;}
+.rec-icon{font-size:20px;margin-bottom:6px;}
+.rec-val{font-family:var(--fh);font-size:20px;font-weight:700;line-height:1;}
+.rec-lbl{font-family:var(--fm);font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+.rec-trend{font-family:var(--fm);font-size:9px;margin-top:4px;}
+.trend-up{color:var(--g);}
+.trend-down{color:var(--r);}
+.trend-flat{color:var(--dim2);}
+
+/* PHASE INDICATOR */
+.phase-banner{background:var(--bg-b);border:1px solid #183060;border-radius:4px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.pb-left{display:flex;flex-direction:column;gap:4px;}
+.pb-phase{font-family:var(--fh);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--b);}
+.pb-sub{font-family:var(--fm);font-size:9px;color:var(--dim2);text-transform:uppercase;letter-spacing:1.5px;}
+.pb-right{display:flex;gap:8px;align-items:center;}
+.pb-week{font-family:var(--fh);font-size:36px;font-weight:700;color:var(--b);}
+.pb-week-lbl{font-family:var(--fm);font-size:8px;color:var(--dim2);text-transform:uppercase;letter-spacing:1px;}
+
+footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;color:var(--br2);border-top:1px solid var(--br);margin-top:40px;}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="index.html">← Accueil</a>
+  <div class="topbar-right">
+    <span><span class="live-dot"></span>Suivi en cours · S1</span>
+    <a href="programme_complet_remi.html">Programme complet →</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-inner">
+    <div>
+      <h1><span class="b">SUIVI</span><br><span class="o">TRAINING</span></h1>
+      <div class="hdr-meta">Rémi Tierpel · Lyon Doubles 21 Mai 2026 · Compliance &amp; Performance</div>
+    </div>
+    <div class="hdr-right">
+      <div class="countdown-mini" id="cd-days">—</div>
+      <div class="countdown-lbl">jours avant Lyon</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ══ PHASE COURANTE ══ -->
+<div class="st blue">Phase courante</div>
+<div class="phase-banner">
+  <div class="pb-left">
+    <!--
+      [MISE À JOUR HEBDO]
+      Changer pb-phase avec la phase courante :
+      "FONDATIONS" → S1–S3
+      "HYROX SPÉCIFIQUE" → S4–S7
+      "PRÉ-COMPÉTITION" → S8–S9
+      "AFFÛTAGE" → S10–S12
+    -->
+    <div class="pb-phase">Fondations</div>
+    <div class="pb-sub">Cycle 1 · S1–S3 · RPE renfo 6.5→7.5 · Prise de repères</div>
+  </div>
+  <div class="pb-right">
+    <div>
+      <!--
+        [MISE À JOUR HEBDO] Numéro de semaine courante
+      -->
+      <div class="pb-week" id="current-week">S1</div>
+      <div class="pb-week-lbl">Semaine<br>en cours</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KPI SEMAINE COURANTE ══ -->
+<div class="st blue">KPI · Semaine courante</div>
+<!--
+  [MISE À JOUR HEBDO - COMMENTAIRES DE SÉANCES]
+  Remplir ces données à partir des commentaires sur Strava/intervals.icu :
+  - Allure brick (commentaire séance samedi) : format "4'52/km" ou "4:52"
+  - RPE ressenti (commentaire séance) : 1-10
+  - Sommeil (commentaire matin, HRV si Garmin/Polar/Oura) : heures + qualité
+  - Compliance : 0/5 → 5/5 (velotaff+yoga+Oria×3+renfo×2+Bran RC = types identifiés)
+-->
+<div class="g4">
+  <div class="card lg">
+    <div class="ct cg">Compliance</div>
+    <div class="cv" style="color:var(--g)">—<span class="cv-sub">/7</span></div>
+    <div class="cs">Séances planifiées vs réalisées</div>
+    <div class="pbar-wrap"><div class="pbar g" style="width:0%"></div></div>
+  </div>
+  <div class="card lb">
+    <div class="ct cb">Allure brick samedi</div>
+    <div class="cv" style="color:var(--b)">—<span class="cv-sub">/km</span></div>
+    <div class="cs">Cible S1 : allure naturelle (baseline)</div>
+    <div class="pbar-wrap"><div class="pbar b" style="width:0%"></div></div>
+  </div>
+  <div class="card lp">
+    <div class="ct cp">HRV matin</div>
+    <div class="cv" style="color:var(--p)">—<span class="cv-sub">ms</span></div>
+    <div class="cs">Garmin / Polar / Oura · commentaire matin</div>
+    <div class="pbar-wrap"><div class="pbar" style="width:0%;background:var(--p)"></div></div>
+  </div>
+  <div class="card ly">
+    <div class="ct cy2">Sommeil moy.</div>
+    <div class="cv" style="color:var(--y)">—<span class="cv-sub">h</span></div>
+    <div class="cs">Moyenne 7 nuits · cible 7h30+</div>
+    <div class="pbar-wrap"><div class="pbar y" style="width:0%"></div></div>
+  </div>
+</div>
+
+<!-- ══ COMPLIANCE HEBDOMADAIRE ══ -->
+<div class="st green">Compliance des séances · S1 → S12</div>
+<!--
+  [MISE À JOUR HEBDO]
+  Pour chaque semaine terminée, ajouter une ligne dans la table.
+  Remplir à partir des activités Strava (commentaires de séances) :
+  - Score /5 : velotaff(1) + renfo×2(2) + Oria×3(3) + Bran RC(4) + brick/sim(5)
+  - Notes : issues du commentaire de la séance la plus dure
+  - Status : badge ok/part/miss
+  
+  COMMENTAIRES À SAISIR SUR STRAVA/INTERVALS pour alimenter ce tableau :
+  ➤ Séance Renfo (lundi/jeudi) : "RENFO S1 OK · squat 80kg · RPE 7 · énergie ✓"
+  ➤ Séance Oria (mer/ven) : "ORIA OK · sled lourd · jambes fatigues · RPE 8"
+  ➤ Brick samedi : "BRICK · allure 4'52 · RPE 7.5 · 4 stations · jambes légères"
+  ➤ Bran RC : "BRAN RC · EF 5'10 · circuit OK · 45min"
+-->
+<div class="week-table">
+  <div class="week-row header">
+    <div>Sem.</div>
+    <div>Phase</div>
+    <div>Notes / commentaires clés</div>
+    <div>Score</div>
+    <div>Statut</div>
+  </div>
+
+  <!-- S1 - EN COURS -->
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--b)">S1</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">2–8 mars</span></div>
+    <div><span class="wk-phase" style="color:var(--g)">Fondations</span></div>
+    <div class="wk-notes">
+      <!-- [À REMPLIR] Exemple : "Renfo lun OK · squat baseline 75kg · sled léger · Oria mer dynamique · brick baseline 5'05/km · jambes ok" -->
+      <span style="color:var(--dim)">À compléter en fin de semaine…</span>
+    </div>
+    <div><span class="wk-score" style="color:var(--dim2)">—/5</span></div>
+    <div class="wk-status"><span class="badge plan">⏳ En cours</span></div>
+  </div>
+
+  <!-- S2-S12 : template vide pour remplissage progressif -->
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--g)">S2</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">9–15 mars</span></div>
+    <div><span class="wk-phase" style="color:var(--g)">Fondations</span></div>
+    <div class="wk-notes"><span style="color:var(--dim)">—</span></div>
+    <div><span class="wk-score" style="color:var(--dim)">—</span></div>
+    <div class="wk-status"><span class="badge plan">Planifié</span></div>
+  </div>
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--g)">S3</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">16–22 mars</span></div>
+    <div><span class="wk-phase" style="color:var(--g)">Fondations</span></div>
+    <div class="wk-notes"><span style="color:var(--dim)">Bilan C1 prévu</span></div>
+    <div><span class="wk-score" style="color:var(--dim)">—</span></div>
+    <div class="wk-status"><span class="badge plan">Planifié</span></div>
+  </div>
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--b)">S4</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">23–29 mars</span></div>
+    <div><span class="wk-phase" style="color:var(--b)">Spé HYROX</span></div>
+    <div class="wk-notes"><span style="color:var(--dim)">—</span></div>
+    <div><span class="wk-score" style="color:var(--dim)">—</span></div>
+    <div class="wk-status"><span class="badge plan">Planifié</span></div>
+  </div>
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--b)">S5</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">30–5 avr</span></div>
+    <div><span class="wk-phase" style="color:var(--b)">Spé HYROX</span></div>
+    <div class="wk-notes"><span style="color:var(--dim)">—</span></div>
+    <div><span class="wk-score" style="color:var(--dim)">—</span></div>
+    <div class="wk-status"><span class="badge plan">Planifié</span></div>
+  </div>
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--b)">S6</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">6–12 avr</span></div>
+    <div><span class="wk-phase" style="color:var(--b)">Spé HYROX</span></div>
+    <div class="wk-notes"><span style="color:var(--dim)">—</span></div>
+    <div><span class="wk-score" style="color:var(--dim)">—</span></div>
+    <div class="wk-status"><span class="badge plan">Planifié</span></div>
+  </div>
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--g)">S7</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">13–19 avr</span></div>
+    <div><span class="wk-phase" style="color:var(--b)">Décharge</span></div>
+    <div class="wk-notes"><span style="color:var(--dim)">Bilan C2 prévu</span></div>
+    <div><span class="wk-score" style="color:var(--dim)">—</span></div>
+    <div class="wk-status"><span class="badge plan">Planifié</span></div>
+  </div>
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--o)">S8</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">20–26 avr</span></div>
+    <div><span class="wk-phase" style="color:var(--o)">Pré-comp</span></div>
+    <div class="wk-notes"><span style="color:var(--dim)">⭐ Simulation solo · Paris optionnel</span></div>
+    <div><span class="wk-score" style="color:var(--dim)">—</span></div>
+    <div class="wk-status"><span class="badge plan">Planifié</span></div>
+  </div>
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--o)">S9</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">27–3 mai</span></div>
+    <div><span class="wk-phase" style="color:var(--o)">Pré-comp</span></div>
+    <div class="wk-notes"><span style="color:var(--dim)">—</span></div>
+    <div><span class="wk-score" style="color:var(--dim)">—</span></div>
+    <div class="wk-status"><span class="badge plan">Planifié</span></div>
+  </div>
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--y)">S10</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">4–10 mai</span></div>
+    <div><span class="wk-phase" style="color:var(--y)">Taper −30%</span></div>
+    <div class="wk-notes"><span style="color:var(--dim)">—</span></div>
+    <div><span class="wk-score" style="color:var(--dim)">—</span></div>
+    <div class="wk-status"><span class="badge plan">Planifié</span></div>
+  </div>
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--y)">S11</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">11–17 mai</span></div>
+    <div><span class="wk-phase" style="color:var(--y)">Taper −50%</span></div>
+    <div class="wk-notes"><span style="color:var(--dim)">—</span></div>
+    <div><span class="wk-score" style="color:var(--dim)">—</span></div>
+    <div class="wk-status"><span class="badge plan">Planifié</span></div>
+  </div>
+  <div class="week-row">
+    <div><span class="wk-num" style="color:var(--o)">S12</span><br><span style="font-family:var(--fm);font-size:7px;color:var(--dim)">18–24 mai</span></div>
+    <div><span class="wk-phase" style="color:var(--o)">Race Week</span></div>
+    <div class="wk-notes"><span style="color:var(--o)">🏁 Lyon Doubles · Jeu 21 Mai</span></div>
+    <div><span class="wk-score" style="color:var(--o)">🏁</span></div>
+    <div class="wk-status"><span class="badge miss" style="background:var(--bg-o);color:var(--o);border-color:#4a1408">RACE DAY</span></div>
+  </div>
+</div>
+<div class="note o" style="margin-top:10px">
+  💡 <strong>Comment alimenter ce tableau :</strong> Après chaque séance sur Strava ou intervals.icu, ajoute un commentaire structuré → 
+  <strong>Brick sam :</strong> "BRICK · allure 4'52 · RPE 7.5 · 4 stations" · 
+  <strong>Renfo :</strong> "RENFO OK · squat 80kg · sled 40kg · RPE 7" · 
+  <strong>Oria :</strong> "ORIA · programme stations + run · RPE 8 · note sensations sled"
+</div>
+
+<!-- ══ PROGRESSION BRICK ══ -->
+<div class="st cyan">Progression allure brick · Samedi</div>
+<!--
+  [MISE À JOUR HEBDO]
+  Mettre à jour les barres ci-dessous avec l'allure réelle saisie dans les commentaires.
+  Format commentaire Strava : "BRICK S2 · allure 4'50/km · RPE 7.5 · 4 stations · sled ok"
+  Convertir l'allure en secondes pour calculer la hauteur de barre :
+  ex. 4'50 = 290s, 4'45 = 285s, 4'40 = 280s
+  
+  Cibles par phase :
+  S1 : baseline (noter allure naturelle sans cible)
+  S2 : 4'52–4'55
+  S3 : 4'50
+  S4 : 4'50 × 4 reps
+  S5 : 4'48 × 5 reps
+  S6 : 4'45 × 6 reps
+  S7 : test brick (comparer S4)
+  S8 : simulation complète 8 stations + 8km
+  S9–S11 : 4'45 maintien
+-->
+<div class="brick-chart">
+  <div class="brick-track">
+    <!-- Barres brick S1–S12. Hauteur = (allure_cible - allure_réelle) normalisée -->
+    <!-- Exemple de structure : -->
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
+        <div class="brick-target" style="border-color:var(--cy);bottom:60%"></div><!-- cible S1 = baseline -->
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S1</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
+        <div class="brick-target" style="border-color:var(--cy);bottom:55%"></div><!-- cible 4'52 -->
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S2</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
+        <div class="brick-target" style="border-color:var(--cy);bottom:60%"></div><!-- cible 4'50 -->
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S3</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
+        <div class="brick-target" style="border-color:var(--b);bottom:60%"></div><!-- cible 4'50 ×4 -->
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S4</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
+        <div class="brick-target" style="border-color:var(--b);bottom:65%"></div><!-- cible 4'48 -->
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S5</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
+        <div class="brick-target" style="border-color:var(--b);bottom:70%"></div><!-- cible 4'45 -->
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S6</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
+        <div class="brick-target" style="border-color:var(--g);bottom:65%"></div><!-- test ≤ 4'48 -->
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S7 test</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--o);text-align:center;margin-bottom:4px;">⭐ SIM</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--o);"></div>
+        <div class="brick-target" style="border-color:var(--o);bottom:80%"></div><!-- cible <1h15 sim complète -->
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S8 sim</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
+        <div class="brick-target" style="border-color:var(--y);bottom:70%"></div><!-- 4'45 léger -->
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S9</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
+        <div class="brick-target" style="border-color:var(--y);bottom:70%"></div>
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S10</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;margin-bottom:4px;">—</div>
+      <div class="brick-bar-bg" style="height:100px;">
+        <div class="brick-bar" style="height:0%;background:var(--dim);"></div>
+        <div class="brick-target" style="border-color:var(--y);bottom:70%"></div>
+      </div>
+      <div class="brick-val" style="color:var(--dim)">—</div>
+      <div class="brick-lbl">S11</div>
+    </div>
+    <div class="brick-bar-wrap">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--o);text-align:center;margin-bottom:4px;">🏁</div>
+      <div class="brick-bar-bg" style="height:100px;border:1px solid var(--o);border-radius:2px;">
+        <div class="brick-bar" style="height:0%;background:var(--o);"></div>
+      </div>
+      <div class="brick-val" style="color:var(--o)">RACE</div>
+      <div class="brick-lbl">S12</div>
+    </div>
+  </div>
+  <div class="brick-legend">
+    <div class="bl"><div class="bl-dot" style="background:var(--b)"></div>Allure réalisée</div>
+    <div class="bl"><div class="bl-dot" style="background:var(--cy);height:1px"></div>Cible planifiée</div>
+    <div class="bl"><div class="bl-dot" style="background:var(--o)"></div>Simulation / Race</div>
+    <div class="bl" style="color:var(--dim)">Plus la barre est haute = plus proche de la cible</div>
+  </div>
+</div>
+
+<!-- ══ SOMMEIL & RÉCUPÉRATION ══ -->
+<div class="st purple">Sommeil &amp; Récupération · Semaine courante</div>
+<!--
+  [MISE À JOUR HEBDO - COMMENTAIRES DE SÉANCES]
+  
+  Comment saisir tes données de sommeil :
+  
+  Option A — Montre/tracker (Garmin Connect, Polar Flow, Oura, Fitbit) :
+    → Exporte les données chaque matin ou relève manuellement
+    → Ajoute dans le commentaire Strava/intervals du lendemain :
+       "Nuit : 7h20 · HRV 52ms · FC repos 47bpm · qualité ✓"
+  
+  Option B — Saisie manuelle rapide :
+    → Le soir, note dans le commentaire de la séance du jour :
+       "Sommeil hier : 7h · ok" ou "Nuit courte 6h · fatigue"
+  
+  Indicateurs clés à surveiller :
+  → HRV (Heart Rate Variability) : si -20% vs ta baseline → récup insuffisante
+  → FC repos : si +5bpm vs normal → ne pas forcer la séance
+  → Durée sommeil : cible 7h30–8h30 les nuits précédant Oria/brick
+  → Qualité subjective : 1 (mauvais) → 5 (excellent)
+  
+  Signaux d'alarme :
+  → 3 jours consécutifs HRV bas → réduire RPE séance suivante
+  → FC repos +8bpm → reporter la séance renfo du jour
+  → Sommeil < 6h avant brick samedi → adapter allure cible
+-->
+
+<!-- Indicateurs de récupération globaux -->
+<div class="rec-grid">
+  <div class="rec-card">
+    <div class="rec-icon">🛌</div>
+    <div class="rec-val" style="color:var(--p)">—</div>
+    <div class="rec-lbl">Sommeil moy.<br>7 nuits (h)</div>
+    <div class="rec-trend trend-flat">Cible : 7h30</div>
+  </div>
+  <div class="rec-card">
+    <div class="rec-icon">💜</div>
+    <div class="rec-val" style="color:var(--p)">—</div>
+    <div class="rec-lbl">HRV moyen<br>(ms)</div>
+    <div class="rec-trend trend-flat">Ta baseline : ?</div>
+  </div>
+  <div class="rec-card">
+    <div class="rec-icon">❤️</div>
+    <div class="rec-val" style="color:var(--r)">—</div>
+    <div class="rec-lbl">FC repos<br>moy. (bpm)</div>
+    <div class="rec-trend trend-flat">Ta baseline : ?</div>
+  </div>
+  <div class="rec-card">
+    <div class="rec-icon">🔋</div>
+    <div class="rec-val" style="color:var(--g)">—</div>
+    <div class="rec-lbl">Énergie subj.<br>moy. /5</div>
+    <div class="rec-trend trend-flat">Commentaires séances</div>
+  </div>
+  <div class="rec-card">
+    <div class="rec-icon">😤</div>
+    <div class="rec-val" style="color:var(--y)">—</div>
+    <div class="rec-lbl">Stress subj.<br>moy. /5</div>
+    <div class="rec-trend trend-flat">Commentaires séances</div>
+  </div>
+</div>
+
+<!-- Tableau détail nuits -->
+<div class="sleep-week" style="margin-top:12px">
+  <div class="sleep-row header">
+    <div>Nuit</div>
+    <div>Durée</div>
+    <div>Qualité /5</div>
+    <div>HRV</div>
+    <div>FC repos</div>
+    <div>Notes · commentaire séance lendemain</div>
+  </div>
+  <!--
+    [MISE À JOUR HEBDO]
+    Remplir chaque ligne matin par matin.
+    Format commentaire intervals.icu : "Nuit : 7h20 · HRV 52 · FC 47 · qualité 4/5 · ok"
+    
+    Nuit du dim→lun : importante (avant renfo lundi)
+    Nuit du ven→sam : CRITIQUE (avant brick samedi)
+  -->
+  <div class="sleep-row">
+    <div class="sleep-night">Dim → Lun</div>
+    <div class="sleep-dur" style="color:var(--p)">—</div>
+    <div class="sleep-score" style="color:var(--p)">—</div>
+    <div class="hrv-val" style="color:var(--p)">—</div>
+    <div class="resting-hr" style="color:var(--r)">—</div>
+    <div class="sleep-note">Avant renfo lundi · important</div>
+  </div>
+  <div class="sleep-row">
+    <div class="sleep-night">Lun → Mar</div>
+    <div class="sleep-dur" style="color:var(--p)">—</div>
+    <div class="sleep-score" style="color:var(--p)">—</div>
+    <div class="hrv-val" style="color:var(--p)">—</div>
+    <div class="resting-hr" style="color:var(--r)">—</div>
+    <div class="sleep-note">Post renfo + 2×velotaff</div>
+  </div>
+  <div class="sleep-row">
+    <div class="sleep-night">Mar → Mer</div>
+    <div class="sleep-dur" style="color:var(--p)">—</div>
+    <div class="sleep-score" style="color:var(--p)">—</div>
+    <div class="hrv-val" style="color:var(--p)">—</div>
+    <div class="resting-hr" style="color:var(--r)">—</div>
+    <div class="sleep-note">Avant HYROX Oria mercredi</div>
+  </div>
+  <div class="sleep-row">
+    <div class="sleep-night">Mer → Jeu</div>
+    <div class="sleep-dur" style="color:var(--p)">—</div>
+    <div class="sleep-score" style="color:var(--p)">—</div>
+    <div class="hrv-val" style="color:var(--p)">—</div>
+    <div class="resting-hr" style="color:var(--r)">—</div>
+    <div class="sleep-note">Avant renfo jeudi + Bran RC · jambes fraîches !</div>
+  </div>
+  <div class="sleep-row">
+    <div class="sleep-night">Jeu → Ven</div>
+    <div class="sleep-dur" style="color:var(--p)">—</div>
+    <div class="sleep-score" style="color:var(--p)">—</div>
+    <div class="hrv-val" style="color:var(--p)">—</div>
+    <div class="resting-hr" style="color:var(--r)">—</div>
+    <div class="sleep-note">Avant HYROX Force vendredi</div>
+  </div>
+  <div class="sleep-row" style="background:var(--bg-p)">
+    <div class="sleep-night" style="color:var(--p)">Ven → Sam ⚠</div>
+    <div class="sleep-dur" style="color:var(--p)">—</div>
+    <div class="sleep-score" style="color:var(--p)">—</div>
+    <div class="hrv-val" style="color:var(--p)">—</div>
+    <div class="resting-hr" style="color:var(--r)">—</div>
+    <div class="sleep-note" style="color:var(--p)"><strong>CRITIQUE</strong> · avant brick samedi · cible 7h30+ · si &lt;6h → adapter allure</div>
+  </div>
+  <div class="sleep-row">
+    <div class="sleep-night">Sam → Dim</div>
+    <div class="sleep-dur" style="color:var(--p)">—</div>
+    <div class="sleep-score" style="color:var(--p)">—</div>
+    <div class="hrv-val" style="color:var(--p)">—</div>
+    <div class="resting-hr" style="color:var(--r)">—</div>
+    <div class="sleep-note">Post brick · récupération · OFF dimanche</div>
+  </div>
+</div>
+
+<div class="g2" style="margin-top:12px">
+  <div class="note p">
+    ⚠ <strong>Signaux d'alarme :</strong> HRV &lt; baseline −20% sur 3 jours consécutifs → réduire RPE · FC repos +8bpm → reporter renfo · Sommeil &lt; 6h avant brick → adapter allure −5 sec/km
+  </div>
+  <div class="note b">
+    💡 <strong>Protocole récup post-brick samedi :</strong> Protéines 30g dans les 30min · glucides 60–80g · 20min jambes surélevées · hydratation 500ml · sommeil 8h+ nuit sam→dim
+  </div>
+</div>
+
+<!-- ══ JOURNAL DE SÉANCES ══ -->
+<div class="st orange">Journal des séances · Commentaires clés</div>
+<!--
+  [MISE À JOUR HEBDO]
+  Copier ici les commentaires les plus significatifs de tes séances.
+  Prioriser : brick samedi, sled pull, simulation, Bran RC fractionné.
+  
+  Format recommandé dans Strava/intervals :
+  TYPE · allure/charge · RPE X · [note technique] · [sensation récup]
+  
+  Exemples :
+  "BRICK S2 · 4'50/km · RPE 7.5 · 4 stations · sled fluide · jambes ok fin"
+  "ORIA · sled pull 45kg · RPE 8 · posture dos améliorée · bras cassés au début"
+  "BRAN RC · fractionné 6×400m · RPE 8.5 · 4'38 moy · très bien"
+  "RENFO S1 · squat 85kg · sled 50kg pull · RPE 7.5 · épaules ok"
+-->
+<div class="log">
+  <div class="log-entry" style="background:var(--s2)">
+    <div class="le-date" style="font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim)">Date</div>
+    <div class="le-type" style="font-family:var(--fm);font-size:8px;color:var(--dim);letter-spacing:1.5px">Type</div>
+    <div style="font-family:var(--fm);font-size:8px;color:var(--dim);padding:10px 14px;text-transform:uppercase;letter-spacing:1.5px">Commentaire · données clés</div>
+  </div>
+
+  <!-- S1 - à compléter -->
+  <div class="log-entry">
+    <div class="le-date">Sam 7 mars</div>
+    <div class="le-type" style="color:var(--cy)">🎯 Brick S1</div>
+    <div class="le-note">
+      <!-- [À REMPLIR] ex: "BRICK S1 baseline · 4'58/km · RPE 6.5 · 3 stations · allure naturelle notée · sled ok" -->
+      <span style="color:var(--dim)">À compléter après la séance</span>
+    </div>
+  </div>
+  <div class="log-entry">
+    <div class="le-date">Mer 4 mars</div>
+    <div class="le-type" style="color:var(--o)">🏋 Oria</div>
+    <div class="le-note"><span style="color:var(--dim)">À compléter</span></div>
+  </div>
+  <div class="log-entry">
+    <div class="le-date">Lun 2 mars</div>
+    <div class="le-type" style="color:var(--b)">💪 Renfo S1</div>
+    <div class="le-note"><span style="color:var(--dim)">À compléter · charges de référence S1</span></div>
+  </div>
+
+  <!-- Lignes vides pour les semaines suivantes - à remplir au fil de l'eau -->
+  <div class="log-entry">
+    <div class="le-date" style="color:var(--dim)">—</div>
+    <div class="le-type" style="color:var(--dim)">—</div>
+    <div class="le-note"><span style="color:var(--dim)">Prochaines séances…</span></div>
+  </div>
+</div>
+
+<!-- ══ TEMPS PAR STATION (ANALYSE COURSE) ══ -->
+<div class="st orange">Analyse stations · Paris vs Nice → Cibles Lyon</div>
+<!--
+  Ces données viennent des résultats officiels HYROX.
+  Mettre à jour après chaque course officielle.
+  Source : resultats.hyrox.com → rechercher "Tierpel"
+-->
+<div class="station-grid">
+  <div class="stn-card">
+    <div class="stn-name" style="color:var(--y)">SkiErg</div>
+    <div class="stn-times">
+      <div class="stn-row"><span class="stn-label">Nice 1:26</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Paris 1:28</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">~3:00</span></div>
+    </div>
+  </div>
+  <div class="stn-card">
+    <div class="stn-name" style="color:var(--r)">Sled Push</div>
+    <div class="stn-times">
+      <div class="stn-row"><span class="stn-label">Nice</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Paris</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">~2:30</span></div>
+    </div>
+  </div>
+  <div class="stn-card">
+    <div class="stn-name" style="color:var(--r)">Sled Pull</div>
+    <div class="stn-times">
+      <div class="stn-row"><span class="stn-label">Paris 1:28</span><span class="stn-actual stn-val" style="color:var(--r)">7:07</span></div>
+      <div class="stn-row"><span class="stn-label">Nice 1:26</span><span class="stn-actual stn-val" style="color:var(--r)">—</span></div>
+      <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">~2:10</span></div>
+    </div>
+    <span class="delta neg" style="margin-top:6px;display:inline-block">⚠ Priorité technique</span>
+  </div>
+  <div class="stn-card">
+    <div class="stn-name" style="color:var(--b)">Burpee BJ</div>
+    <div class="stn-times">
+      <div class="stn-row"><span class="stn-label">Paris</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Nice</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">~3:30</span></div>
+    </div>
+  </div>
+  <div class="stn-card">
+    <div class="stn-name" style="color:var(--p)">Rowing</div>
+    <div class="stn-times">
+      <div class="stn-row"><span class="stn-label">Paris</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Nice</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">~3:00</span></div>
+    </div>
+  </div>
+  <div class="stn-card">
+    <div class="stn-name" style="color:var(--o)">Farmers C.</div>
+    <div class="stn-times">
+      <div class="stn-row"><span class="stn-label">Paris</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Nice</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">Mélanie</span></div>
+    </div>
+  </div>
+  <div class="stn-card">
+    <div class="stn-name" style="color:var(--o)">Lunges</div>
+    <div class="stn-times">
+      <div class="stn-row"><span class="stn-label">Paris</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Nice</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">Mélanie</span></div>
+    </div>
+  </div>
+  <div class="stn-card">
+    <div class="stn-name" style="color:var(--g)">Wall Ball</div>
+    <div class="stn-times">
+      <div class="stn-row"><span class="stn-label">Paris</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Nice</span><span class="stn-actual stn-val">—</span></div>
+      <div class="stn-row"><span class="stn-label">Cible Lyon</span><span class="stn-target stn-val">~4:00 ×50</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ RUNNING SPLIT ══ -->
+<div class="st green">Running · Allure par kilomètre · Paris 1:28:43</div>
+<!--
+  Données issues du résultat HYROX Paris (référence).
+  Compléter avec Nice 1:26:01 une fois les splits disponibles.
+  Source : résultats officiels HYROX → onglet "Splits"
+-->
+<div class="card" style="overflow-x:auto;">
+  <div class="ct cb">Objectif : maintenir 4'40–4'50/km constant · éviter le drift</div>
+  <div style="display:flex;gap:8px;align-items:flex-end;height:80px;margin-top:8px;min-width:600px;">
+    <!-- Paris data - les splits exacts sont à compléter depuis les résultats officiels -->
+    <!-- Plus la barre est haute = plus l'allure est lente = mauvais -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+      <div style="width:100%;background:var(--g);border-radius:2px 2px 0 0;" id="sp1"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim)">K1</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+      <div style="width:100%;background:var(--b);border-radius:2px 2px 0 0;" id="sp2"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim)">K2</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+      <div style="width:100%;background:var(--b);border-radius:2px 2px 0 0;" id="sp3"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim)">K3</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+      <div style="width:100%;background:var(--y);border-radius:2px 2px 0 0;" id="sp4"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim)">K4</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+      <div style="width:100%;background:var(--y);border-radius:2px 2px 0 0;" id="sp5"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim)">K5</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+      <div style="width:100%;background:var(--o);border-radius:2px 2px 0 0;" id="sp6"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim)">K6</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+      <div style="width:100%;background:var(--o);border-radius:2px 2px 0 0;" id="sp7"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim)">K7</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+      <div style="width:100%;background:var(--r);border-radius:2px 2px 0 0;" id="sp8"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim)">K8</div>
+    </div>
+  </div>
+  <div style="font-family:var(--fm);font-size:9px;color:var(--dim2);margin-top:8px;">Paris 1:28:43 · K1 ~3:59/km → K8 ~5:10/km · drift +70sec = problème principal à résoudre</div>
+</div>
+<div class="note o" style="margin-top:8px">
+  🎯 <strong>Cible Lyon Doubles :</strong> 4'40–4'50/km constant sur les 8km · Rémi pace-setter · pas de sprint K1 · énergie réservée pour les stations force Mélanie
+</div>
+
+</div><!-- /wrap -->
+
+<footer>suivi.html · tierpel.github.io · HYROX Lyon Doubles 21 Mai 2026 · Mise à jour manuelle hebdomadaire via commentaires Strava/intervals.icu</footer>
+
+<script>
+// Countdown
+function updateCountdown(){
+  const race = new Date('2026-05-21T08:00:00');
+  const now = new Date();
+  const diff = race - now;
+  if(diff <= 0){ document.getElementById('cd-days').textContent = '🏁'; return; }
+  document.getElementById('cd-days').textContent = Math.floor(diff/86400000);
+}
+updateCountdown();
+setInterval(updateCountdown, 60000);
+
+// Running splits Paris (allure en sec/km, normalisé pour affichage barre)
+// Plus c'est lent = plus la barre est haute (problème visible)
+// Paris : K1 ~239s (3:59), K2 ~255s, ..., K8 ~310s (5:10)
+// Min représenté = 240s (4:00), Max = 320s (5:20)
+const splits = [239, 255, 262, 270, 278, 285, 295, 310];
+const minS = 230, maxS = 320;
+splits.forEach((s, i) => {
+  const el = document.getElementById('sp' + (i+1));
+  if(el){
+    const h = Math.round(((s - minS) / (maxS - minS)) * 70) + 10;
+    el.style.height = h + 'px';
+    el.title = Math.floor(s/60) + "'" + String(s%60).padStart(2,'0') + "/km";
+  }
+});
+</script>
+</body>
+</html>
