@@ -81,7 +81,7 @@ tierpel.github.io/
 - Rémi est en **phase Fondations (S1–S3)** en ce moment (semaine du 2 mars)
 - Les 38 events sont déjà chargés sur intervals.icu → ne pas re-créer
 - Le programme HTML fait 82KB → ne pas le régénérer à la légère
-- **Sommeil = facteur limitant n°1** : 3 nuits < 4h sur 8 → à surveiller chaque session
+- **Sommeil en amélioration** : S1 moy 6h49 (vs 5h09 pré-S1) · HRV +16% · zéro nuit <4h → continuer à surveiller
 - **DC 45kg trop lourd** → ajuster à 40-42.5kg en S2
 - **Splits complets récupérés** ✅ → voir `DATA.md`
 
@@ -93,14 +93,15 @@ tierpel.github.io/
 
 ---
 
-## 🎯 Objectifs de la prochaine session (Session 4)
+## 🎯 Objectifs de la prochaine session (Session 5)
 
-1. Bilan fin de S1 (compliance 7 séances, allure brick baseline samedi 8 mars)
-2. Vérifier ajustement DC à 40-42.5kg en S2
-3. Suivi sommeil S1 : cause identifiée ? Amélioration ?
-4. Push git + vérification GitHub Pages
-5. Commencer à remplir les données Brick S1
+1. Bilan fin de S1 (compliance 7 séances, allure brick baseline samedi 7 mars)
+2. Récupérer données Renfo S2 jeu, Bran RC jeu, Oria ven, Brick sam
+3. Vérifier ajustement DC à 40-42.5kg en S2
+4. Suivi sommeil fin S1 : tendance confirmée ?
+5. Push git + vérification GitHub Pages
+6. Préparer S2 (9–15 mars)
 
 ---
 
-*Dernière mise à jour : 2 Mars 2026 · Session 3 bis*
+*Dernière mise à jour : 5 Mars 2026 · Session 4*

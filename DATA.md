@@ -75,6 +75,19 @@
 
 ---
 
+## 📊 Wellness S1 (2→4 Mars 2026)
+
+| Nuit | Sommeil | Score | HRV | FC repos | Readiness | SpO2 |
+|---|---|---|---|---|---|---|
+| 2→3 mars | 6h32 | 72 | 52.3 | 45 | 78 | 98% |
+| 3→4 mars | 6h33 | 80 | **58.2** 🔥 | 44 | **95** 🔥 | 97% |
+| 4→5 mars | **7h23** | 79 | 53.0 | 46 | 85 | 94% |
+| **Moy S1** | **6h49** | **77** | **54.5** | **45.0** | **86** | **96%** |
+
+✅ **Nette amélioration vs pré-S1** : HRV +16% (47→54.5ms), sommeil +1h40 (5h09→6h49), zéro nuit <4h.
+
+---
+
 ## 🏋️ Charges de référence Renfo S1 (2 Mars 2026)
 
 | Exercice | Charge | RPE réel | Ajustement S2 |
@@ -151,4 +164,20 @@
 
 ---
 
-*Dernière mise à jour : 2 Mars 2026 · Session 3 ter*
+### Session 4 — 5 Mars 2026
+**Contexte** : Mise à jour suivi mi-S1 (J4/7)
+**Réalisé** :
+- Récupération activités S1 : Renfo lun, Velotaff mar (49km), HYROX Oria Engine Intervals mar (9.6km + 111 WB)
+- Récupération wellness S1 : 3 nuits (2→5 mars)
+- Mise à jour complète `suivi.html` : KPI, bilan mi-semaine, journal, sommeil, indicateurs récup
+- Constat : sommeil en nette amélioration, HRV +16%, Readiness 78→95→85
+
+**Insights clés** :
+1. **Sommeil corrigé** : plus de nuit <4h, tendance à la hausse (6h32→6h33→7h23)
+2. **HRV au plus haut** : 58.2ms le 3 mars = meilleur score depuis le début du suivi
+3. **Compliance S1 à 3/7** : Renfo ✅, Velotaff ✅, Oria Engine ✅ + 111 WB
+4. **Total WB saison** : 421 reps (310 pré-S1 + 111 S1)
+
+---
+
+*Dernière mise à jour : 5 Mars 2026 · Session 4*
