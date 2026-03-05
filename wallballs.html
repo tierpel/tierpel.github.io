@@ -341,259 +341,315 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 </div>
 
 <!-- ══════════════════════════════════════════════════════════════════ -->
-<!-- GRAPHIQUE FC SUPERPOSÉES PAR MINUTE                                 -->
+<!-- GRAPHIQUE FC SUPERPOSÉES PAR MINUTE — V2 CLEAN                      -->
 <!-- ══════════════════════════════════════════════════════════════════ -->
-<div class="st red">Superposition FC · Données réelles Strava · 5 EMOM seconde par seconde</div>
+<div class="st red">Superposition FC · Données réelles Strava · 5 EMOM</div>
 
-<div class="note g" style="margin-bottom:12px;">
-  ✅ <strong>Données RÉELLES Strava !</strong> Chaque courbe est tracée à partir des <strong>données FC seconde par seconde</strong> récupérées via l'API Strava. Les points affichés correspondent à la FC exacte à chaque début de minute (t=0s, 60s, 120s... 540s). Fini les estimations !
-</div>
-
-<div class="chart-wrap">
-  <div class="chart-title">❤️ FC minute par minute · 5 EMOM superposés · DONNÉES RÉELLES STRAVA</div>
+<div style="background:var(--s1);border:1px solid var(--br2);border-radius:6px;padding:24px 28px 20px;margin-top:4px;">
   
-  <div style="position:relative;height:360px;min-width:700px;" id="fc-overlay-chart">
-    <!-- Y axis labels: range 80-170 -->
-    <div style="position:absolute;left:0;top:0;bottom:35px;width:40px;display:flex;flex-direction:column;justify-content:space-between;">
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">170</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">160</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">150</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">140</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">130</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">120</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">110</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">100</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">90</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">80</span>
+  <!-- Header row: title + badge -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px;">
+    <div style="font-family:var(--fh);font-size:16px;font-weight:600;letter-spacing:1px;color:var(--text);">❤️ FC minute par minute · 5 EMOM superposés</div>
+    <span class="badge ok" style="font-size:8px;">✅ Données Strava</span>
+  </div>
+
+  <!-- LEGEND — above chart, clean horizontal -->
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;padding:10px 14px;background:var(--s2);border-radius:4px;border:1px solid var(--br);">
+    <div style="display:flex;align-items:center;gap:6px;"><div style="width:20px;height:3px;border-radius:1px;background:#ff4455;"></div><span style="font-family:var(--fm);font-size:9px;color:#ff4455;">20 Fév · 9kg · 100r</span></div>
+    <div style="display:flex;align-items:center;gap:6px;"><div style="width:20px;height:3px;border-radius:1px;background:#a77dfa;"></div><span style="font-family:var(--fm);font-size:9px;color:#a77dfa;">25 Fév · 16lb · 100r</span></div>
+    <div style="display:flex;align-items:center;gap:6px;"><div style="width:20px;height:3px;border-radius:1px;background:#38d9d9;"></div><span style="font-family:var(--fm);font-size:9px;color:#38d9d9;">27 Fév · 16lb · 110r</span></div>
+    <div style="display:flex;align-items:center;gap:6px;"><div style="width:20px;height:3px;border-radius:1px;background:#2fd67a;"></div><span style="font-family:var(--fm);font-size:9px;color:#2fd67a;">28 Fév · 6kg · 100r</span></div>
+    <div style="display:flex;align-items:center;gap:6px;"><div style="width:20px;height:4px;border-radius:1px;background:#4b9fff;"></div><span style="font-family:var(--fm);font-size:9px;color:#4b9fff;font-weight:600;">4 Mars · 6kg · 111r ★</span></div>
+    <div style="display:flex;align-items:center;gap:6px;"><div style="width:20px;height:2px;border-top:2px dashed #ff5526;opacity:.5;"></div><span style="font-family:var(--fm);font-size:9px;color:var(--dim);">(Race Nice · estimation)</span></div>
+  </div>
+
+  <!-- CHART CONTAINER -->
+  <div id="fc-overlay-v2" style="position:relative;height:420px;min-width:680px;">
+    
+    <!-- Y AXIS -->
+    <div style="position:absolute;left:0;top:0;bottom:32px;width:38px;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;">
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);text-align:right;padding-right:6px;">170</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);text-align:right;padding-right:6px;">160</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);text-align:right;padding-right:6px;">150</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);text-align:right;padding-right:6px;">140</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);text-align:right;padding-right:6px;">130</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);text-align:right;padding-right:6px;">120</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);text-align:right;padding-right:6px;">110</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);text-align:right;padding-right:6px;">100</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);text-align:right;padding-right:6px;">90</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);text-align:right;padding-right:6px;">80</span>
     </div>
-    <!-- Chart area -->
-    <div style="position:absolute;left:45px;right:10px;top:0;bottom:35px;border-left:1px solid var(--br);border-bottom:1px solid var(--br);">
-      <!-- LTHR line: (170-165)/90*100 = 5.6% from top -->
-      <div style="position:absolute;left:0;right:0;top:5.6%;border-top:2px dashed var(--r);opacity:.3;">
-        <span style="font-family:var(--fm);font-size:7px;color:var(--r);position:absolute;right:0;top:-12px;background:var(--s1);padding:0 4px;">LTHR 165</span>
+
+    <!-- PLOT AREA -->
+    <div style="position:absolute;left:42px;right:0;top:0;bottom:32px;border-left:1px solid var(--br);border-bottom:1px solid var(--br);overflow:hidden;">
+      
+      <!-- ZONE BANDS (subtle background fills, no text overlap) -->
+      <!-- Y range: 80-170 = 90bpm. top%=(170-val)/90*100 -->
+      <!-- Z5 >165: top 0% → 5.6% -->
+      <div style="position:absolute;left:0;right:0;top:0;height:5.6%;background:rgba(255,68,85,0.04);"></div>
+      <!-- Z4 150-165: top 5.6% → 22.2% -->
+      <div style="position:absolute;left:0;right:0;top:5.6%;height:16.6%;background:rgba(255,85,38,0.03);"></div>
+      <!-- Z3 135-150: top 22.2% → 38.9% -->
+      <div style="position:absolute;left:0;right:0;top:22.2%;height:16.7%;background:rgba(244,200,66,0.02);"></div>
+      <!-- Z2 120-135: top 38.9% → 55.6% -->
+      <div style="position:absolute;left:0;right:0;top:38.9%;height:16.7%;background:rgba(47,214,122,0.02);"></div>
+      
+      <!-- Zone labels — right edge, small, non-intrusive -->
+      <div style="position:absolute;right:8px;top:0;font-family:var(--fm);font-size:7px;color:rgba(255,68,85,0.3);letter-spacing:1px;">Z5</div>
+      <div style="position:absolute;right:8px;top:10%;font-family:var(--fm);font-size:7px;color:rgba(255,85,38,0.25);letter-spacing:1px;">Z4</div>
+      <div style="position:absolute;right:8px;top:28%;font-family:var(--fm);font-size:7px;color:rgba(244,200,66,0.25);letter-spacing:1px;">Z3</div>
+      <div style="position:absolute;right:8px;top:46%;font-family:var(--fm);font-size:7px;color:rgba(47,214,122,0.2);letter-spacing:1px;">Z2</div>
+      <div style="position:absolute;right:8px;top:62%;font-family:var(--fm);font-size:7px;color:rgba(144,144,168,0.2);letter-spacing:1px;">Z1</div>
+
+      <!-- HORIZONTAL GRID LINES -->
+      <div style="position:absolute;left:0;right:0;top:11.1%;border-top:1px solid var(--br);opacity:.15;"></div>
+      <div style="position:absolute;left:0;right:0;top:22.2%;border-top:1px solid var(--br);opacity:.15;"></div>
+      <div style="position:absolute;left:0;right:0;top:33.3%;border-top:1px solid var(--br);opacity:.15;"></div>
+      <div style="position:absolute;left:0;right:0;top:44.4%;border-top:1px solid var(--br);opacity:.15;"></div>
+      <div style="position:absolute;left:0;right:0;top:55.6%;border-top:1px solid var(--br);opacity:.15;"></div>
+      <div style="position:absolute;left:0;right:0;top:66.7%;border-top:1px solid var(--br);opacity:.15;"></div>
+      <div style="position:absolute;left:0;right:0;top:77.8%;border-top:1px solid var(--br);opacity:.15;"></div>
+      <div style="position:absolute;left:0;right:0;top:88.9%;border-top:1px solid var(--br);opacity:.15;"></div>
+
+      <!-- REFERENCE LINES -->
+      <!-- LTHR 165: top = (170-165)/90*100 = 5.56% -->
+      <div style="position:absolute;left:0;right:0;top:5.56%;border-top:1.5px dashed rgba(255,68,85,0.35);z-index:2;">
+        <span style="position:absolute;left:8px;top:-14px;font-family:var(--fm);font-size:8px;color:rgba(255,68,85,0.5);background:var(--s1);padding:0 5px;border-radius:2px;">LTHR 165</span>
       </div>
-      <!-- Race FC moy line: (170-155)/90*100 = 16.7% from top -->
-      <div style="position:absolute;left:0;right:0;top:16.7%;border-top:1px dashed var(--o);opacity:.25;">
-        <span style="font-family:var(--fm);font-size:7px;color:var(--o);position:absolute;right:0;top:-12px;background:var(--s1);padding:0 4px;">Race Nice FC moy 155</span>
+      <!-- Race Nice FC moy 155: top = (170-155)/90*100 = 16.67% -->
+      <div style="position:absolute;left:0;right:0;top:16.67%;border-top:1.5px dashed rgba(255,85,38,0.3);z-index:2;">
+        <span style="position:absolute;left:8px;top:-14px;font-family:var(--fm);font-size:8px;color:rgba(255,85,38,0.45);background:var(--s1);padding:0 5px;border-radius:2px;">Race Nice 155</span>
       </div>
-      <!-- Grid lines -->
-      <div style="position:absolute;left:0;right:0;top:11.1%;border-top:1px solid var(--br);opacity:.12;"></div>
-      <div style="position:absolute;left:0;right:0;top:22.2%;border-top:1px solid var(--br);opacity:.12;"></div>
-      <div style="position:absolute;left:0;right:0;top:33.3%;border-top:1px solid var(--br);opacity:.12;"></div>
-      <div style="position:absolute;left:0;right:0;top:44.4%;border-top:1px solid var(--br);opacity:.12;"></div>
-      <div style="position:absolute;left:0;right:0;top:55.6%;border-top:1px solid var(--br);opacity:.12;"></div>
-      <div style="position:absolute;left:0;right:0;top:66.7%;border-top:1px solid var(--br);opacity:.12;"></div>
-      <div style="position:absolute;left:0;right:0;top:77.8%;border-top:1px solid var(--br);opacity:.12;"></div>
-      <div style="position:absolute;left:0;right:0;top:88.9%;border-top:1px solid var(--br);opacity:.12;"></div>
-      
-      <!-- SVG chart: Y range 80-170 (90bpm range) -->
-      <!-- Y mapping: SVG y = (170 - value) / 90 * 100 -->
-      <!-- X positions: min0=5, min1=15, min2=25, min3=35, min4=45, min5=55, min6=65, min7=75, min8=85, min9=95 -->
-      
-      <!-- FC RÉELLES extraites de Strava (FC à t=0, 60, 120, 180, 240, 300, 360, 420, 480, 540) -->
-      
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="width:100%;height:100%;overflow:visible;">
+
+      <!-- SVG CURVES -->
+      <!-- viewBox: x=0-900 (10 points × 100px spacing), y=0-900 (80-170bpm mapped) -->
+      <!-- Y mapping: svgY = (170 - bpm) / 90 * 900 -->
+      <!-- X mapping: min0=50, min1=150, min2=250 ... min9=850 -->
+      <svg viewBox="0 0 900 900" preserveAspectRatio="none" style="width:100%;height:100%;">
         
-        <!-- ═══ EMOM 1 · 20 Fév · 9kg · STRAVA ID 17460404557 ═══ -->
-        <!-- FC réelles: 85, 119, 130, 131, 147, 152, 156, 155, 155, 138 -->
-        <!-- Y: 94.4, 56.7, 44.4, 43.3, 25.6, 20.0, 15.6, 16.7, 16.7, 35.6 -->
-        <polyline 
-          points="5,94.4 15,56.7 25,44.4 35,43.3 45,25.6 55,20.0 65,15.6 75,16.7 85,16.7 95,35.6" 
-          fill="none" stroke="#ff4455" stroke-width="0.8" stroke-linejoin="round" opacity=".85"/>
-        <circle cx="5" cy="94.4" r="1" fill="#ff4455"/>
-        <circle cx="65" cy="15.6" r="1.5" fill="#ff4455" stroke="#0b0b0d" stroke-width="0.4"/>
-        <text x="67" y="13" fill="#ff4455" font-family="DM Mono,monospace" font-size="3" font-weight="600">156</text>
-        <text x="5" y="98" fill="#ff4455" font-family="DM Mono,monospace" font-size="2.5" opacity=".7">85</text>
+        <!-- ═══ RACE Nice (background, dashed, subtle) ═══ -->
+        <!-- 148,152,155,156,157,157,158,160,164,170 -->
+        <!-- Y: 220,180,150,140,130,130,120,100,60,0 -->
+        <polyline points="50,220 150,180 250,150 350,140 450,130 550,130 650,120 750,100 850,60" 
+          fill="none" stroke="#ff5526" stroke-width="4" stroke-linejoin="round" stroke-dasharray="12,8" opacity=".25"/>
         
-        <!-- ═══ EMOM 2 · 25 Fév · 16lb · STRAVA ID 17522649941 ═══ -->
-        <!-- FC réelles: 102, 130, 130, 141, 142, 147, 147, 150, 149, 143 -->
-        <!-- Y: 75.6, 44.4, 44.4, 32.2, 31.1, 25.6, 25.6, 22.2, 23.3, 30.0 -->
-        <polyline 
-          points="5,75.6 15,44.4 25,44.4 35,32.2 45,31.1 55,25.6 65,25.6 75,22.2 85,23.3 95,30.0" 
-          fill="none" stroke="#a77dfa" stroke-width="0.8" stroke-linejoin="round" opacity=".85"/>
-        <circle cx="5" cy="75.6" r="1" fill="#a77dfa"/>
-        <circle cx="75" cy="22.2" r="1.5" fill="#a77dfa" stroke="#0b0b0d" stroke-width="0.4"/>
-        <text x="77" y="20" fill="#a77dfa" font-family="DM Mono,monospace" font-size="3" font-weight="600">150</text>
-        <text x="5" y="73" fill="#a77dfa" font-family="DM Mono,monospace" font-size="2.5" opacity=".7">102</text>
+        <!-- ═══ EMOM 1 · 20 Fév · 9kg ═══ -->
+        <!-- 85,119,130,131,147,152,156,155,155,138 -->
+        <!-- Y: 850,510,400,390,230,180,140,150,150,320 -->
+        <polyline points="50,850 150,510 250,400 350,390 450,230 550,180 650,140 750,150 850,150" 
+          fill="none" stroke="#ff4455" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity=".8"/>
+        <!-- start dot -->
+        <circle cx="50" cy="850" r="8" fill="#ff4455" opacity=".6"/>
+        <!-- peak dot at min6 = 156 -->
+        <circle cx="650" cy="140" r="10" fill="none" stroke="#ff4455" stroke-width="3" opacity=".7"/>
         
-        <!-- ═══ EMOM 3 · 27 Fév · 16lb · STRAVA ID 17544567215 ═══ -->
-        <!-- FC réelles: 107, 130, 130, 141, 142, 149, 147, 148, 148, 146 -->
-        <!-- Y: 70.0, 44.4, 44.4, 32.2, 31.1, 23.3, 25.6, 24.4, 24.4, 26.7 -->
-        <polyline 
-          points="5,70.0 15,44.4 25,44.4 35,32.2 45,31.1 55,23.3 65,25.6 75,24.4 85,24.4 95,26.7" 
-          fill="none" stroke="#38d9d9" stroke-width="0.8" stroke-linejoin="round" opacity=".85"/>
-        <circle cx="5" cy="70.0" r="1" fill="#38d9d9"/>
-        <circle cx="55" cy="23.3" r="1.5" fill="#38d9d9" stroke="#0b0b0d" stroke-width="0.4"/>
-        <text x="57" y="21" fill="#38d9d9" font-family="DM Mono,monospace" font-size="3" font-weight="600">149</text>
-        <text x="5" y="67" fill="#38d9d9" font-family="DM Mono,monospace" font-size="2.5" opacity=".7">107</text>
+        <!-- ═══ EMOM 2 · 25 Fév · 16lb ═══ -->
+        <!-- 102,130,130,141,142,147,147,150,149,143 -->
+        <!-- Y: 680,400,400,290,280,230,230,200,210,270 -->
+        <polyline points="50,680 150,400 250,400 350,290 450,280 550,230 650,230 750,200 850,210" 
+          fill="none" stroke="#a77dfa" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity=".75"/>
+        <circle cx="50" cy="680" r="8" fill="#a77dfa" opacity=".6"/>
+        <!-- peak at min7 = 150 -->
+        <circle cx="750" cy="200" r="10" fill="none" stroke="#a77dfa" stroke-width="3" opacity=".7"/>
         
-        <!-- ═══ EMOM 4 · 28 Fév · 6kg · STRAVA ID 17549354735 ═══ -->
-        <!-- FC réelles: 90, 100, 126, 126, 136, 135, 139, 144, 146, 109 -->
-        <!-- Y: 88.9, 77.8, 48.9, 48.9, 37.8, 38.9, 34.4, 28.9, 26.7, 67.8 -->
-        <polyline 
-          points="5,88.9 15,77.8 25,48.9 35,48.9 45,37.8 55,38.9 65,34.4 75,28.9 85,26.7 95,67.8" 
-          fill="none" stroke="#2fd67a" stroke-width="0.8" stroke-linejoin="round" opacity=".85"/>
-        <circle cx="5" cy="88.9" r="1" fill="#2fd67a"/>
-        <circle cx="85" cy="26.7" r="1.5" fill="#2fd67a" stroke="#0b0b0d" stroke-width="0.4"/>
-        <text x="87" y="24" fill="#2fd67a" font-family="DM Mono,monospace" font-size="3" font-weight="600">146</text>
-        <text x="5" y="86" fill="#2fd67a" font-family="DM Mono,monospace" font-size="2.5" opacity=".7">90</text>
+        <!-- ═══ EMOM 3 · 27 Fév · 16lb ═══ -->
+        <!-- 107,130,130,141,142,149,147,148,148,146 -->
+        <!-- Y: 630,400,400,290,280,210,230,220,220,240 -->
+        <polyline points="50,630 150,400 250,400 350,290 450,280 550,210 650,230 750,220 850,220" 
+          fill="none" stroke="#38d9d9" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity=".75"/>
+        <circle cx="50" cy="630" r="8" fill="#38d9d9" opacity=".6"/>
+        <!-- peak at min5 = 149 -->
+        <circle cx="550" cy="210" r="10" fill="none" stroke="#38d9d9" stroke-width="3" opacity=".7"/>
         
-        <!-- ═══ EMOM 5 · 4 Mars · 6kg · STRAVA ID 17605030658 ═══ -->
-        <!-- FC réelles: 107, 129, 129, 138, 138, 148, 149, 149, 152, 149 -->
-        <!-- Y: 70.0, 45.6, 45.6, 35.6, 35.6, 24.4, 23.3, 23.3, 20.0, 23.3 -->
-        <polyline 
-          points="5,70.0 15,45.6 25,45.6 35,35.6 45,35.6 55,24.4 65,23.3 75,23.3 85,20.0 95,23.3" 
-          fill="none" stroke="#4b9fff" stroke-width="1.2" stroke-linejoin="round" opacity="1"/>
-        <circle cx="5" cy="70.0" r="1" fill="#4b9fff"/>
-        <circle cx="85" cy="20.0" r="1.8" fill="#4b9fff" stroke="#0b0b0d" stroke-width="0.5"/>
-        <text x="87" y="18" fill="#4b9fff" font-family="DM Mono,monospace" font-size="3.5" font-weight="600">152</text>
-        <text x="5" y="67" fill="#4b9fff" font-family="DM Mono,monospace" font-size="2.5" opacity=".7">107</text>
+        <!-- ═══ EMOM 4 · 28 Fév · 6kg ═══ -->
+        <!-- 90,100,126,126,136,135,139,144,146,109 -->
+        <!-- Y: 800,700,440,440,340,350,310,260,240,610 -->
+        <polyline points="50,800 150,700 250,440 350,440 450,340 550,350 650,310 750,260 850,240" 
+          fill="none" stroke="#2fd67a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity=".75"/>
+        <circle cx="50" cy="800" r="8" fill="#2fd67a" opacity=".6"/>
+        <!-- peak at min8 = 146 -->
+        <circle cx="850" cy="240" r="10" fill="none" stroke="#2fd67a" stroke-width="3" opacity=".7"/>
         
-        <!-- ═══ RACE Nice · 14 Fév · Estimation (pas de données Strava détaillées) ═══ -->
-        <!-- Estimation: 148, 152, 155, 156, 157, 157, 158, 160, 164, 170 -->
-        <polyline 
-          points="5,24.4 15,20.0 25,16.7 35,15.6 45,14.4 55,14.4 65,13.3 75,11.1 85,6.7 95,0" 
-          fill="none" stroke="#ff5526" stroke-width="0.6" stroke-linejoin="round" stroke-dasharray="2,1.5" opacity=".5"/>
-        <circle cx="5" cy="24.4" r="0.8" fill="#ff5526" opacity=".5"/>
-        <circle cx="95" cy="0" r="1.2" fill="#ff5526" stroke="#0b0b0d" stroke-width="0.4" opacity=".5"/>
-        <text x="97" y="3" fill="#ff5526" font-family="DM Mono,monospace" font-size="3" font-weight="600" opacity=".6">170</text>
-        <text x="5" y="22" fill="#ff5526" font-family="DM Mono,monospace" font-size="2.5" opacity=".5">148</text>
-        
-        <!-- Zone labels -->
-        <text x="1" y="4" fill="#ff4455" font-family="DM Mono,monospace" font-size="2.5" opacity=".35">Z5 &gt;165</text>
-        <text x="1" y="15" fill="#ff5526" font-family="DM Mono,monospace" font-size="2.5" opacity=".35">Z4 150-165</text>
-        <text x="1" y="30" fill="#f4c842" font-family="DM Mono,monospace" font-size="2.5" opacity=".35">Z3 135-150</text>
-        <text x="1" y="50" fill="#2fd67a" font-family="DM Mono,monospace" font-size="2.5" opacity=".35">Z2 120-135</text>
-        <text x="1" y="70" fill="#9090a8" font-family="DM Mono,monospace" font-size="2.5" opacity=".3">Z1 &lt;120</text>
+        <!-- ═══ EMOM 5 · 4 Mars · 6kg · DERNIÈRE SÉANCE (thicker) ═══ -->
+        <!-- 107,129,129,138,138,148,149,149,152,149 -->
+        <!-- Y: 630,410,410,320,320,220,210,210,180,210 -->
+        <polyline points="50,630 150,410 250,410 350,320 450,320 550,220 650,210 750,210 850,180" 
+          fill="none" stroke="#4b9fff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
+        <!-- glow effect -->
+        <polyline points="50,630 150,410 250,410 350,320 450,320 550,220 650,210 750,210 850,180" 
+          fill="none" stroke="#4b9fff" stroke-width="14" stroke-linejoin="round" stroke-linecap="round" opacity=".08"/>
+        <circle cx="50" cy="630" r="9" fill="#4b9fff" opacity=".7"/>
+        <!-- peak at min8 = 152 -->
+        <circle cx="850" cy="180" r="12" fill="none" stroke="#4b9fff" stroke-width="3" opacity=".8"/>
+        <circle cx="850" cy="180" r="5" fill="#4b9fff"/>
         
       </svg>
+
+      <!-- VALUE LABELS (positioned absolutely, outside SVG for crisp text) -->
+      <!-- Using left% = (svgX / 900 * 100), top% = (svgY / 900 * 100) -->
+      
+      <!-- Start labels (left side, staggered) -->
+      <div style="position:absolute;left:2%;top:91%;font-family:var(--fm);font-size:9px;color:#ff4455;opacity:.7;">85</div>
+      <div style="position:absolute;left:2%;top:73%;font-family:var(--fm);font-size:9px;color:#a77dfa;opacity:.7;">102</div>
+      <div style="position:absolute;left:7%;top:67%;font-family:var(--fm);font-size:9px;color:#38d9d9;opacity:.7;">107</div>
+      <div style="position:absolute;left:2%;top:86%;font-family:var(--fm);font-size:9px;color:#2fd67a;opacity:.7;">90</div>
+      <div style="position:absolute;left:7%;top:72%;font-family:var(--fm);font-size:9px;color:#4b9fff;font-weight:600;">107</div>
+      
+      <!-- Peak labels (near peak circles) -->
+      <div style="position:absolute;left:73%;top:12%;font-family:var(--fm);font-size:10px;color:#ff4455;font-weight:600;">156<span style="font-size:7px;opacity:.6;"> pic</span></div>
+      <div style="position:absolute;left:84%;top:19%;font-family:var(--fm);font-size:10px;color:#a77dfa;font-weight:600;">150</div>
+      <div style="position:absolute;left:62%;top:20%;font-family:var(--fm);font-size:10px;color:#38d9d9;font-weight:600;">149</div>
+      <div style="position:absolute;left:92%;top:24%;font-family:var(--fm);font-size:10px;color:#2fd67a;font-weight:600;">146</div>
+      <div style="position:absolute;left:92%;top:16%;font-family:var(--fm);font-size:11px;color:#4b9fff;font-weight:700;">152 ★</div>
+      
+      <!-- Convergence annotation at min 2 -->
+      <div style="position:absolute;left:26%;top:42%;font-family:var(--fm);font-size:8px;color:var(--dim);background:rgba(11,11,13,0.8);padding:2px 6px;border-radius:3px;border:1px solid var(--br);pointer-events:none;">~130 bpm · convergence</div>
+
+    </div><!-- /plot area -->
+
+    <!-- X AXIS -->
+    <div style="position:absolute;left:42px;right:0;bottom:0;height:28px;display:flex;justify-content:space-around;align-items:center;">
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);">0'</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);">1'</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);">2'</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);">3'</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);">4'</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);">5'</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);">6'</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);">7'</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);">8'</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);">9'</span>
     </div>
-    <!-- X axis labels -->
-    <div style="position:absolute;left:45px;right:10px;bottom:0;height:30px;display:flex;justify-content:space-between;padding:0 2%;">
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">0:00</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">1:00</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">2:00</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">3:00</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">4:00</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">5:00</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">6:00</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">7:00</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">8:00</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">9:00</span>
+
+  </div><!-- /chart container -->
+
+  <!-- KEY INSIGHTS — compact row below chart -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px;">
+    <div style="background:var(--s2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--b);">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Convergence</div>
+      <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--b);margin-top:2px;">~130<span style="font-size:11px;color:var(--dim2);">bpm</span></div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim);margin-top:2px;">Toutes les courbes à 2:00</div>
+    </div>
+    <div style="background:var(--s2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--r);">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Impact 9kg</div>
+      <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--r);margin-top:2px;">+10<span style="font-size:11px;color:var(--dim2);">bpm</span></div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim);margin-top:2px;">vs 6kg au plateau</div>
+    </div>
+    <div style="background:var(--s2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--g);">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Plateau EMOM</div>
+      <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--g);margin-top:2px;">146-156<span style="font-size:11px;color:var(--dim2);">bpm</span></div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim);margin-top:2px;">Zone de travail min 5-8</div>
+    </div>
+    <div style="background:var(--s2);border-radius:4px;padding:10px 12px;border-left:3px solid var(--o);">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;">Écart vs Race</div>
+      <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--o);margin-top:2px;">-19<span style="font-size:11px;color:var(--dim2);">bpm</span></div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim);margin-top:2px;">FC moy EMOM vs Race Nice</div>
     </div>
   </div>
-  
-  <div class="legend" style="margin-top:16px;">
-    <div class="lg-item"><div class="lg-dot" style="background:#ff4455"></div>20 Fév · 9kg · 100r · pic 156bpm à 6:00</div>
-    <div class="lg-item"><div class="lg-dot" style="background:#a77dfa"></div>25 Fév · 16lb · 100r · pic 150bpm à 7:00</div>
-    <div class="lg-item"><div class="lg-dot" style="background:#38d9d9"></div>27 Fév · 16lb · 110r · pic 149bpm à 5:00</div>
-    <div class="lg-item"><div class="lg-dot" style="background:#2fd67a"></div>28 Fév · 6kg · 100r · pic 146bpm à 8:00 ← meilleure gestion</div>
-    <div class="lg-item"><div class="lg-dot" style="background:#4b9fff;height:5px;"></div><strong style="color:var(--b);">4 Mars · 6kg · 111r · pic 152bpm à 8:00 ← dernière séance</strong></div>
-    <div class="lg-item"><div class="lg-dot" style="background:#ff5526;height:2px;border-top:1px dashed #ff5526;"></div><span style="opacity:.6;">Race Nice · 6kg · 100r (estimation · FC max 170) — référence</span></div>
-  </div>
-</div>
+
+</div><!-- /chart card -->
 
 <!-- Tableau FC minute par minute - données réelles -->
 <div class="data-table" style="margin-top:12px;">
   <table style="min-width:800px;">
     <tr>
-      <th>Temps</th>
+      <th>Min</th>
       <th style="color:#ff4455;">20 Fév · 9kg</th>
       <th style="color:#a77dfa;">25 Fév · 16lb</th>
       <th style="color:#38d9d9;">27 Fév · 16lb</th>
       <th style="color:#2fd67a;">28 Fév · 6kg</th>
-      <th style="color:#4b9fff;">4 Mars · 6kg</th>
-      <th style="color:var(--dim2);">Δ min→max</th>
+      <th style="color:#4b9fff;">4 Mars · 6kg ★</th>
+      <th style="color:var(--dim2);">Δ</th>
     </tr>
     <tr>
-      <td style="font-family:var(--fm);font-size:10px;">0:00 (départ)</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">0'</td>
       <td style="font-family:var(--fh);font-size:13px;color:#ff4455;">85</td>
       <td style="font-family:var(--fh);font-size:13px;color:#a77dfa;">102</td>
       <td style="font-family:var(--fh);font-size:13px;color:#38d9d9;">107</td>
       <td style="font-family:var(--fh);font-size:13px;color:#2fd67a;">90</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4b9fff;">107</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">22 bpm</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim);">22</td>
     </tr>
     <tr>
-      <td style="font-family:var(--fm);font-size:10px;">1:00</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">1'</td>
       <td style="font-family:var(--fh);font-size:13px;color:#ff4455;">119</td>
       <td style="font-family:var(--fh);font-size:13px;color:#a77dfa;">130</td>
       <td style="font-family:var(--fh);font-size:13px;color:#38d9d9;">130</td>
       <td style="font-family:var(--fh);font-size:13px;color:#2fd67a;">100</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4b9fff;">129</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">30 bpm</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim);">30</td>
     </tr>
-    <tr>
-      <td style="font-family:var(--fm);font-size:10px;">2:00</td>
+    <tr style="background:rgba(75,159,255,0.04);">
+      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">2' ←</td>
       <td style="font-family:var(--fh);font-size:13px;color:#ff4455;">130</td>
       <td style="font-family:var(--fh);font-size:13px;color:#a77dfa;">130</td>
       <td style="font-family:var(--fh);font-size:13px;color:#38d9d9;">130</td>
       <td style="font-family:var(--fh);font-size:13px;color:#2fd67a;">126</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4b9fff;">129</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">4 bpm</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--b);font-weight:600;">4 !</td>
     </tr>
     <tr>
-      <td style="font-family:var(--fm);font-size:10px;">3:00</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">3'</td>
       <td style="font-family:var(--fh);font-size:13px;color:#ff4455;">131</td>
       <td style="font-family:var(--fh);font-size:13px;color:#a77dfa;">141</td>
       <td style="font-family:var(--fh);font-size:13px;color:#38d9d9;">141</td>
       <td style="font-family:var(--fh);font-size:13px;color:#2fd67a;">126</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4b9fff;">138</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">15 bpm</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim);">15</td>
     </tr>
     <tr>
-      <td style="font-family:var(--fm);font-size:10px;">4:00</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">4'</td>
       <td style="font-family:var(--fh);font-size:13px;color:#ff4455;">147</td>
       <td style="font-family:var(--fh);font-size:13px;color:#a77dfa;">142</td>
       <td style="font-family:var(--fh);font-size:13px;color:#38d9d9;">142</td>
       <td style="font-family:var(--fh);font-size:13px;color:#2fd67a;">136</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4b9fff;">138</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">11 bpm</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim);">11</td>
     </tr>
     <tr>
-      <td style="font-family:var(--fm);font-size:10px;">5:00</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">5'</td>
       <td style="font-family:var(--fh);font-size:13px;color:#ff4455;">152</td>
       <td style="font-family:var(--fh);font-size:13px;color:#a77dfa;">147</td>
       <td style="font-family:var(--fh);font-size:13px;color:#38d9d9;">149</td>
       <td style="font-family:var(--fh);font-size:13px;color:#2fd67a;">135</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4b9fff;">148</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">17 bpm</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim);">17</td>
     </tr>
     <tr>
-      <td style="font-family:var(--fm);font-size:10px;">6:00</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">6'</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#ff4455;">156 🔺</td>
       <td style="font-family:var(--fh);font-size:13px;color:#a77dfa;">147</td>
       <td style="font-family:var(--fh);font-size:13px;color:#38d9d9;">147</td>
       <td style="font-family:var(--fh);font-size:13px;color:#2fd67a;">139</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4b9fff;">149</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">17 bpm</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim);">17</td>
     </tr>
     <tr>
-      <td style="font-family:var(--fm);font-size:10px;">7:00</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">7'</td>
       <td style="font-family:var(--fh);font-size:13px;color:#ff4455;">155</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#a77dfa;">150 🔺</td>
       <td style="font-family:var(--fh);font-size:13px;color:#38d9d9;">148</td>
       <td style="font-family:var(--fh);font-size:13px;color:#2fd67a;">144</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4b9fff;">149</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">11 bpm</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim);">11</td>
     </tr>
-    <tr>
-      <td style="font-family:var(--fm);font-size:10px;">8:00</td>
+    <tr style="background:rgba(75,159,255,0.04);">
+      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">8' ★</td>
       <td style="font-family:var(--fh);font-size:13px;color:#ff4455;">155</td>
       <td style="font-family:var(--fh);font-size:13px;color:#a77dfa;">149</td>
       <td style="font-family:var(--fh);font-size:13px;color:#38d9d9;">148</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#2fd67a;">146 🔺</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4b9fff;">152 🔺</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">9 bpm</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--g);font-weight:600;">9 !</td>
     </tr>
-    <tr>
-      <td style="font-family:var(--fm);font-size:10px;">9:00</td>
-      <td style="font-family:var(--fh);font-size:13px;color:#ff4455;">138 ↓</td>
-      <td style="font-family:var(--fh);font-size:13px;color:#a77dfa;">143 ↓</td>
+    <tr style="opacity:.6;">
+      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">9' ↓</td>
+      <td style="font-family:var(--fh);font-size:13px;color:#ff4455;">138</td>
+      <td style="font-family:var(--fh);font-size:13px;color:#a77dfa;">143</td>
       <td style="font-family:var(--fh);font-size:13px;color:#38d9d9;">146</td>
-      <td style="font-family:var(--fh);font-size:13px;color:#2fd67a;">109 ↓↓</td>
+      <td style="font-family:var(--fh);font-size:13px;color:#2fd67a;">109</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4b9fff;">149</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--dim);">40 bpm</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim);">40</td>
     </tr>
   </table>
 </div>
