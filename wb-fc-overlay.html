@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Évolution FC – EMOM Wall Balls</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0f0f1a;color:#eee;font-family:'Inter',system-ui,sans-serif;padding:24px 16px;min-height:100vh;}
+h1{text-align:center;font-size:17px;font-weight:700;margin-bottom:2px;}
+.sub{text-align:center;color:#555;font-size:12px;margin-bottom:20px;}
+.cards{display:flex;justify-content:center;gap:8px;margin-bottom:22px;flex-wrap:wrap;}
+.stat-card{background:#1a1a2e;border-radius:10px;padding:10px 12px;min-width:108;border-top:3px solid;}
+.stat-card .label{font-weight:700;font-size:14px;margin:0;}
+.stat-card .wbs{font-size:10px;color:#555;margin:3px 0 1px;}
+.stat-card .row{font-size:11px;color:#888;margin:2px 0;line-height:1.4;}
+.stat-card .row span{color:#ddd;font-weight:600;}
+.chart-container{position:relative;width:100%;max-width:960px;margin:0 auto;height:340px;}
+.analysis{margin:16px auto 0;max-width:960px;background:#1a1a2e;border-radius:10px;padding:14px 16px;font-size:12px;color:#999;line-height:1.8;}
+.analysis .title{margin:0 0 6px;font-weight:600;color:#eee;font-size:13px;}
+</style>
+</head>
+<body>
+
+<h1>🏋️ Évolution FC – EMOM Wall Balls</h1>
+<p class="sub">5 séances · 20 fév → 04 mars 2026</p>
+
+<!-- Stats cards -->
+<div class="cards">
+  <div class="stat-card" style="border-color:#f97316;">
+    <p class="label" style="color:#f97316;">20/02</p>
+    <p class="wbs">~10'</p>
+    <p class="row">Moy <span>139</span></p>
+    <p class="row">Max <span>158</span></p>
+    <p class="row">Start <span>85</span></p>
+  </div>
+  <div class="stat-card" style="border-color:#22d3ee;">
+    <p class="label" style="color:#22d3ee;">25/02</p>
+    <p class="wbs">100 WB / 10'</p>
+    <p class="row">Moy <span>138</span></p>
+    <p class="row">Max <span>151</span></p>
+    <p class="row">Start <span>102</span></p>
+  </div>
+  <div class="stat-card" style="border-color:#a78bfa;">
+    <p class="label" style="color:#a78bfa;">27/02</p>
+    <p class="wbs">110 WB / 11'</p>
+    <p class="row">Moy <span>136</span></p>
+    <p class="row">Max <span>151</span></p>
+    <p class="row">Start <span>107</span></p>
+  </div>
+  <div class="stat-card" style="border-color:#34d399;">
+    <p class="label" style="color:#34d399;">28/02</p>
+    <p class="wbs">100 WB / 10'</p>
+    <p class="row">Moy <span>127</span></p>
+    <p class="row">Max <span>147</span></p>
+    <p class="row">Start <span>90</span></p>
+  </div>
+  <div class="stat-card" style="border-color:#f43f5e;">
+    <p class="label" style="color:#f43f5e;">04/03</p>
+    <p class="wbs">111 WB / 11'</p>
+    <p class="row">Moy <span>140</span></p>
+    <p class="row">Max <span>152</span></p>
+    <p class="row">Start <span>107</span></p>
+  </div>
+</div>
+
+<div class="chart-container">
+  <canvas id="fcChart"></canvas>
+</div>
+
+<div class="analysis">
+  <p class="title">📈 Tendance sur 5 séances</p>
+  <p>
+    <span style="color:#34d399;font-weight:600;">28/02</span> est la séance la plus économique (moy 127, max 147) — 
+    bonne récup post-Nice visible.
+    <span style="color:#f43f5e;font-weight:600;">04/03</span> monte en moy à 140 avec 111 WB sur 11' — 
+    le volume additionnel se ressent mais les pics restent sous 158 (max du 20/02). 
+    Le profil ondulé EMOM est de plus en plus régulier ✅
+  </p>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// DATA — 5 sessions, 100 points each, interpolated every ~6s
+// Exact data from Strava streams
+// ═══════════════════════════════════════════════════════════════
+const sessions = [
+  {
+    label: "20/02",
+    name: "20/02 – WB Engine",
+    color: "#f97316",
+    time: [0,6,11,17,23,28,34,40,46,51,57,63,68,74,80,85,91,97,103,108,114,120,125,131,137,142,148,154,160,165,171,177,182,188,194,199,205,211,216,222,228,234,239,245,251,256,262,268,273,279,285,291,296,302,308,313,319,325,330,336,342,348,353,359,365,370,376,382,387,393,399,404,410,416,422,427,433,439,444,450,456,461,467,473,479,484,490,496,501,507,513,518,524,530,536,541,547,553,558,564],
+    hr:   [85,86,86,87,91,100,111,126,128,125,121,118,118,117,118,122,130,135,136,135,132,130,129,130,132,136,141,142,140,137,134,132,131,130,132,136,142,147,146,144,142,142,143,148,152,151,147,145,144,142,140,141,145,150,154,153,150,146,146,146,148,152,155,156,154,151,148,147,147,150,154,157,158,157,153,152,150,148,146,145,147,150,155,157,156,151,147,143,140,139,138,140,144,149,154,155,152,147,142,138]
+  },
+  {
+    label: "25/02",
+    name: "25/02 – EMOM 100 WB",
+    color: "#22d3ee",
+    time: [0,6,12,18,24,29,35,41,47,53,59,65,71,77,82,88,94,100,106,112,118,124,130,135,141,147,153,159,165,171,177,183,188,194,200,206,212,218,224,230,236,241,247,253,259,265,271,277,283,289,294,300,306,312,318,324,330,336,342,347,353,359,365,371,377,383,389,395,400,406,412,418,424,430,436,442,448,453,459,465,471,477,483,489,495,501,506,512,518,524,530,536,542,548,554,559,565,571,577,583],
+    hr:   [102,103,103,105,111,118,125,132,132,130,130,129,131,135,139,141,141,139,135,131,129,131,134,138,142,146,146,143,140,137,137,133,131,135,141,146,147,145,141,139,138,136,133,134,138,142,146,147,145,141,140,139,136,135,138,143,149,150,148,144,141,139,137,138,140,144,149,149,148,143,138,138,135,135,140,145,150,151,147,143,141,141,141,139,138,141,146,148,145,139,136,134,132,129,132,137,144,149,149,143]
+  },
+  {
+    label: "27/02",
+    name: "27/02 – EMOM 110 WB",
+    color: "#a78bfa",
+    time: [0,7,13,20,26,33,39,46,52,59,66,72,79,85,92,98,105,111,118,125,131,138,144,151,157,164,170,177,184,190,197,203,210,216,223,229,236,243,249,256,262,269,275,282,288,295,302,308,315,321,328,334,341,347,354,361,367,374,380,387,393,400,406,413,420,426,433,439,446,452,459,465,472,479,485,492,498,505,511,518,524,531,538,544,551,557,564,570,577,583,590,597,603,610,616,623,629,636,642,649],
+    hr:   [107,110,110,109,111,121,132,137,136,131,128,125,122,121,123,129,139,141,139,136,134,131,127,123,125,134,138,142,140,137,136,138,143,148,149,145,141,137,136,135,138,144,147,149,145,141,136,133,132,137,143,147,148,144,140,135,132,128,130,139,144,148,147,144,138,135,132,132,138,144,148,148,142,137,133,131,134,142,148,151,150,146,140,136,130,128,133,140,146,147,144,139,135,130,122,130,140,145,147,144]
+  },
+  {
+    label: "28/02",
+    name: "28/02 – EMOM 100 WB",
+    color: "#34d399",
+    time: [0,6,13,19,25,31,38,44,50,56,63,69,75,82,88,94,100,107,113,119,125,132,138,144,151,157,163,169,176,182,188,194,201,207,213,220,226,232,238,245,251,257,263,270,276,282,289,295,301,307,314,320,326,332,339,345,351,358,364,370,376,383,389,395,401,408,414,420,427,433,439,445,452,458,464,470,477,483,489,496,502,508,514,521,527,533,539,546,552,558,565,571,577,583,590,596,602,608,615,621],
+    hr:   [90,90,90,90,93,97,98,98,98,98,100,104,116,128,134,135,132,128,126,126,125,129,136,140,140,135,128,123,119,117,121,128,136,140,138,133,128,123,119,115,120,130,138,141,138,134,130,123,119,117,123,130,137,139,137,133,127,123,123,131,136,143,144,142,137,131,129,129,133,141,146,146,140,134,129,125,121,121,121,128,136,142,144,140,137,132,131,136,142,147,147,144,140,135,131,129,124,119,112,109]
+  },
+  {
+    label: "04/03",
+    name: "04/03 – EMOM 111 WB",
+    color: "#f43f5e",
+    time: [0,6,13,19,26,32,39,45,52,58,64,71,77,84,90,97,103,110,116,122,129,135,142,148,155,161,168,174,180,187,193,200,206,213,219,226,232,238,245,251,258,264,271,277,284,290,296,303,309,316,322,329,335,342,348,354,361,367,374,380,387,393,400,406,412,419,425,432,438,445,451,458,464,470,477,483,490,496,503,509,516,522,528,535,541,548,554,561,567,574,580,586,593,599,606,612,619,625,632,638],
+    hr:   [107,109,116,125,133,135,132,130,128,129,129,134,141,143,141,138,135,131,128,128,132,140,145,144,142,139,138,138,139,139,143,147,148,147,143,140,138,136,136,139,145,147,146,142,141,140,138,136,137,143,149,149,148,144,142,141,137,139,144,150,152,150,146,145,141,139,140,145,150,150,147,144,144,142,139,135,138,143,148,148,145,141,140,139,137,139,144,150,150,146,143,142,140,140,138,140,146,149,149,147]
+  }
+];
+
+// ═══════════════════════════════════════════════════════════════
+// INTERPOLATION — build combined dataset every 6 seconds
+// ═══════════════════════════════════════════════════════════════
+function interpolate(sessionTime, sessionHr, t) {
+  const idx = sessionTime.findIndex(v => v >= t);
+  if (idx === 0) return sessionHr[0];
+  if (idx === -1) return null;
+  const t0 = sessionTime[idx - 1], t1 = sessionTime[idx];
+  const ratio = (t - t0) / (t1 - t0);
+  return Math.round(sessionHr[idx - 1] + ratio * (sessionHr[idx] - sessionHr[idx - 1]));
+}
+
+const maxTime = Math.max(...sessions.map(s => s.time[s.time.length - 1]));
+const labels = [];
+const datasets = sessions.map(s => ({ data: [] }));
+
+for (let t = 0; t <= maxTime; t += 6) {
+  const minutes = Math.floor(t / 60);
+  const seconds = t % 60;
+  labels.push(`${minutes}:${seconds.toString().padStart(2, '0')}`);
+  sessions.forEach((s, i) => {
+    const v = interpolate(s.time, s.hr, t);
+    datasets[i].data.push(v);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHART.JS
+// ═══════════════════════════════════════════════════════════════
+const ctx = document.getElementById('fcChart').getContext('2d');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: labels,
+    datasets: sessions.map((s, i) => ({
+      label: s.name,
+      data: datasets[i].data,
+      borderColor: s.color,
+      backgroundColor: 'transparent',
+      borderWidth: 2,
+      pointRadius: 0,
+      pointHoverRadius: 4,
+      pointHoverBackgroundColor: s.color,
+      tension: 0.3,
+      fill: false,
+      spanGaps: false,
+    }))
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#888',
+          font: { size: 11, family: "'Inter', sans-serif" },
+          padding: 16,
+          usePointStyle: true,
+          pointStyle: 'line',
+        }
+      },
+      tooltip: {
+        backgroundColor: '#12122a',
+        borderColor: '#2a2a4a',
+        borderWidth: 1,
+        titleColor: '#888',
+        titleFont: { size: 11 },
+        bodyFont: { size: 12, weight: '600' },
+        padding: { top: 10, bottom: 10, left: 14, right: 14 },
+        cornerRadius: 8,
+        itemSort: (a, b) => b.raw - a.raw,
+        filter: (item) => item.raw != null,
+        callbacks: {
+          title: (items) => '⏱ ' + items[0].label,
+          label: (item) => ' ' + item.dataset.label.split(' – ')[0] + ': ' + item.formattedValue + ' bpm',
+        }
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          color: '#1e1e2e',
+          drawBorder: false,
+        },
+        ticks: {
+          color: '#555',
+          font: { size: 10 },
+          callback: function(val, idx) {
+            const label = this.getLabelForValue(val);
+            return label && label.endsWith(':00') ? label : '';
+          },
+          maxRotation: 0,
+        },
+        title: {
+          display: true,
+          text: 'Temps (mm:ss)',
+          color: '#444',
+          font: { size: 10 },
+        }
+      },
+      y: {
+        min: 80,
+        max: 165,
+        grid: {
+          color: '#1e1e2e',
+          drawBorder: false,
+        },
+        ticks: {
+          color: '#555',
+          font: { size: 10 },
+          stepSize: 10,
+        },
+        title: {
+          display: true,
+          text: 'FC (bpm)',
+          color: '#444',
+          font: { size: 10 },
+        }
+      }
+    }
+  },
+  plugins: [{
+    id: 'refLines',
+    beforeDraw(chart) {
+      const { ctx, chartArea, scales } = chart;
+      if (!chartArea) return;
+      
+      // Reference line at 150bpm
+      const y150 = scales.y.getPixelForValue(150);
+      ctx.save();
+      ctx.setLineDash([4, 3]);
+      ctx.strokeStyle = 'rgba(244,63,94,0.2)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(chartArea.left, y150);
+      ctx.lineTo(chartArea.right, y150);
+      ctx.stroke();
+      // Label
+      ctx.fillStyle = 'rgba(244,63,94,0.5)';
+      ctx.font = '10px "DM Mono", monospace';
+      ctx.textAlign = 'right';
+      ctx.fillText('150', chartArea.right - 4, y150 - 4);
+      ctx.restore();
+      
+      // EMOM minute markers (vertical dashed lines)
+      for (let min = 1; min <= 10; min++) {
+        const label = `${min}:00`;
+        const labelIdx = labels.indexOf(label);
+        if (labelIdx >= 0) {
+          const x = scales.x.getPixelForValue(labelIdx);
+          ctx.save();
+          ctx.setLineDash([3, 3]);
+          ctx.strokeStyle = '#222240';
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(x, chartArea.top);
+          ctx.lineTo(x, chartArea.bottom);
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+    }
+  }]
+});
+</script>
+
+</body>
+</html>
