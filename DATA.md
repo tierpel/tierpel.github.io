@@ -180,4 +180,50 @@
 
 ---
 
+---
+
+## 🏐 Wall Balls · Historique complet
+
+### Séances EMOM dédiées (post-Oria)
+
+| # | Date | Reps | Format | Poids | Durée | FC moy | FC max | %LTHR | Contexte |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 20 Fév | 100 | EMOM 10' | 9kg | 9'24" | 139 | 158 | 84% | Post Row 30' |
+| 2 | 25 Fév | 100 | EMOM 10' | 16lb | 9'43" | 138 | 151 | 84% | Post AMRAP 20' + Run |
+| 3 | 27 Fév | 110 | EMOM 11' | 16lb | 10'49" | 136 | 151 | 82% | Post Full Engine Builder |
+| 4 | 28 Fév | 100 | EMOM 10' | 6kg | 10'21" | 127 | 148 | 77% | Post Interval Strength |
+| 5 | 4 Mars | 111 | EMOM 11' | 6kg | 10'38" | 140 | 152 | 85% | Post Engine Intervals 9.6km |
+
+### Séances WB intégrées (WOD/Race)
+
+| Date | Reps | Contexte | FC moy | FC max |
+|---|---|---|---|---|
+| 24 Jan | 100 | For Time Oria (4×25 WB) @9kg | 135 | 159 |
+| 27 Jan | 100 | FS+WB (5×20) @9kg · RPE 9 · Fragmentation | 110 | 161 |
+| 30 Jan | ~30 | Engine Builder (Thrusters+WB) | 120 | 159 |
+| 4 Fév | 150 | Pré-Comp (5×30) @6-9kg | 127 | 157 |
+| 6 Fév | ~50 | Team WOD (100 WB 2 pour 1) | 123 | 160 |
+| **14 Fév** | **100** | **HYROX Nice RACE** @6kg · **9:01** | **155** | **170** |
+
+### Total WB saison : **1041 reps**
+
+### Programmation EMOM S1→Lyon (+1 WB/semaine)
+
+| Sem | Minutes | Reps | Phase | Statut |
+|---|---|---|---|---|
+| S1 | 11' | 111 | Fondations | ✅ Fait |
+| S2 | 12' | 120 | Fondations | Planifié |
+| S3 | 13' | 130 | Fondations | Planifié |
+| S4 | 14' | 140 | Spé HYROX | Planifié |
+| S5 | 15' | 150 | Spé HYROX | Planifié |
+| S6 | 16' | 160 🔥 | Spé HYROX | Planifié |
+| S7 | 12' | 120 | Décharge | Planifié |
+| S8 | 15' | 150 | Pré-comp | Planifié |
+| S9 | 14' | 140 | Pré-comp | Planifié |
+| S10 | 12' | 120 | Taper | Planifié |
+| S11 | 8' | 80 | Taper | Planifié |
+| S12 | — | 50 | 🏁 LYON | RACE |
+
+---
+
 *Dernière mise à jour : 5 Mars 2026 · Session 4*

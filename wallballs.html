@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wall Balls · Analyse & Programmation · HYROX Lyon 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;700&family=Oswald:wght@400;600;700&display=swap');
+:root{
+  --bg:#0b0b0d;--s1:#121215;--s2:#18181e;--s3:#1e1e26;
+  --br:#242430;--br2:#303040;
+  --o:#ff5526;--b:#4b9fff;--g:#2fd67a;--y:#f4c842;--p:#a77dfa;--cy:#38d9d9;--r:#ff4455;
+  --text:#e2e2ea;--dim:#606070;--dim2:#9090a8;
+  --bg-o:#0e0704;--bg-b:#070a12;--bg-g:#070d09;--bg-y:#0d0c06;
+  --bg-p:#0a0814;--bg-cy:#060d0d;--bg-r:#120606;
+  --fh:'Oswald',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:13px;line-height:1.55;}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px 80px;}
+
+/* TOPBAR */
+.topbar{background:var(--s1);border-bottom:1px solid var(--br2);padding:10px 32px;display:flex;align-items:center;justify-content:space-between;font-family:var(--fm);font-size:9px;color:var(--dim2);text-transform:uppercase;letter-spacing:2px;position:sticky;top:0;z-index:100;}
+.topbar a{color:var(--dim2);text-decoration:none;}
+.topbar a:hover{color:var(--o);}
+.topbar-right{display:flex;gap:20px;align-items:center;}
+
+/* HEADER */
+.hdr{background:linear-gradient(150deg,#0a0e18 0%,#0d0806 55%,var(--bg) 100%);border-bottom:1px solid var(--br2);padding:40px 32px 28px;}
+.hdr-inner{max-width:1400px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+h1{font-family:var(--fh);font-size:clamp(28px,4vw,56px);font-weight:700;line-height:.9;letter-spacing:1px;}
+h1 .b{color:var(--b);}h1 .o{color:var(--o);}h1 .y{color:var(--y);}
+.hdr-meta{font-family:var(--fm);font-size:10px;color:var(--dim2);text-transform:uppercase;letter-spacing:3px;margin-top:8px;}
+.hdr-right{text-align:right;}
+.big-stat{font-family:var(--fh);font-size:48px;font-weight:700;line-height:1;}
+.big-lbl{font-family:var(--fm);font-size:9px;color:var(--dim2);text-transform:uppercase;letter-spacing:2px;}
+
+/* SECTION TITLE */
+.st{display:flex;align-items:center;gap:10px;font-family:var(--fh);font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--dim2);margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--br2);}
+.st::before{content:'';width:3px;height:14px;border-radius:1px;}
+.st.blue::before{background:var(--b);}
+.st.orange::before{background:var(--o);}
+.st.green::before{background:var(--g);}
+.st.yellow::before{background:var(--y);}
+.st.purple::before{background:var(--p);}
+.st.cyan::before{background:var(--cy);}
+.st.red::before{background:var(--r);}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+
+/* CARD */
+.card{background:var(--s1);border:1px solid var(--br);border-radius:4px;padding:16px;}
+.card.lo{border-left:3px solid var(--o);}
+.card.lb{border-left:3px solid var(--b);}
+.card.lg{border-left:3px solid var(--g);}
+.card.ly{border-left:3px solid var(--y);}
+.card.lp{border-left:3px solid var(--p);}
+.card.lcy{border-left:3px solid var(--cy);}
+.card.lr{border-left:3px solid var(--r);}
+.ct{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;}
+.co{color:var(--o);}.cb{color:var(--b);}.cg{color:var(--g);}.cy2{color:var(--y);}.cp{color:var(--p);}.ccy{color:var(--cy);}.cr{color:var(--r);}
+.cv{font-family:var(--fh);font-size:32px;font-weight:700;line-height:1;}
+.cv-sub{font-family:var(--fh);font-size:16px;font-weight:400;color:var(--dim2);margin-left:4px;}
+.cs{font-family:var(--fm);font-size:9px;color:var(--dim);margin-top:4px;}
+.note{font-family:var(--fm);font-size:10px;color:var(--dim2);padding:8px 13px;border-left:2px solid var(--br2);border-radius:0 3px 3px 0;background:var(--s1);line-height:1.6;margin-top:8px;}
+.note.o{border-left-color:var(--o);}
+.note.b{border-left-color:var(--b);}
+.note.g{border-left-color:var(--g);}
+.note.y{border-left-color:var(--y);}
+.note.r{border-left-color:var(--r);}
+
+/* CHART AREA */
+.chart-wrap{background:var(--s1);border:1px solid var(--br2);border-radius:4px;padding:20px;overflow-x:auto;}
+.chart-title{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--dim2);margin-bottom:16px;}
+
+/* BAR CHART */
+.bar-chart{display:flex;align-items:flex-end;gap:6px;height:200px;min-width:700px;padding:0 4px;}
+.bar-group{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;}
+.bar-stack{width:100%;display:flex;flex-direction:column;align-items:center;gap:2px;height:180px;justify-content:flex-end;}
+.bar{width:70%;border-radius:2px 2px 0 0;position:relative;transition:height .4s;min-height:2px;}
+.bar-val{font-family:var(--fm);font-size:8px;text-align:center;line-height:1.2;position:absolute;top:-14px;left:0;right:0;}
+.bar-lbl{font-family:var(--fm);font-size:7px;color:var(--dim);text-transform:uppercase;text-align:center;line-height:1.2;}
+.bar-date{font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;}
+
+/* HR LINE OVERLAY */
+.hr-line-chart{position:relative;height:160px;min-width:700px;margin-top:8px;}
+.hr-point{position:absolute;width:8px;height:8px;border-radius:50%;transform:translate(-50%,-50%);z-index:2;}
+.hr-point-label{position:absolute;font-family:var(--fm);font-size:8px;transform:translateX(-50%);z-index:3;}
+.hr-line{position:absolute;height:1px;z-index:1;}
+.hr-zone{position:absolute;left:0;right:0;font-family:var(--fm);font-size:7px;letter-spacing:1px;text-transform:uppercase;border-top:1px dashed;padding-top:2px;opacity:.4;}
+
+/* LEGEND */
+.legend{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;}
+.lg-item{display:flex;align-items:center;gap:5px;font-family:var(--fm);font-size:9px;color:var(--dim2);}
+.lg-dot{width:10px;height:4px;border-radius:1px;}
+
+/* TABLE */
+.data-table{background:var(--s1);border:1px solid var(--br2);border-radius:4px;overflow:hidden;overflow-x:auto;}
+.data-table table{width:100%;border-collapse:collapse;min-width:900px;}
+.data-table th{font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);padding:8px 12px;text-align:left;background:var(--s2);border-bottom:1px solid var(--br);}
+.data-table td{padding:7px 12px;font-size:11px;border-bottom:1px solid var(--br);vertical-align:middle;}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr:hover{background:var(--s2);}
+
+/* PROGRAMMING TABLE */
+.prog-table{background:var(--s1);border:1px solid var(--br2);border-radius:4px;overflow:hidden;overflow-x:auto;}
+.prog-table table{width:100%;border-collapse:collapse;min-width:800px;}
+.prog-table th{font-family:var(--fm);font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);padding:8px 12px;text-align:left;background:var(--s2);border-bottom:1px solid var(--br);}
+.prog-table td{padding:9px 12px;font-size:11px;border-bottom:1px solid var(--br);vertical-align:middle;}
+.prog-table tr:last-child td{border-bottom:none;}
+.prog-table tr.current{background:var(--bg-b);border-left:3px solid var(--b);}
+.prog-table tr.future{opacity:.7;}
+.prog-table tr.race{background:var(--bg-o);border-left:3px solid var(--o);}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:9px;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;}
+.badge.ok{background:var(--bg-g);color:var(--g);border:1px solid #285030;}
+.badge.warn{background:var(--bg-y);color:var(--y);border:1px solid #3a2808;}
+.badge.alert{background:var(--bg-r);color:var(--r);border:1px solid #4a1818;}
+.badge.plan{background:var(--s2);color:var(--dim2);border:1px solid var(--br2);}
+.badge.race{background:var(--bg-o);color:var(--o);border:1px solid #4a1808;}
+
+/* DELTA */
+.delta{font-family:var(--fm);font-size:9px;padding:2px 6px;border-radius:2px;}
+.delta.pos{background:var(--bg-g);color:var(--g);}
+.delta.neg{background:var(--bg-r);color:var(--r);}
+
+/* PBAR */
+.pbar-wrap{background:var(--s2);border-radius:2px;height:4px;overflow:hidden;margin-top:6px;}
+.pbar{height:100%;border-radius:2px;transition:width .4s;}
+
+/* PHASE BANNER */
+.phase-banner{background:var(--bg-y);border:1px solid #3a3010;border-radius:4px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.pb-left{display:flex;flex-direction:column;gap:4px;}
+.pb-phase{font-family:var(--fh);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:2px;}
+.pb-sub{font-family:var(--fm);font-size:9px;color:var(--dim2);text-transform:uppercase;letter-spacing:1.5px;}
+
+footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;color:var(--br2);border-top:1px solid var(--br);margin-top:40px;}
+
+@media(max-width:768px){
+  .g2,.g3,.g4,.g5{grid-template-columns:1fr;}
+  .wrap{padding:0 16px 60px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="index.html">← Accueil</a>
+  <div class="topbar-right">
+    <a href="suivi.html">Suivi →</a>
+    <a href="programme_complet_remi.html">Programme →</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-inner">
+    <div>
+      <h1>🏐 <span class="y">WALL</span> <span class="o">BALLS</span></h1>
+      <div class="hdr-meta">Analyse · FC · Programmation EMOM post-Oria · S1→Lyon</div>
+    </div>
+    <div class="hdr-right">
+      <div class="big-stat" style="color:var(--o)" id="total-wb">1041</div>
+      <div class="big-lbl">Wall Balls total saison</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ══ PROBLÉMATIQUE ══ -->
+<div class="st red">Constat · Wall Balls = point faible n°1</div>
+<div class="phase-banner" style="background:var(--bg-r);border-color:#4a1818;">
+  <div class="pb-left">
+    <div class="pb-phase" style="color:var(--r);">⚠ Seule vraie régression Paris → Nice</div>
+    <div class="pb-sub">Wall Balls : 8:35 → 9:01 (+26s) · Dernière station = fatigue max · FC 155bpm moy en course</div>
+  </div>
+  <div style="text-align:right;">
+    <div style="font-family:var(--fh);font-size:28px;font-weight:700;color:var(--r);">+26s</div>
+    <div style="font-family:var(--fm);font-size:9px;color:var(--dim2);text-transform:uppercase;letter-spacing:1px;">Régression Nice</div>
+  </div>
+</div>
+
+<div class="g3" style="margin-top:12px;">
+  <div class="card lr">
+    <div class="ct cr">Paris Nov 2025</div>
+    <div class="cv" style="color:var(--y)">8:35</div>
+    <div class="cs">100 WB @6kg · Station 8/8 · FC ~155bpm</div>
+  </div>
+  <div class="card lr">
+    <div class="ct cr">Nice Fév 2026</div>
+    <div class="cv" style="color:var(--r)">9:01</div>
+    <div class="cs">100 WB @6kg · Station 8/8 · FC moy 155bpm · FC max 170bpm</div>
+  </div>
+  <div class="card lg">
+    <div class="ct cg">Cible Lyon Doubles</div>
+    <div class="cv" style="color:var(--g)">~7:00</div>
+    <div class="cs">50 WB chacun (Rémi + Mélanie) · Sous fatigue mais partagée</div>
+  </div>
+</div>
+
+<div class="note r" style="margin-top:8px;">
+  🔍 <strong>Analyse :</strong> Les WB sont la dernière station HYROX. Après 7 stations + 8km de run, la FC est déjà haute (155bpm moy à Nice), les jambes sont lourdes (post-Lunges), et le mouvement de squat profond + lancer devient très coûteux. La régression de +26s à Nice montre que le problème n'est pas la force brute mais <strong>l'endurance musculaire sous fatigue</strong> et la <strong>gestion du rythme</strong>.
+</div>
+
+<!-- ══ KPI WALL BALLS ══ -->
+<div class="st yellow">KPI · Wall Balls · Saison 2025-2026</div>
+<div class="g5">
+  <div class="card ly">
+    <div class="ct cy2">Total reps</div>
+    <div class="cv" style="color:var(--y)">1041</div>
+    <div class="cs">Depuis Jan 2026</div>
+  </div>
+  <div class="card lo">
+    <div class="ct co">Séances EMOM</div>
+    <div class="cv" style="color:var(--o)">5</div>
+    <div class="cs">EMOM dédiés post-Oria</div>
+  </div>
+  <div class="card lb">
+    <div class="ct cb">FC moy EMOM</div>
+    <div class="cv" style="color:var(--b)">136<span class="cv-sub">bpm</span></div>
+    <div class="cs">Moy sur 5 EMOM · 82% LTHR</div>
+  </div>
+  <div class="card lp">
+    <div class="ct cp">FC max EMOM</div>
+    <div class="cv" style="color:var(--p)">158<span class="cv-sub">bpm</span></div>
+    <div class="cs">Record @9kg · 20 Fév</div>
+  </div>
+  <div class="card lg">
+    <div class="ct cg">Tendance FC</div>
+    <div class="cv" style="color:var(--g)">↓</div>
+    <div class="cs">FC max en baisse à volume égal</div>
+  </div>
+</div>
+
+<!-- ══ GRAPHIQUE VOLUME & FC ══ -->
+<div class="st orange">Évolution · Volume & Fréquence cardiaque · EMOM post-Oria</div>
+
+<div class="chart-wrap">
+  <div class="chart-title">📊 Volume (barres) · FC moyenne (ligne bleue) · FC max (ligne rouge) · Poids ball (étiquette)</div>
+  
+  <!-- Combined chart with bars + line overlay -->
+  <div style="position:relative;min-width:700px;">
+    <!-- Volume bars -->
+    <div class="bar-chart" id="volume-chart">
+      <!-- Filled by JS -->
+    </div>
+    
+    <!-- FC overlay -->
+    <canvas id="fc-canvas" width="700" height="200" style="position:absolute;top:0;left:0;width:100%;height:200px;pointer-events:none;"></canvas>
+  </div>
+  
+  <div class="legend">
+    <div class="lg-item"><div class="lg-dot" style="background:var(--y)"></div>Volume (reps)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--b)"></div>FC moyenne (bpm)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--r)"></div>FC max (bpm)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--dim);height:1px;border-top:1px dashed var(--dim)"></div>Zone seuil (LTHR 165bpm)</div>
+  </div>
+</div>
+
+<!-- ══ TABLEAU DÉTAILLÉ SÉANCES ══ -->
+<div class="st blue">Historique détaillé · Toutes les séances Wall Balls</div>
+
+<div class="data-table">
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Date</th>
+      <th>Contexte</th>
+      <th>Format</th>
+      <th>Reps</th>
+      <th>Poids</th>
+      <th>Durée</th>
+      <th>FC moy</th>
+      <th>FC max</th>
+      <th>%LTHR moy</th>
+      <th>Notes</th>
+    </tr>
+    <tr style="background:var(--bg-o);">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">11</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">4 Mars</td>
+      <td>Post Engine Intervals Oria</td>
+      <td style="color:var(--y);">EMOM 11'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">111</td>
+      <td style="color:var(--g);">6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">10'38"</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">140</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--r);">152</td>
+      <td style="font-family:var(--fm);font-size:10px;">85%</td>
+      <td style="font-size:10px;color:var(--dim2);">Post 9.6km run + 6 intervals · Sous fatigue ✅</td>
+    </tr>
+    <tr>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">10</td>
+      <td style="font-family:var(--fm);font-size:10px;">28 Fév</td>
+      <td>Post Interval Strength Oria</td>
+      <td style="color:var(--y);">EMOM 10'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">100</td>
+      <td style="color:var(--g);">6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">10'21"</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">127</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--r);">148</td>
+      <td style="font-family:var(--fm);font-size:10px;">77%</td>
+      <td style="font-size:10px;color:var(--dim2);">FC la plus basse · Bonne gestion</td>
+    </tr>
+    <tr>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">9</td>
+      <td style="font-family:var(--fm);font-size:10px;">27 Fév</td>
+      <td>Post Full Engine Builder Oria</td>
+      <td style="color:var(--y);">EMOM 11'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">110</td>
+      <td style="color:var(--o);">16lb</td>
+      <td style="font-family:var(--fm);font-size:10px;">10'49"</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">136</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--r);">151</td>
+      <td style="font-family:var(--fm);font-size:10px;">82%</td>
+      <td style="font-size:10px;color:var(--dim2);">+10 reps vs veille · 16lb = plus lourd</td>
+    </tr>
+    <tr>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">8</td>
+      <td style="font-family:var(--fm);font-size:10px;">25 Fév</td>
+      <td>Post Engine & Run Oria</td>
+      <td style="color:var(--y);">EMOM 10'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">100</td>
+      <td style="color:var(--o);">16lb</td>
+      <td style="font-family:var(--fm);font-size:10px;">9'43"</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">138</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--r);">151</td>
+      <td style="font-family:var(--fm);font-size:10px;">84%</td>
+      <td style="font-size:10px;color:var(--dim2);">Post AMRAP 20' + Bloc Run intense (Z5 47%)</td>
+    </tr>
+    <tr>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">7</td>
+      <td style="font-family:var(--fm);font-size:10px;">20 Fév</td>
+      <td>Post Row 30' Oria</td>
+      <td style="color:var(--y);">EMOM 10'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">100</td>
+      <td style="color:var(--r);">9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">9'24"</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">139</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--r);">158</td>
+      <td style="font-family:var(--fm);font-size:10px;">84%</td>
+      <td style="font-size:10px;color:var(--dim2);">FC max la plus haute · Ball 9kg = plus lourde</td>
+    </tr>
+    <tr style="background:var(--bg-r);">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--r);">🏁</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--r);">14 Fév</td>
+      <td style="color:var(--r);font-weight:600;">HYROX Nice · RACE</td>
+      <td style="color:var(--r);">Race 100 WB</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--r);">100</td>
+      <td style="color:var(--g);">6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--r);">9:01</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--r);">155</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--r);">170</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--r);">94%</td>
+      <td style="font-size:10px;color:var(--r);">Station 8/8 · Post 7 stations + 8km · FC quasi max</td>
+    </tr>
+    <tr>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">6</td>
+      <td style="font-family:var(--fm);font-size:10px;">6 Fév</td>
+      <td>Team WOD Oria (2 pour 1)</td>
+      <td style="color:var(--dim2);">WOD Team</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">~50</td>
+      <td>—</td>
+      <td style="font-family:var(--fm);font-size:10px;">—</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--dim2);">123</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--dim2);">160</td>
+      <td style="font-family:var(--fm);font-size:10px;">75%</td>
+      <td style="font-size:10px;color:var(--dim2);">100 WB partagés · Avec partenaire</td>
+    </tr>
+    <tr>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">5</td>
+      <td style="font-family:var(--fm);font-size:10px;">4 Fév</td>
+      <td>Pré-Comp Nice · 5×30 reps</td>
+      <td style="color:var(--dim2);">Séries</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">150</td>
+      <td style="color:var(--dim2);">6-9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">—</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--dim2);">127</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--dim2);">157</td>
+      <td style="font-family:var(--fm);font-size:10px;">77%</td>
+      <td style="font-size:10px;color:var(--dim2);">S1:15/10/5@9kg · S2-4:@6kg · S5:mix · Fragmentation ⚠</td>
+    </tr>
+    <tr>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">4</td>
+      <td style="font-family:var(--fm);font-size:10px;">30 Jan</td>
+      <td>Engine Builder Oria (Thrusters+WB)</td>
+      <td style="color:var(--dim2);">WOD intégré</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">~30</td>
+      <td>—</td>
+      <td style="font-family:var(--fm);font-size:10px;">—</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--dim2);">120</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--dim2);">159</td>
+      <td style="font-family:var(--fm);font-size:10px;">73%</td>
+      <td style="font-size:10px;color:var(--dim2);">WB dans bloc D du WOD</td>
+    </tr>
+    <tr>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">3</td>
+      <td style="font-family:var(--fm);font-size:10px;">27 Jan</td>
+      <td>Force + Sled · FS + WB</td>
+      <td style="color:var(--dim2);">5×(4FS+20WB)</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">100</td>
+      <td style="color:var(--r);">9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">—</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--dim2);">110</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--dim2);">161</td>
+      <td style="font-family:var(--fm);font-size:10px;">67%</td>
+      <td style="font-size:10px;color:var(--r);">💔 Fragmentation S3:10/5/5 · S4-5:5×4 · RPE 9</td>
+    </tr>
+    <tr>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">2</td>
+      <td style="font-family:var(--fm);font-size:10px;">24 Jan</td>
+      <td>For Time Oria (4×25 WB)</td>
+      <td style="color:var(--dim2);">WOD intégré</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">100</td>
+      <td style="color:var(--r);">9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">—</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--dim2);">135</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--dim2);">159</td>
+      <td style="font-family:var(--fm);font-size:10px;">82%</td>
+      <td style="font-size:10px;color:var(--dim2);">4 rounds : 25 WB + Run + BBJ + Farmer</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ══ ANALYSE FC ══ -->
+<div class="st purple">Analyse FC · EMOM Wall Balls sous fatigue</div>
+
+<div class="chart-wrap">
+  <div class="chart-title">❤️ FC moyenne & FC max par séance EMOM · Évolution sur 5 séances</div>
+  <div style="position:relative;height:220px;min-width:600px;" id="fc-chart-area">
+    <!-- Y axis labels -->
+    <div style="position:absolute;left:0;top:0;bottom:30px;width:40px;display:flex;flex-direction:column;justify-content:space-between;">
+      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">170</span>
+      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">160</span>
+      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">150</span>
+      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">140</span>
+      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">130</span>
+      <span style="font-family:var(--fm);font-size:8px;color:var(--dim);">120</span>
+    </div>
+    <!-- Chart area -->
+    <div style="position:absolute;left:45px;right:10px;top:0;bottom:30px;border-left:1px solid var(--br);border-bottom:1px solid var(--br);" id="fc-plot">
+      <!-- LTHR line -->
+      <div style="position:absolute;left:0;right:0;bottom:90%;border-top:1px dashed var(--r);opacity:.3;">
+        <span style="font-family:var(--fm);font-size:7px;color:var(--r);position:absolute;right:0;top:-10px;">LTHR 165</span>
+      </div>
+      <!-- 150 line -->
+      <div style="position:absolute;left:0;right:0;bottom:60%;border-top:1px dashed var(--dim);opacity:.2;">
+        <span style="font-family:var(--fm);font-size:7px;color:var(--dim);position:absolute;right:0;top:-10px;">150</span>
+      </div>
+      <!-- 140 line -->
+      <div style="position:absolute;left:0;right:0;bottom:40%;border-top:1px dashed var(--dim);opacity:.2;">
+        <span style="font-family:var(--fm);font-size:7px;color:var(--dim);position:absolute;right:0;top:-10px;">140</span>
+      </div>
+      <!-- 130 line -->
+      <div style="position:absolute;left:0;right:0;bottom:20%;border-top:1px dashed var(--dim);opacity:.2;">
+        <span style="font-family:var(--fm);font-size:7px;color:var(--dim);position:absolute;right:0;top:-10px;">130</span>
+      </div>
+      
+      <!-- SVG for lines and points -->
+      <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="width:100%;height:100%;overflow:visible;">
+        <!-- FC max line (red) -->
+        <polyline points="50,24 150,34 250,34 350,44 450,36" fill="none" stroke="#ff4455" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- FC moy line (blue) -->
+        <polyline points="50,22 150,28 250,32 350,54 450,20" fill="none" stroke="#4b9fff" stroke-width="1.5" stroke-linejoin="round"/>
+        
+        <!-- FC max points -->
+        <circle cx="50" cy="24" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="1.5"/>
+        <circle cx="150" cy="34" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="1.5"/>
+        <circle cx="250" cy="34" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="1.5"/>
+        <circle cx="350" cy="44" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="1.5"/>
+        <circle cx="450" cy="36" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="1.5"/>
+        
+        <!-- FC moy points -->
+        <circle cx="50" cy="22" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="1.5"/>
+        <circle cx="150" cy="28" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="1.5"/>
+        <circle cx="250" cy="32" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="1.5"/>
+        <circle cx="350" cy="54" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="1.5"/>
+        <circle cx="450" cy="20" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="1.5"/>
+        
+        <!-- Labels FC max -->
+        <text x="50" y="16" text-anchor="middle" fill="#ff4455" font-family="DM Mono" font-size="6">158</text>
+        <text x="150" y="26" text-anchor="middle" fill="#ff4455" font-family="DM Mono" font-size="6">151</text>
+        <text x="250" y="26" text-anchor="middle" fill="#ff4455" font-family="DM Mono" font-size="6">151</text>
+        <text x="350" y="36" text-anchor="middle" fill="#ff4455" font-family="DM Mono" font-size="6">148</text>
+        <text x="450" y="28" text-anchor="middle" fill="#ff4455" font-family="DM Mono" font-size="6">152</text>
+        
+        <!-- Labels FC moy -->
+        <text x="50" y="14" text-anchor="middle" fill="#4b9fff" font-family="DM Mono" font-size="6" dy="30">139</text>
+        <text x="150" y="20" text-anchor="middle" fill="#4b9fff" font-family="DM Mono" font-size="6" dy="30">138</text>
+        <text x="250" y="24" text-anchor="middle" fill="#4b9fff" font-family="DM Mono" font-size="6" dy="30">136</text>
+        <text x="350" y="46" text-anchor="middle" fill="#4b9fff" font-family="DM Mono" font-size="6" dy="30">127</text>
+        <text x="450" y="12" text-anchor="middle" fill="#4b9fff" font-family="DM Mono" font-size="6" dy="30">140</text>
+        
+        <!-- Weight labels -->
+        <text x="50" y="108" text-anchor="middle" fill="#9090a8" font-family="DM Mono" font-size="5">9kg</text>
+        <text x="150" y="108" text-anchor="middle" fill="#9090a8" font-family="DM Mono" font-size="5">16lb</text>
+        <text x="250" y="108" text-anchor="middle" fill="#9090a8" font-family="DM Mono" font-size="5">16lb</text>
+        <text x="350" y="108" text-anchor="middle" fill="#9090a8" font-family="DM Mono" font-size="5">6kg</text>
+        <text x="450" y="108" text-anchor="middle" fill="#9090a8" font-family="DM Mono" font-size="5">6kg</text>
+      </svg>
+    </div>
+    <!-- X axis labels -->
+    <div style="position:absolute;left:45px;right:10px;bottom:0;height:25px;display:flex;justify-content:space-around;">
+      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">20 Fév<br><span style="color:var(--dim);font-size:7px;">100 reps</span></span>
+      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">25 Fév<br><span style="color:var(--dim);font-size:7px;">100 reps</span></span>
+      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">27 Fév<br><span style="color:var(--dim);font-size:7px;">110 reps</span></span>
+      <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);">28 Fév<br><span style="color:var(--dim);font-size:7px;">100 reps</span></span>
+      <span style="font-family:var(--fm);font-size:8px;color:var(--b);">4 Mars<br><span style="color:var(--dim);font-size:7px;">111 reps</span></span>
+    </div>
+  </div>
+  
+  <div class="legend">
+    <div class="lg-item"><div class="lg-dot" style="background:var(--b)"></div>FC moyenne (bpm)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--r)"></div>FC max (bpm)</div>
+    <div class="lg-item" style="color:var(--dim)"><div class="lg-dot" style="background:var(--r);opacity:.3;height:1px;border-top:1px dashed var(--r)"></div>LTHR 165bpm</div>
+  </div>
+</div>
+
+<div class="g2" style="margin-top:12px;">
+  <div class="card lb">
+    <div class="ct cb">Observations FC</div>
+    <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
+      <span style="color:var(--b);">1.</span> <strong style="color:var(--text);">FC max en baisse</strong> : 158→151→151→148 sur les 4 premières séances (−10bpm)<br>
+      <span style="color:var(--b);">2.</span> <strong style="color:var(--text);">Poids de la ball impacte la FC</strong> : @9kg = FC max 158 vs @6kg = FC max 148-152<br>
+      <span style="color:var(--b);">3.</span> <strong style="color:var(--text);">Séance 28 Fév = meilleure gestion</strong> : FC moy 127bpm (77% LTHR) pour 100 reps @6kg<br>
+      <span style="color:var(--b);">4.</span> <strong style="color:var(--text);">Séance 4 Mars = sous fatigue</strong> : FC moy 140bpm post Engine Intervals (9.6km + 6 intervals) → FC plus haute car pré-fatiguée, mais volume augmenté (111 reps)
+    </div>
+  </div>
+  <div class="card lr">
+    <div class="ct cr">Comparaison EMOM vs Race</div>
+    <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
+      <span style="color:var(--r);">Race Nice :</span> FC moy <strong style="color:var(--r);">155bpm</strong> · FC max <strong style="color:var(--r);">170bpm</strong> · 94% LTHR<br>
+      <span style="color:var(--b);">EMOM moy :</span> FC moy <strong style="color:var(--b);">136bpm</strong> · FC max <strong style="color:var(--b);">152bpm</strong> · 82% LTHR<br>
+      <span style="color:var(--y);">Écart :</span> <strong style="color:var(--y);">+19bpm moy</strong> en course vs entraînement<br>
+      <br>
+      → L'objectif des EMOM post-Oria est de <strong style="color:var(--text);">réduire cet écart</strong> en s'entraînant sous fatigue progressive. Plus la FC EMOM se rapproche de 145-150bpm, plus on simule les conditions de course.
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROGRAMMATION EMOM ══ -->
+<div class="st green">Programmation · EMOM Wall Balls post-Oria · S1 → Lyon</div>
+
+<div class="phase-banner" style="background:var(--bg-g);border-color:#285030;">
+  <div class="pb-left">
+    <div class="pb-phase" style="color:var(--g);">🎯 Protocole EMOM progressif</div>
+    <div class="pb-sub">Après chaque séance Oria · +1 WB/semaine · Ancrage moteur · Volume sous fatigue · Diminution récup relative</div>
+  </div>
+</div>
+
+<div class="g3" style="margin-top:12px;">
+  <div class="card lg">
+    <div class="ct cg">Principe</div>
+    <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
+      <strong style="color:var(--text);">EMOM = Every Minute On the Minute</strong><br>
+      10 WB au top de chaque minute<br>
+      Le temps restant = récupération<br>
+      <span style="color:var(--g);">→ Plus de reps = plus de minutes = même récup/rep mais volume total ↑</span>
+    </div>
+  </div>
+  <div class="card lo">
+    <div class="ct co">Objectifs</div>
+    <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
+      <strong style="color:var(--o);">1.</strong> Ancrer le mouvement (pattern moteur)<br>
+      <strong style="color:var(--o);">2.</strong> Travailler sous fatigue post-séance<br>
+      <strong style="color:var(--o);">3.</strong> Augmenter le volume progressivement<br>
+      <strong style="color:var(--o);">4.</strong> Diminuer la récup relative (ratio travail/repos ↑)
+    </div>
+  </div>
+  <div class="card lb">
+    <div class="ct cb">Progression</div>
+    <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
+      <strong style="color:var(--b);">+1 WB par semaine</strong><br>
+      S1 : 11 WB/min × 10' = <strong style="color:var(--text);">110 reps</strong><br>
+      S6 : 11 WB/min × 15' = <strong style="color:var(--text);">165 reps</strong><br>
+      S10 : 11 WB/min × 12' = <strong style="color:var(--text);">132 reps</strong> (taper)<br>
+      <span style="color:var(--g);">Ball @6kg (poids HYROX)</span>
+    </div>
+  </div>
+</div>
+
+<!-- Tableau programmation -->
+<div class="prog-table" style="margin-top:12px;">
+  <table>
+    <tr>
+      <th>Sem.</th>
+      <th>Phase</th>
+      <th>Date Oria</th>
+      <th>Format EMOM</th>
+      <th>Reps/min</th>
+      <th>Minutes</th>
+      <th>Total reps</th>
+      <th>Poids</th>
+      <th>Récup/min</th>
+      <th>Objectif FC</th>
+      <th>Statut</th>
+    </tr>
+    <!-- Pré-S1 -->
+    <tr style="opacity:.6;">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">Pré</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim2);">Pré-prog</td>
+      <td style="font-family:var(--fm);font-size:10px;">20 Fév</td>
+      <td>EMOM 10'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">100</td>
+      <td>9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">—</td>
+      <td><span class="badge ok">✅ Fait</span></td>
+    </tr>
+    <tr style="opacity:.6;">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">Pré</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim2);">Pré-prog</td>
+      <td style="font-family:var(--fm);font-size:10px;">25 Fév</td>
+      <td>EMOM 10'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">100</td>
+      <td>16lb</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">—</td>
+      <td><span class="badge ok">✅ Fait</span></td>
+    </tr>
+    <tr style="opacity:.6;">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">Pré</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim2);">Pré-prog</td>
+      <td style="font-family:var(--fm);font-size:10px;">27 Fév</td>
+      <td>EMOM 11'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">11'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">110</td>
+      <td>16lb</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">—</td>
+      <td><span class="badge ok">✅ Fait</span></td>
+    </tr>
+    <tr style="opacity:.6;">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">Pré</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--dim2);">Pré-prog</td>
+      <td style="font-family:var(--fm);font-size:10px;">28 Fév</td>
+      <td>EMOM 10'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">100</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">—</td>
+      <td><span class="badge ok">✅ Fait</span></td>
+    </tr>
+    <!-- S1 -->
+    <tr class="current">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S1</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--g);">Fondations</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">4 Mars</td>
+      <td style="color:var(--b);">EMOM 11'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">10+1</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">11'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">111</td>
+      <td style="color:var(--g);">6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">140 moy ✅</td>
+      <td><span class="badge ok">✅ Fait</span></td>
+    </tr>
+    <!-- S2 -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--g);">S2</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--g);">Fondations</td>
+      <td style="font-family:var(--fm);font-size:10px;">~11 Mars</td>
+      <td>EMOM 12'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">12'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">120</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 140</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S3 -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--g);">S3</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--g);">Fondations</td>
+      <td style="font-family:var(--fm);font-size:10px;">~18 Mars</td>
+      <td>EMOM 13'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">13'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">130</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 140</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S4 -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S4</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--b);">Spé HYROX</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25 Mars</td>
+      <td>EMOM 14'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">14'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">140</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 142</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S5 -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S5</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--b);">Spé HYROX</td>
+      <td style="font-family:var(--fm);font-size:10px;">~1 Avr</td>
+      <td>EMOM 15'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">15'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">150</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 142</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S6 -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S6</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--b);">Spé HYROX</td>
+      <td style="font-family:var(--fm);font-size:10px;">~8 Avr</td>
+      <td style="color:var(--o);">EMOM 16' 🔥</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--o);">16'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">160</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 145</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S7 -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--g);">S7</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--y);">Décharge</td>
+      <td style="font-family:var(--fm);font-size:10px;">~15 Avr</td>
+      <td style="color:var(--y);">EMOM 12' (décharge)</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">12'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">120</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 135</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S8 -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">S8</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--o);">Pré-comp</td>
+      <td style="font-family:var(--fm);font-size:10px;">~22 Avr</td>
+      <td style="color:var(--o);">EMOM 15' (test)</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">15'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">150</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 140</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S9 -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">S9</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--o);">Pré-comp</td>
+      <td style="font-family:var(--fm);font-size:10px;">~29 Avr</td>
+      <td>EMOM 14'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">14'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">140</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 138</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S10 -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">S10</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--y);">Taper −30%</td>
+      <td style="font-family:var(--fm);font-size:10px;">~6 Mai</td>
+      <td style="color:var(--y);">EMOM 12' (taper)</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">12'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">120</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 135</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S11 -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">S11</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--y);">Taper −50%</td>
+      <td style="font-family:var(--fm);font-size:10px;">~13 Mai</td>
+      <td style="color:var(--y);">EMOM 8' (taper)</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">8'</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--dim2);">80</td>
+      <td>6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">~25s</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 130</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S12 RACE -->
+    <tr class="race">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">S12</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--o);">Race Week</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--o);">21 Mai</td>
+      <td style="color:var(--o);font-weight:600;">🏁 HYROX LYON</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--o);">—</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--o);">—</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">50</td>
+      <td style="color:var(--o);">6kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">—</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--o);">ALL OUT</td>
+      <td><span class="badge race">🏁 RACE</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- Graphique progression volume -->
+<div class="chart-wrap" style="margin-top:12px;">
+  <div class="chart-title">📈 Projection volume EMOM · S1 → Lyon (reps par séance)</div>
+  <div style="display:flex;align-items:flex-end;gap:4px;height:180px;min-width:700px;padding:0 4px;">
+    <!-- Pré-S1 bars -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);">100</div>
+      <div style="width:60%;height:62px;background:var(--dim);border-radius:2px 2px 0 0;opacity:.5;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim);">Pré</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);">100</div>
+      <div style="width:60%;height:62px;background:var(--dim);border-radius:2px 2px 0 0;opacity:.5;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim);">Pré</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);">110</div>
+      <div style="width:60%;height:68px;background:var(--dim);border-radius:2px 2px 0 0;opacity:.5;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim);">Pré</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);">100</div>
+      <div style="width:60%;height:62px;background:var(--dim);border-radius:2px 2px 0 0;opacity:.5;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim);">Pré</div>
+    </div>
+    <!-- S1 -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--b);">111</div>
+      <div style="width:60%;height:69px;background:var(--b);border-radius:2px 2px 0 0;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--b);">S1</div>
+    </div>
+    <!-- S2-S6 projected -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--g);">120</div>
+      <div style="width:60%;height:75px;background:var(--g);border-radius:2px 2px 0 0;opacity:.6;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--g);">S2</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--g);">130</div>
+      <div style="width:60%;height:81px;background:var(--g);border-radius:2px 2px 0 0;opacity:.6;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--g);">S3</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--b);">140</div>
+      <div style="width:60%;height:87px;background:var(--b);border-radius:2px 2px 0 0;opacity:.6;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--b);">S4</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--b);">150</div>
+      <div style="width:60%;height:93px;background:var(--b);border-radius:2px 2px 0 0;opacity:.6;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--b);">S5</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--o);">160 🔥</div>
+      <div style="width:60%;height:100px;background:var(--o);border-radius:2px 2px 0 0;opacity:.8;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--o);">S6</div>
+    </div>
+    <!-- S7 deload -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--y);">120</div>
+      <div style="width:60%;height:75px;background:var(--y);border-radius:2px 2px 0 0;opacity:.5;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--y);">S7 ↓</div>
+    </div>
+    <!-- S8-S9 -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--o);">150</div>
+      <div style="width:60%;height:93px;background:var(--o);border-radius:2px 2px 0 0;opacity:.6;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--o);">S8</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--o);">140</div>
+      <div style="width:60%;height:87px;background:var(--o);border-radius:2px 2px 0 0;opacity:.6;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--o);">S9</div>
+    </div>
+    <!-- S10-S11 taper -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--y);">120</div>
+      <div style="width:60%;height:75px;background:var(--y);border-radius:2px 2px 0 0;opacity:.4;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--y);">S10 ↓</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--y);">80</div>
+      <div style="width:60%;height:50px;background:var(--y);border-radius:2px 2px 0 0;opacity:.3;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--y);">S11 ↓</div>
+    </div>
+    <!-- S12 Race -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-family:var(--fm);font-size:8px;color:var(--o);">50 🏁</div>
+      <div style="width:60%;height:31px;background:var(--o);border-radius:2px 2px 0 0;border:1px solid var(--o);"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--o);">LYON</div>
+    </div>
+  </div>
+  <div class="legend">
+    <div class="lg-item"><div class="lg-dot" style="background:var(--dim);opacity:.5"></div>Pré-programme (réalisé)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--b)"></div>S1 (réalisé)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--g);opacity:.6"></div>Fondations (projeté)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--b);opacity:.6"></div>Spé HYROX (projeté)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--o);opacity:.6"></div>Pré-comp (projeté)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--y);opacity:.4"></div>Taper (projeté)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--o)"></div>Race Day</div>
+  </div>
+</div>
+
+<!-- ══ STRATÉGIE & NOTES ══ -->
+<div class="st cyan">Stratégie · Pourquoi ce protocole fonctionne</div>
+
+<div class="g2">
+  <div class="card lcy">
+    <div class="ct ccy">🧠 Ancrage moteur</div>
+    <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
+      Le format EMOM impose un <strong style="color:var(--text);">rythme régulier</strong> (10 WB toutes les 60s). Cela crée un pattern moteur automatique :<br><br>
+      <span style="color:var(--cy);">•</span> Squat profond → extension → lancer → réception → enchaîner<br>
+      <span style="color:var(--cy);">•</span> Respiration calée sur le mouvement (expire au lancer)<br>
+      <span style="color:var(--cy);">•</span> Rythme constant = moins de décisions sous fatigue<br><br>
+      En course, quand la FC est à 155bpm et les jambes lourdes, le corps <strong style="color:var(--text);">exécute automatiquement</strong> ce qu'il a répété des centaines de fois.
+    </div>
+  </div>
+  <div class="card lcy">
+    <div class="ct ccy">🔥 Fatigue progressive</div>
+    <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
+      Faire les WB <strong style="color:var(--text);">après la séance Oria</strong> (et non avant) simule les conditions de course :<br><br>
+      <span style="color:var(--o);">•</span> Jambes pré-fatiguées (run, squats, lunges, ergo)<br>
+      <span style="color:var(--o);">•</span> FC déjà élevée (120-140bpm au démarrage)<br>
+      <span style="color:var(--o);">•</span> Glycogène partiellement entamé<br>
+      <span style="color:var(--o);">•</span> Concentration réduite → test de la discipline<br><br>
+      <strong style="color:var(--g);">Progression +1 WB/semaine :</strong> Le volume augmente mais la récup par minute reste identique (~25s). Le ratio travail/repos augmente naturellement car les séances sont plus longues → le corps apprend à <strong style="color:var(--text);">maintenir le rythme plus longtemps</strong>.
+    </div>
+  </div>
+</div>
+
+<div class="g3" style="margin-top:12px;">
+  <div class="card lg">
+    <div class="ct cg">✅ Indicateurs de progrès</div>
+    <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
+      <span style="color:var(--g);">1.</span> FC moy EMOM qui baisse à volume égal<br>
+      <span style="color:var(--g);">2.</span> FC max EMOM qui baisse<br>
+      <span style="color:var(--g);">3.</span> Zéro fragmentation (10 WB unbroken chaque minute)<br>
+      <span style="color:var(--g);">4.</span> Sensation de facilité croissante<br>
+      <span style="color:var(--g);">5.</span> Temps de récup subjectif suffisant
+    </div>
+  </div>
+  <div class="card ly">
+    <div class="ct cy2">⚠ Signaux d'alerte</div>
+    <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
+      <span style="color:var(--y);">1.</span> FC moy > 150bpm sur l'EMOM<br>
+      <span style="color:var(--y);">2.</span> Fragmentation (impossible de faire 10 unbroken)<br>
+      <span style="color:var(--y);">3.</span> Douleur épaules ou bas du dos<br>
+      <span style="color:var(--y);">4.</span> RPE > 8 sur l'EMOM seul<br>
+      <span style="color:var(--r);">→ Si 2+ signaux : rester au volume de la semaine précédente</span>
+    </div>
+  </div>
+  <div class="card lo">
+    <div class="ct co">🎯 Cible Lyon Doubles</div>
+    <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
+      <strong style="color:var(--o);">50 WB chacun</strong> (Rémi + Mélanie)<br><br>
+      Avec ce protocole, Rémi sera capable de faire <strong style="color:var(--text);">160 WB en EMOM sous fatigue</strong> en S6.<br><br>
+      50 WB en course = <strong style="color:var(--g);">31% du volume max d'entraînement</strong><br><br>
+      → Marge de sécurité énorme<br>
+      → Cible : 50 WB en <strong style="color:var(--g);">< 3:30</strong> (unbroken ou 30+20)
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<footer>wallballs.html · tierpel.github.io · HYROX Lyon Doubles 21 Mai 2026 · Dernière mise à jour : 5 Mars 2026 · Session 4</footer>
+
+</body>
+</html>
