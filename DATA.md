@@ -207,22 +207,29 @@
 
 ### Total WB saison : **1041 reps**
 
-### Programmation EMOM S1→Lyon (+1 WB/semaine)
+### Programmation EMOM S1→Lyon · DENSITÉ CROISSANTE (+1 WB/min/semaine)
 
-| Sem | Minutes | Reps | Phase | Statut |
-|---|---|---|---|---|
-| S1 | 11' | 111 | Fondations | ✅ Fait |
-| S2 | 12' | 120 | Fondations | Planifié |
-| S3 | 13' | 130 | Fondations | Planifié |
-| S4 | 14' | 140 | Spé HYROX | Planifié |
-| S5 | 15' | 150 | Spé HYROX | Planifié |
-| S6 | 16' | 160 🔥 | Spé HYROX | Planifié |
-| S7 | 12' | 120 | Décharge | Planifié |
-| S8 | 15' | 150 | Pré-comp | Planifié |
-| S9 | 14' | 140 | Pré-comp | Planifié |
-| S10 | 12' | 120 | Taper | Planifié |
-| S11 | 8' | 80 | Taper | Planifié |
-| S12 | — | 50 | 🏁 LYON | RACE |
+**Protocole :** EMOM **10 minutes fixe** · +1 rep/min/semaine à partir de S3 · Tempo ~3s/rep
+**Principe :** La durée ne change pas, c'est la **densité** qui augmente → le repos se compresse naturellement.
+
+| Sem | WB/min | Total 10' | Travail/min | Repos/min | Ratio W:R | Phase | Statut |
+|---|---|---|---|---|---|---|---|
+| S1 | 10 | 111* (11') | ~30s | ~30s | 50/50 | Approche volume | ✅ Fait |
+| S2 | 10 | 100 | ~30s | ~30s | 50/50 | Approche volume | ⏳ En cours |
+| S3 | **11** | 110 | ~33s | ~27s | 55/45 | Densité +1 | Planifié |
+| S4 | **12** | 120 | ~36s | ~24s | 60/40 | Densité +2 | Planifié |
+| S5 | **13** | 130 | ~39s | ~21s | 65/35 | Densité +3 | Planifié |
+| S6 | **14** | 140 | ~42s | ~18s | 70/30 | Densité +4 | Planifié |
+| S7 | 12 | 120 | ~36s | ~24s | 60/40 | ⬇ Décharge | Planifié |
+| S8 | **16** | 160 | ~48s | ~12s | 80/20 | Densité +6 | Planifié |
+| S9 | **17** 🔥 | **170** 🔥 | ~51s | ~9s | **85/15** | 🔥 PIC | Planifié |
+| S10 | 14 | 140 | ~42s | ~18s | 70/30 | ⬇ Taper | Planifié |
+| S11 | 12 | 120 | ~36s | ~24s | 60/40 | ⬇ Taper | Planifié |
+| S12 | — | 50 | — | — | ALL OUT | 🏁 LYON | RACE |
+
+*S1 = ancien format (EMOM 11' × 10 WB/min). Nouveau protocole densité croissante à partir de S3.
+
+**Option évolutive :** Si la progression se passe bien, possibilité d'augmenter le poids de la ball (9kg, 16lb) sur certaines séances pour ajouter un stimulus de force. Le poids HYROX reste 6kg.
 
 ---
 
