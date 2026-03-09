@@ -219,7 +219,7 @@
 1. **Sommeil corrigé** : plus de nuit <4h, tendance à la hausse (6h32→6h33→7h23)
 2. **HRV au plus haut** : 58.2ms le 3 mars = meilleur score depuis le début du suivi
 3. **Compliance S1 à 3/7** : Renfo ✅, Velotaff ✅, Oria Engine ✅ + 111 WB
-4. **Total WB saison** : 421 reps (310 pré-S1 + 111 S1)
+4. **Total WB saison** : 531 reps (310 pré-S1 + 111 S1 + 110 S2)
 
 ---
 
@@ -249,7 +249,24 @@
 | 6 Fév | ~50 | Team WOD (100 WB 2 pour 1) | 123 | 160 |
 | **14 Fév** | **100** | **HYROX Nice RACE** @6kg · **9:01** | **155** | **170** |
 
-### Total WB saison : **1151 reps** (1041 + 110 S2)
+### Total WB saison : **1151 reps** (1041 pré-S1/S1 + 110 S2)
+
+### 📊 Évolution FC EMOM (données graphique React)
+
+| Séance | Date | FC Start | FC Moy | FC Max | Charge | WB | Durée |
+|---|---|---|---|---|---|---|---|
+| 1 | 20/02 | 85 | 139 | 158 | 16lb | ~100 | ~10' |
+| 2 | 25/02 | 102 | 138 | 151 | 16lb | 100 | 10' |
+| 3 | 27/02 | 107 | 136 | 151 | 16lb | 110 | 11' |
+| 4 | 28/02 | 90 | 127 | 147 | 6kg | 100 | 10' |
+| 5 | 04/03 | 107 | 140 | 152 | 6kg | 111 | 11' |
+| **6** | **09/03 ★** | **74** | **130** | **164 🔺** | **9kg** | **110** | **10'** |
+
+**Tendances :**
+- FC max en hausse : 158 → 151 → 151 → 147 → 152 → **164** (record)
+- FC moy stable : 127–140 bpm (sauf 09/03 à 130 grâce au départ froid)
+- Charge progressive : 16lb → 6kg → **9kg** (+50%)
+- Le 09/03 montre un profil unique : départ très bas (74) puis escalade jusqu'à 164 en 2e moitié
 
 ### Programmation EMOM S1→Lyon · DENSITÉ CROISSANTE (+1 WB/min/semaine)
 
@@ -315,4 +332,16 @@
 
 ---
 
-*Dernière mise à jour : 9 Mars 2026 · Session 5 (corrigée — données 2025 supprimées)*
+### Session 6 — 9 Mars 2026 (suite)
+**Contexte** : Ajout EMOM WB tracking dans suivi.html + correction compliance S1
+**Réalisé** :
+- Ajout section complète « EMOM Wall Balls · Évolution FC » dans suivi.html
+- Tableau des 6 séances avec FC moy/max/start, charge, durée
+- 4 KPI cards : Total 531 WB, Charge max 9kg, FC max 164, Cible Lyon 50 WB
+- Analyse 09/03 : départ froid 74bpm, record FC max 164, post-renfo S2
+- Correction compliance S1 : suppression données 2025 (Nolio Test 12', PR 279w, Nolio 30/30, VTT ×2, PR 643w)
+- Composant React (App.jsx) avec graphique FC interactif des 6 séances
+
+---
+
+*Dernière mise à jour : 9 Mars 2026 · Session 6 (+ EMOM WB tracking + correction compliance S1)*
