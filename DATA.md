@@ -75,16 +75,20 @@
 
 ---
 
-## 📊 Wellness S1 (2→4 Mars 2026)
+## 📊 Wellness S1 COMPLET (2→9 Mars 2026)
 
 | Nuit | Sommeil | Score | HRV | FC repos | Readiness | SpO2 |
 |---|---|---|---|---|---|---|
 | 2→3 mars | 6h32 | 72 | 52.3 | 45 | 78 | 98% |
 | 3→4 mars | 6h33 | 80 | **58.2** 🔥 | 44 | **95** 🔥 | 97% |
 | 4→5 mars | **7h23** | 79 | 53.0 | 46 | 85 | 94% |
-| **Moy S1** | **6h49** | **77** | **54.5** | **45.0** | **86** | **96%** |
+| 5→6 mars | 5h38 ⚠ | 76 | 42.6 ↓ | **52** ↑ | 56 | 97% |
+| 6→7 mars | **10h12** 🔥 | 80 | 51.6 | 49 | 84 | 95% |
+| 7→8 mars | 6h43 | 83 | **58.2** 🔥 | **53** ↑ | **91** 🔥 | 95% |
+| 8→9 mars | 7h05 | 82 | 43.9 ↓ | 47 | 48 | 95% |
+| **Moy S1** | **7h15** | **79** | **50.6** | **48.3** | **77** | **96%** |
 
-✅ **Nette amélioration vs pré-S1** : HRV +16% (47→54.5ms), sommeil +1h40 (5h09→6h49), zéro nuit <4h.
+✅ **Amélioration vs pré-S1** : HRV +8% (47→50.6ms), sommeil +2h06 (5h09→7h15), zéro nuit <4h. Record 10h12 (nuit 6→7). Poids 84.7→79.1kg (−5.6kg).
 
 ---
 
@@ -232,6 +236,7 @@
 | 3 | 27 Fév | 110 | EMOM 11' | 16lb | 10'49" | 136 | 151 | 82% | Post Full Engine Builder |
 | 4 | 28 Fév | 100 | EMOM 10' | 6kg | 10'21" | 127 | 148 | 77% | Post Interval Strength |
 | 5 | 4 Mars | 111 | EMOM 11' | 6kg | 10'38" | 140 | 152 | 85% | Post Engine Intervals 9.6km |
+| 6 | 9 Mars | 110 | EMOM 10' | **9kg** | 10'24" | 130 | 164 | 99% | Post Renfo S2 S1 · ⬆ poids |
 
 ### Séances WB intégrées (WOD/Race)
 
@@ -244,7 +249,7 @@
 | 6 Fév | ~50 | Team WOD (100 WB 2 pour 1) | 123 | 160 |
 | **14 Fév** | **100** | **HYROX Nice RACE** @6kg · **9:01** | **155** | **170** |
 
-### Total WB saison : **1041 reps**
+### Total WB saison : **1151 reps** (1041 + 110 S2)
 
 ### Programmation EMOM S1→Lyon · DENSITÉ CROISSANTE (+1 WB/min/semaine)
 
@@ -275,20 +280,39 @@
 ### Session 5 — 9 Mars 2026
 **Contexte** : Bilan S1 complet + Programmation S2 + Problématique hanches
 **Réalisé** :
-- Récupération activités S1 complètes via Strava MCP : 8 activités (velotaff ×4, Nolio ×2, VTT ×2, renfo ×1)
-- Bilan S1 : 203km vélo, 2348m D+ VTT, PR 5min 279w, PR 15sec 643w, 0km running
+- Récupération activités S1 complètes via Intervals.icu MCP : 8 activités 2026
+- Bilan S1 réel : 80km vélo (velotaff 49km + VTT 31km), 14.2km running (Engine 9.6km + Run EF 4.6km), 111 WB, 1 renfo
 - Ostéo vendredi 7 mars : tension musculaire ouverture de hanches
 - Arrêt course à pied 1 semaine (reprise S3)
 - Programmation Renfo S2 : 2 séances (S1 + S2), format 5×10 RPE 7, DC à 45kg
 - Routine mobilité hanches quotidienne : 6 exercices, 45s, 2 séries
+- Renfo S2 Séance 1 réalisée dim 9 mars + EMOM 110 WB @9kg
 - Mise à jour complète `suivi.html` + `DATA.md` ✅
+- ⚠ **CORRECTION** : données 2025 erronées supprimées (Nolio Test 12', Nolio 30/30, 2ème VTT, 203km vélo)
+
+**Activités S1 vérifiées (Intervals.icu 2026)** :
+| Date | Activité | Type | Distance | Durée | FC moy |
+|---|---|---|---|---|---|
+| Dim 2 mars | Renfo S1 Séance 1 (4×12) | WeightTraining | — | 1h29 | 79 |
+| Lun 3 mars | Velotaff aller | Ride | 22km | 54' | 108 |
+| Lun 3 mars | Velotaff retour + 🍺 | Ride | 27km | 1h21 | 101 |
+| Mar 4 mars | HYROX Engine Intervals | Run | 9.6km | 1h53 | 116 |
+| Mar 4 mars | EMOM 111 WB @6kg | WeightTraining | — | 10'38" | 140 |
+| Mer 5 mars | Run EF + Renfo | Run | 4.6km | 1h11 | 93 |
+| Jeu 6 mars | Repos complet | — | — | — | — |
+| Ven 7 mars | Ostéo | — | — | — | — |
+| Sam 8 mars | VTT Vaunaveys E-bike | EMountainBikeRide | 31km | 3h01 | 114 |
+| Dim 9 mars | Renfo S2 Séance 1 (5×10) | WeightTraining | — | 1h42 | 85 |
+| Dim 9 mars | EMOM 110 WB @9kg | WeightTraining | — | 10'24" | 130 |
 
 **Insights clés** :
 1. **Problème hanches = priorité n°1** : routine quotidienne indispensable pour débloquer la CAP
-2. **S1 incomplète** : renfo 1/2, 0km running, pas de brick, pas de Bran RC
-3. **Gros volume vélo** : 203km + 2 PR → la forme est là, c'est la mobilité qui bloque
-4. **DC à 45kg en S2** : format 5×10 plus gérable que 4×12, RPE devrait rester à 7
+2. **S1 partiellement complète** : renfo 1/2, 14.2km running (avant arrêt), pas de brick, pas de Bran RC
+3. **Volume vélo modéré** : 80km (velotaff + VTT)
+4. **DC à 45kg en S2** : RPE monté à 9 sur dernière série → surveiller
+5. **WB @9kg** : passage de 6kg à 9kg en S2, FC max 164bpm
+6. **Poids** : 84.7kg → 79.1kg (−5.6kg en 1 semaine — à surveiller, possible déshydratation)
 
 ---
 
-*Dernière mise à jour : 9 Mars 2026 · Session 5*
+*Dernière mise à jour : 9 Mars 2026 · Session 5 (corrigée — données 2025 supprimées)*
