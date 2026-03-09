@@ -299,28 +299,28 @@
 **Réalisé** :
 - Récupération activités S1 complètes via Intervals.icu MCP : 8 activités 2026
 - Bilan S1 réel : 80km vélo (velotaff 49km + VTT 31km), 14.2km running (Engine 9.6km + Run EF 4.6km), 111 WB, 1 renfo
-- Ostéo vendredi 7 mars : tension musculaire ouverture de hanches
+- Ostéo samedi 7 mars : tension musculaire ouverture de hanches
 - Arrêt course à pied 1 semaine (reprise S3)
 - Programmation Renfo S2 : 2 séances (S1 + S2), format 5×10 RPE 7, DC à 45kg
 - Routine mobilité hanches quotidienne : 6 exercices, 45s, 2 séries
-- Renfo S2 Séance 1 réalisée dim 9 mars + EMOM 110 WB @9kg
+- Renfo S2 Séance 1 réalisée lun 9 mars + EMOM 110 WB @9kg
 - Mise à jour complète `suivi.html` + `DATA.md` ✅
 - ⚠ **CORRECTION** : données 2025 erronées supprimées (Nolio Test 12', Nolio 30/30, 2ème VTT, 203km vélo)
 
 **Activités S1 vérifiées (Intervals.icu 2026)** :
 | Date | Activité | Type | Distance | Durée | FC moy |
 |---|---|---|---|---|---|
-| Dim 2 mars | Renfo S1 Séance 1 (4×12) | WeightTraining | — | 1h29 | 79 |
-| Lun 3 mars | Velotaff aller | Ride | 22km | 54' | 108 |
-| Lun 3 mars | Velotaff retour + 🍺 | Ride | 27km | 1h21 | 101 |
-| Mar 4 mars | HYROX Engine Intervals | Run | 9.6km | 1h53 | 116 |
-| Mar 4 mars | EMOM 111 WB @6kg | WeightTraining | — | 10'38" | 140 |
-| Mer 5 mars | Run EF + Renfo | Run | 4.6km | 1h11 | 93 |
-| Jeu 6 mars | Repos complet | — | — | — | — |
-| Ven 7 mars | Ostéo | — | — | — | — |
-| Sam 8 mars | VTT Vaunaveys E-bike | EMountainBikeRide | 31km | 3h01 | 114 |
-| Dim 9 mars | Renfo S2 Séance 1 (5×10) | WeightTraining | — | 1h42 | 85 |
-| Dim 9 mars | EMOM 110 WB @9kg | WeightTraining | — | 10'24" | 130 |
+| Lun 2 mars | Renfo S1 Séance 1 (4×12) | WeightTraining | — | 1h29 | 79 |
+| Mar 3 mars | Velotaff aller | Ride | 22km | 54' | 108 |
+| Mar 3 mars | Velotaff retour + 🍺 | Ride | 27km | 1h21 | 101 |
+| Mer 4 mars | HYROX Engine Intervals | Run | 9.6km | 1h53 | 116 |
+| Mer 4 mars | EMOM 111 WB @6kg | WeightTraining | — | 10'38" | 140 |
+| Jeu 5 mars | Run EF + Renfo | Run | 4.6km | 1h10 (37' moving) | 93 |
+| Ven 6 mars | Repos complet | — | — | — | — |
+| Sam 7 mars | Ostéo | — | — | — | — |
+| Dim 8 mars | VTT Vaunaveys E-bike | EMountainBikeRide | 31km | 3h01 | 114 |
+| Lun 9 mars | Renfo S2 Séance 1 (5×10) | WeightTraining | — | 1h42 | 85 |
+| Lun 9 mars | EMOM 110 WB @9kg | WeightTraining | — | 10'24" | 130 |
 
 **Insights clés** :
 1. **Problème hanches = priorité n°1** : routine quotidienne indispensable pour débloquer la CAP
@@ -344,4 +344,14 @@
 
 ---
 
-*Dernière mise à jour : 9 Mars 2026 · Session 6 (+ EMOM WB tracking + correction compliance S1)*
+### Session 7 — 9 Mars 2026 (suite)
+**Contexte** : Correction jours de la semaine S1 + détail Run EF jeu 5 mars
+**Réalisé** :
+- Correction de TOUS les jours de la semaine S1 (décalage d'1 jour corrigé)
+- Lun 2, Mar 3, Mer 4, Jeu 5, Ven 6, Sam 7, Dim 8, Lun 9
+- Détail Run EF jeu 5 mars (i129803953) : 4.6km, 1h10 (37' moving), FC 93/114, Z1 58%+Z2 42%, cadence 81rpm, stride 0.76m, 64m D+, 22°C, RPE 3/10
+- Mise à jour suivi.html + DATA.md ✅
+
+---
+
+*Dernière mise à jour : 9 Mars 2026 · Session 7 (+ correction jours semaine S1 + Run EF détaillé)*
