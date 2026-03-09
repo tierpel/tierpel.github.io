@@ -97,7 +97,46 @@
 | Back squat | 40 kg | 6→8 | Garder 40kg |
 | SDT roumain | 70 kg | 5→7 ✅ | Garder 70kg |
 | Hip Thrust | 40 kg | 4→8 | Garder 40kg |
-| Arch | PDC | — | 8×20"/10" |
+| Arch | PDC | — | 10×20"/10" |
+
+---
+
+## 💪 Programmation Renfo S2 — Cycle 1 Semaine 2 (5×10 RPE 7)
+
+### Séance 1 — Tirage Vertical + DC + Lower Push
+| Exercice | Séries | Charge S2 | RPE | Repos |
+|---|---|---|---|---|
+| Tirage vertical | 5×10 | 40 kg | 7 | 90"-2' |
+| Développé couché barre | 5×10 | 45 kg | 7 | 90"-2' |
+| Soulevé de terre roumain barre | 5×10 | 70 kg | 7 | 90"-2' |
+| Back squat | 5×10 | 40 kg | 7 | 90"-2' |
+| Hip Thrust + Moyen Fessier (machine) | 5×(10+25) | 40 kg | 7 | 90"-2' |
+| Arch (gainage dorsal) | 10×20" | PDC | — | 10" OFF |
+
+### Séance 2 — Tirage Horizontal + Press + Lower Pull
+| Exercice | Séries | Charge S2 | RPE | Repos |
+|---|---|---|---|---|
+| Tirage horizontal unilatéral | 5×10/10 | À définir | 7 | 90"-2' |
+| Strict press haltères | 5×10 | À définir | 7 | 90"-2' |
+| Fentes bulgares | 5×10/10 | À définir | 7 | 90"-2' |
+| Presse à cuisse unilatéral | 5×10/10 | À définir | 7 | 90"-2' |
+| Leg Curl + Leg Extension | 5×(10+10) | À définir | 7 | 90"-2' |
+| Hollow (gainage ventral) | 10×20" | PDC | — | 10" OFF |
+
+---
+
+## 🧘 Routine Mobilité Hanches — Quotidienne (2 séries, ~10 min)
+
+**Contexte :** Tension musculaire ouverture de hanches identifiée. Ostéo consulté 7 mars. Arrêt CAP 1 semaine. Routine à faire tous les jours, idéalement 2×/jour.
+
+| # | Exercice | Durée | Latéralité |
+|---|---|---|---|
+| 1 | Posture fléchie avant jambes ouvertes avec torsion | 45s | Alterner G/D |
+| 2 | Fente basse avec étirement isométrique | 45s | Alterner G/D |
+| 3 | Posture du chien tête en bas et du cobra | 45s | Bilatéral |
+| 4 | Posture de l'angle étiré | 45s | Alterner G/D |
+| 5 | Rotation de la hanche 90/90 avec extension | 45s | Bilatéral |
+| 6 | Posture accroupie en torsion, bras ouverts | 45s | Alterner G/D |
 
 ---
 
@@ -233,4 +272,23 @@
 
 ---
 
-*Dernière mise à jour : 5 Mars 2026 · Session 4*
+### Session 5 — 9 Mars 2026
+**Contexte** : Bilan S1 complet + Programmation S2 + Problématique hanches
+**Réalisé** :
+- Récupération activités S1 complètes via Strava MCP : 8 activités (velotaff ×4, Nolio ×2, VTT ×2, renfo ×1)
+- Bilan S1 : 203km vélo, 2348m D+ VTT, PR 5min 279w, PR 15sec 643w, 0km running
+- Ostéo vendredi 7 mars : tension musculaire ouverture de hanches
+- Arrêt course à pied 1 semaine (reprise S3)
+- Programmation Renfo S2 : 2 séances (S1 + S2), format 5×10 RPE 7, DC à 45kg
+- Routine mobilité hanches quotidienne : 6 exercices, 45s, 2 séries
+- Mise à jour complète `suivi.html` + `DATA.md` ✅
+
+**Insights clés** :
+1. **Problème hanches = priorité n°1** : routine quotidienne indispensable pour débloquer la CAP
+2. **S1 incomplète** : renfo 1/2, 0km running, pas de brick, pas de Bran RC
+3. **Gros volume vélo** : 203km + 2 PR → la forme est là, c'est la mobilité qui bloque
+4. **DC à 45kg en S2** : format 5×10 plus gérable que 4×12, RPE devrait rester à 7
+
+---
+
+*Dernière mise à jour : 9 Mars 2026 · Session 5*
