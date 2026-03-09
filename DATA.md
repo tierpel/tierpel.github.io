@@ -249,13 +249,13 @@
 | 6 Fév | ~50 | Team WOD (100 WB 2 pour 1) | 123 | 160 |
 | **14 Fév** | **100** | **HYROX Nice RACE** @6kg · **9:01** | **155** | **170** |
 
-### Total WB saison : **1151 reps** (1041 pré-S1/S1 + 110 S2)
+### Total WB saison : **1151 reps** (631 EMOM + 520 WOD/Race)
 
 ### 📊 Évolution FC EMOM (données graphique React)
 
 | Séance | Date | FC Start | FC Moy | FC Max | Charge | WB | Durée |
 |---|---|---|---|---|---|---|---|
-| 1 | 20/02 | 85 | 139 | 158 | 16lb | ~100 | ~10' |
+| 1 | 20/02 | 85 | 139 | 158 | 9kg | ~100 | ~10' |
 | 2 | 25/02 | 102 | 138 | 151 | 16lb | 100 | 10' |
 | 3 | 27/02 | 107 | 136 | 151 | 16lb | 110 | 11' |
 | 4 | 28/02 | 90 | 127 | 147 | 6kg | 100 | 10' |
@@ -329,6 +329,7 @@
 4. **DC à 45kg en S2** : RPE monté à 9 sur dernière série → surveiller
 5. **WB @9kg** : passage de 6kg à 9kg en S2, FC max 164bpm
 6. **Poids** : 84.7kg → 79.1kg (−5.6kg en 1 semaine — à surveiller, possible déshydratation)
+7. **Total WB EMOM** : 631 reps (100+100+110+100+111+110) · Total saison avec WOD/Race : 1151 reps
 
 ---
 
@@ -354,4 +355,4 @@
 
 ---
 
-*Dernière mise à jour : 9 Mars 2026 · Session 7 (+ correction jours semaine S1 + Run EF détaillé)*
+*Dernière mise à jour : 9 Mars 2026 · Session 8 (clean : jours corrigés, section WB unifiée 631 EMOM / 1151 total, charge séance 1 corrigée 9kg)*
