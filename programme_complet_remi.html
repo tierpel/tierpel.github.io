@@ -155,6 +155,29 @@ h1 .o{color:var(--o);} h1 .b{color:var(--b);}
 .race-box{background:#0e0806;border:1px solid var(--o);border-radius:4px;padding:20px;}
 .race-box h3{font-family:var(--fh);font-size:20px;font-weight:700;}
 .race-box h3 em{color:var(--o);font-style:normal;}
+.done{position:relative;}
+.done::after{content:'✅';position:absolute;top:4px;right:8px;font-size:14px;}
+.wn-done{opacity:.5;}
+.charge-log{background:var(--bg);border:1px solid var(--br);border-radius:3px;padding:10px 14px;margin-top:8px;}
+.charge-log-title{font-family:var(--fm);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--g);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.charge-log-title::before{content:'📊';}
+.charge-row{display:grid;grid-template-columns:1fr auto auto auto;gap:8px;padding:3px 0;border-bottom:1px solid var(--br);font-size:11px;align-items:center;}
+.charge-row:last-child{border-bottom:none;}
+.charge-exo{color:var(--dim2);}
+.charge-val{font-family:var(--fm);font-size:10px;color:var(--text);text-align:right;}
+.charge-rpe{font-family:var(--fm);font-size:9px;text-align:right;}
+.rpe-low{color:var(--g);}
+.rpe-mid{color:var(--y);}
+.rpe-high{color:var(--o);}
+.rpe-max{color:var(--r);}
+.status-badge{font-family:var(--fm);font-size:8px;padding:3px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:1px;margin-left:8px;}
+.sb-done{background:var(--bg-g);color:var(--g);border:1px solid #285030;}
+.sb-now{background:var(--bg-o);color:var(--o);border:1px solid #4a1808;animation:pulse 2s infinite;}
+.sb-plan{background:var(--s2);color:var(--dim);border:1px solid var(--br);}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.6;}}
+.emom-badge{display:inline-flex;align-items:center;gap:4px;font-family:var(--fm);font-size:9px;padding:3px 8px;border-radius:2px;background:var(--bg-y);color:var(--y);border:1px solid #3a2808;margin-left:6px;}
+.hyrox-log{background:var(--bg-o);border:1px solid #3a1808;border-radius:3px;padding:8px 12px;margin-top:6px;font-family:var(--fm);font-size:10px;color:var(--o);line-height:1.5;}
+.hyrox-log strong{color:var(--text);}
 .station-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px;}
 .stn{border-radius:3px;padding:10px;text-align:center;}
 .stn-n{font-family:var(--fh);font-size:11px;font-weight:600;text-transform:uppercase;}
@@ -178,6 +201,30 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 </div>
 
 <div class="wrap">
+
+<div class="st">Progression — Statut des semaines</div>
+<div class="g4" style="margin-bottom:20px">
+  <div class="card lg">
+    <div class="ct cg">S1 · 2–8 Mars</div>
+    <div class="cv" style="color:var(--g)">✅</div>
+    <div class="cs">Renfo S1 fait · HYROX Oria ×1 · EMOM 111 WB · VTT 31km</div>
+  </div>
+  <div class="card lg">
+    <div class="ct cg">S2 · 9–15 Mars</div>
+    <div class="cv" style="color:var(--g)">✅</div>
+    <div class="cs">Renfo S2 fait · EMOM 110 WB @9kg · HYROX Team Engine · Velotaff Paris</div>
+  </div>
+  <div class="card lo">
+    <div class="ct co">S3 · 16–22 Mars</div>
+    <div class="cv" style="color:var(--o)">⏳</div>
+    <div class="cs">EN COURS — Peak Cycle 1 · RPE 7.5 · Bilan Phase 1</div>
+  </div>
+  <div class="card" style="border-left:3px solid var(--dim)">
+    <div class="ct cdim">S4→S12</div>
+    <div class="cv" style="color:var(--dim)">📋</div>
+    <div class="cs">Planifié dans Intervals.icu · 9 semaines restantes</div>
+  </div>
+</div>
 
 <div class="st">Structure hebdomadaire – Gabarit fixe</div>
 <div class="wt">
@@ -337,6 +384,35 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
   </div>
 </div>
 
+<div class="st">Progression des charges — S1 vs S2 (données Intervals.icu)</div>
+<div class="g2">
+  <div class="card lg">
+    <div class="ct cg">Renfo S1 — Lower + Upper Push (Lundi)</div>
+    <table class="renfo-table" style="margin-top:8px">
+      <tr><th>Exercice</th><th>S1 (4×12)</th><th>S2 (5×10)</th><th>Δ</th></tr>
+      <tr><td>Tirage vertical</td><td class="mn" style="color:var(--dim2)">40 kg</td><td class="mn" style="color:var(--g)">40→45 kg</td><td class="mn" style="color:var(--g)">↑ +5kg</td></tr>
+      <tr><td>Développé couché</td><td class="mn" style="color:var(--dim2)">45 kg</td><td class="mn" style="color:var(--o)">40→45 kg</td><td class="mn" style="color:var(--o)">⚠ RPE 9</td></tr>
+      <tr><td>SDT Roumain</td><td class="mn" style="color:var(--dim2)">50→70 kg</td><td class="mn" style="color:var(--g)">70 kg</td><td class="mn" style="color:var(--g)">✅ stable</td></tr>
+      <tr><td>Back squat</td><td class="mn" style="color:var(--dim2)">40 kg</td><td class="mn" style="color:var(--g)">40→50 kg</td><td class="mn" style="color:var(--g)">↑ +10kg</td></tr>
+      <tr><td>Hip Thrust</td><td class="mn" style="color:var(--dim2)">20→40 kg</td><td class="mn" style="color:var(--g)">30→40 kg</td><td class="mn" style="color:var(--g)">↑ +10kg départ</td></tr>
+      <tr><td>Moyen fessier</td><td class="mn" style="color:var(--dim)">—</td><td class="mn" style="color:var(--g)">20→40 kg</td><td class="mn" style="color:var(--g)">ajouté</td></tr>
+    </table>
+  </div>
+  <div class="card lo">
+    <div class="ct co">EMOM Wall Balls — Progression</div>
+    <table class="renfo-table" style="margin-top:8px">
+      <tr><th>Date</th><th>Reps</th><th>Charge</th><th>FC moy</th><th>FC max</th></tr>
+      <tr><td style="color:var(--dim2)">20 Fév (Pré-S1)</td><td class="mn" style="color:var(--g)">100</td><td class="mn">9 kg</td><td class="mn">139</td><td class="mn" style="color:var(--o)">158</td></tr>
+      <tr><td style="color:var(--dim2)">25 Fév</td><td class="mn" style="color:var(--g)">100</td><td class="mn">7 kg</td><td class="mn">138</td><td class="mn">151</td></tr>
+      <tr><td style="color:var(--dim2)">27 Fév</td><td class="mn" style="color:var(--g)">110</td><td class="mn">7 kg</td><td class="mn">136</td><td class="mn">151</td></tr>
+      <tr><td style="color:var(--dim2)">28 Fév</td><td class="mn" style="color:var(--g)">100</td><td class="mn">6 kg</td><td class="mn">127</td><td class="mn">148</td></tr>
+      <tr><td style="color:var(--b)">4 Mars (S1)</td><td class="mn" style="color:var(--g)">111</td><td class="mn">6 kg</td><td class="mn">140</td><td class="mn">152</td></tr>
+      <tr><td style="color:var(--b)">9 Mars (S2)</td><td class="mn" style="color:var(--g)">110</td><td class="mn" style="color:var(--o)">9 kg ↑</td><td class="mn">130</td><td class="mn" style="color:var(--r)">164 🔺</td></tr>
+    </table>
+    <div class="cs" style="margin-top:8px">Total EMOM : 631 reps · 6 séances · FC moy tendance ↓ · Charge ↑ 9kg</div>
+  </div>
+</div>
+
 <div class="st">Détail par phase et semaine</div>
 
 <!-- PHASE 1 -->
@@ -350,70 +426,87 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     <div class="ph-tag">RPE renfo 6.5→7.5 · Sam : conditioning base</div>
   </div>
   <div class="wblock">
-    <div class="wnum"><div class="wn" style="color:var(--g)">S1</div><div class="wd">2–8 Mars</div></div>
+    <div class="wnum"><div class="wn" style="color:var(--g)">S1</div><div class="wd">2–8 Mars</div><div class="wflag f-ok">✅ Fait</div></div>
     <div class="wbody">
       <div class="wtheme">Reprise · Installation du gabarit · Prise de repère toutes séances</div>
       <div class="renfo-grid">
         <div class="renfo-box">
-          <div class="renfo-hdr lun">💪 Renfo S1 — Lundi midi · Lower + Upper Push · RPE 6.5 · repos 90"</div>
+          <div class="renfo-hdr lun">💪 Renfo S1 — Lun 2 Mars · 4×12 · RPE 6.5 <span class="status-badge sb-done">✅ fait</span></div>
           <table class="renfo-table">
-            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
-            <tr><td>Tirage vertical (lat pulldown ou tractions assistées)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
-            <tr><td>Développé couché barre</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
-            <tr><td>Back squat</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
-            <tr><td>Hip Thrust + Moyen fessier (superset)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12 + 30</td></tr>
-            <tr><td>Arch (gainage dorsal)</td><td class="mn" style="color:var(--b)">8</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td></tr>
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th><th>Charge réelle</th><th>RPE</th></tr>
+            <tr><td>Tirage vertical (lat pulldown)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td><td class="charge-val">40 kg</td><td class="charge-rpe rpe-mid">6→7</td></tr>
+            <tr><td>Développé couché barre</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td><td class="charge-val">45 kg</td><td class="charge-rpe rpe-high">7→8+</td></tr>
+            <tr><td>Soulevé de terre roumain</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td><td class="charge-val">50→70 kg</td><td class="charge-rpe rpe-mid">5→7</td></tr>
+            <tr><td>Back squat</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td><td class="charge-val">40 kg</td><td class="charge-rpe rpe-mid">6→8</td></tr>
+            <tr><td>Hip Thrust</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td><td class="charge-val">20→40 kg</td><td class="charge-rpe rpe-mid">4→8</td></tr>
+            <tr><td>Moyen fessier (kick back)</td><td class="mn" style="color:var(--b)">—</td><td class="mn" style="color:var(--g)">—</td><td class="charge-val">—</td><td class="charge-rpe">—</td></tr>
+            <tr><td>Arch (gainage dorsal)</td><td class="mn" style="color:var(--b)">8</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td><td class="charge-val">PDC</td><td class="charge-rpe rpe-low">OK</td></tr>
           </table>
         </div>
         <div class="renfo-box">
-          <div class="renfo-hdr jeu">💪 Renfo S2 — Jeudi midi · Upper + Hinge · RPE 6.5 · ⚠ 0 squat lourd</div>
+          <div class="renfo-hdr jeu">💪 Renfo S2 — Jeu 5 Mars · Upper + Hinge <span class="status-badge sb-done">⚠ adapté</span></div>
           <table class="renfo-table">
-            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
-            <tr><td>Tirage horizontal unilatéral (câble ou haltère)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12 / côté</td></tr>
-            <tr><td>Strict Press haltères</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
-            <tr><td>Soulevé de terre roumain barre</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12</td></tr>
-            <tr><td>Leg Curl + Leg Extension (superset)</td><td class="mn" style="color:var(--b)">4</td><td class="mn" style="color:var(--g)">12 + 12</td></tr>
-            <tr><td>Hollow (gainage abdominal)</td><td class="mn" style="color:var(--b)">8</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td></tr>
+            <tr><th colspan="5" style="color:var(--dim);font-style:italic">Run EF + renfo combiné · 4.6 km · FC moy 93 · pas de séance renfo isolée</th></tr>
           </table>
         </div>
       </div>
-      <div class="note g">Sam : noter l'allure run naturelle après station → c'est la baseline brick de référence</div>
+      <div class="hyrox-log">
+        <strong>Mer 4 Mars — HYROX Engine Intervals (Box Oria)</strong><br>
+        9.6 km · FC moy 116 · FC max 166 · 4km warmup Z2 → 6×(4' ON / 1'30 OFF) → 4×400m finish<br>
+        <span class="emom-badge">🎯 EMOM 11' · 111 WB @6kg · FC 140/152</span>
+      </div>
+      <div class="hyrox-log" style="margin-top:4px">
+        <strong>Dim 8 Mars — VTT Vaunaveys</strong><br>
+        31.3 km · 1384m D+ · 2h57 · FC moy 114 · FC max 152 · EVTT
+      </div>
+      <div class="note g">📝 S1 : DC 45kg un peu haut en RPE (8+) → garder 45kg en S2 pour consolider. SDT 70kg OK. BS 40kg confortable. Pas de Brick Baseline samedi (VTT à la place).</div>
     </div>
   </div>
   <div class="wblock">
-    <div class="wnum"><div class="wn" style="color:var(--g)">S2</div><div class="wd">9–15 Mars</div></div>
+    <div class="wnum"><div class="wn" style="color:var(--g)">S2</div><div class="wd">9–15 Mars</div><div class="wflag f-ok">✅ Fait</div></div>
     <div class="wbody">
-      <div class="wtheme">Montée en charge · +1 série · RPE 7.0 · brick 4'52–4'55/km</div>
+      <div class="wtheme">Montée en charge · +1 série · RPE 7.0 · 5×10</div>
       <div class="renfo-grid">
         <div class="renfo-box">
-          <div class="renfo-hdr lun">💪 Renfo S1 — Lundi midi · RPE 7.0 · repos 90"–2'</div>
+          <div class="renfo-hdr lun">💪 Renfo S1 — Lun 9 Mars · 5×10 · RPE 7.0 <span class="status-badge sb-done">✅ fait</span></div>
           <table class="renfo-table">
-            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
-            <tr><td>Tirage vertical</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td></tr>
-            <tr><td>Développé couché barre</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td></tr>
-            <tr><td>Back squat</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td></tr>
-            <tr><td>Hip Thrust + Moyen fessier</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10 + 25</td></tr>
-            <tr><td>Arch</td><td class="mn" style="color:var(--b)">10</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td></tr>
+            <tr><th>Exercice</th><th>Séries</th><th>Reps</th><th>Charge réelle</th><th>RPE</th></tr>
+            <tr><td>Tirage vertical</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td><td class="charge-val">40→45 kg</td><td class="charge-rpe rpe-mid">6→8</td></tr>
+            <tr><td>Développé couché barre</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td><td class="charge-val">40→45 kg</td><td class="charge-rpe rpe-high">6→9</td></tr>
+            <tr><td>Soulevé de terre roumain</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td><td class="charge-val">70 kg</td><td class="charge-rpe rpe-mid">7→8</td></tr>
+            <tr><td>Back squat</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td><td class="charge-val">40→50 kg</td><td class="charge-rpe rpe-mid">6→8+</td></tr>
+            <tr><td>Hip Thrust</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td><td class="charge-val">30→40 kg</td><td class="charge-rpe rpe-mid">6→8</td></tr>
+            <tr><td>Moyen fessier (kick back)</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">25</td><td class="charge-val">20→40 kg</td><td class="charge-rpe rpe-mid">6→8</td></tr>
+            <tr><td>Arch</td><td class="mn" style="color:var(--b)">—</td><td class="mn" style="color:var(--g)">—</td><td class="charge-val">non fait</td><td class="charge-rpe">—</td></tr>
           </table>
         </div>
         <div class="renfo-box">
-          <div class="renfo-hdr jeu">💪 Renfo S2 — Jeudi midi · RPE 7.0 · repos 90"–2'</div>
+          <div class="renfo-hdr jeu">💪 Renfo S2 — Jeu 12 Mars · Upper + Hinge <span class="status-badge sb-plan">non fait</span></div>
           <table class="renfo-table">
-            <tr><th>Exercice</th><th>Séries</th><th>Reps</th></tr>
-            <tr><td>Tirage horizontal unilatéral</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10 / côté</td></tr>
-            <tr><td>Strict Press haltères</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td></tr>
-            <tr><td>Soulevé de terre roumain barre</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10</td></tr>
-            <tr><td>Leg Curl + Leg Extension</td><td class="mn" style="color:var(--b)">5</td><td class="mn" style="color:var(--g)">10 + 10</td></tr>
-            <tr><td>Hollow</td><td class="mn" style="color:var(--b)">10</td><td class="mn" style="color:var(--g)">20" ON / 10" OFF</td></tr>
+            <tr><th colspan="5" style="color:var(--dim);font-style:italic">Semaine à Paris · Velotaff + Mobility Flow uniquement · pas de renfo S2</th></tr>
           </table>
         </div>
       </div>
+      <div class="hyrox-log">
+        <strong>Lun 9 Mars — EMOM 10' Wall Balls</strong><br>
+        <span class="emom-badge">🎯 110 WB @9kg · FC 130/164 · ↑ charge vs S1 (6kg→9kg)</span>
+      </div>
+      <div class="hyrox-log" style="margin-top:4px">
+        <strong>Ven 13 Mars — HYROX Team Engine Session (Box Oria)</strong><br>
+        Team of 2 · For Time cap 40' · 1000m SkiErg + 50 BBJ + 100 Lunges + 2000m BikeErg + 200m Farmer + 100 WB + Sled Push<br>
+        FC moy 122 · FC max 158 · RPE 6/10 · 662 kcal
+      </div>
+      <div class="hyrox-log" style="margin-top:4px">
+        <strong>Jeu 12 Mars — Mobility Flow + Velotaff Paris</strong><br>
+        🧘 Mobility 9' (FC 66) + 🚴 Velotaff 2.8km + 11.6km + 9.5km Vélib (FC max 152)
+      </div>
+      <div class="note g">📝 S2 : DC 45kg×10 = RPE 9 sur dernière série → trop lourd pour 5×10, redescendre à 40kg en S3 et monter progressivement. SDT 70kg stable. BS 50kg OK sur 2 dernières séries. Pas de Renfo S2 (Paris). Pas de Brick Intro samedi.</div>
     </div>
   </div>
   <div class="wblock">
-    <div class="wnum"><div class="wn" style="color:var(--g)">S3</div><div class="wd">16–22 Mars</div><div class="wflag f-ok">Bilan</div></div>
+    <div class="wnum"><div class="wn" style="color:var(--o)">S3</div><div class="wd">16–22 Mars</div><div class="wflag f-test">⏳ En cours</div></div>
     <div class="wbody">
-      <div class="wtheme">Peak Cycle 1 · charges max · RPE 7.5 · bilan fin de phase · brick 4'50/km</div>
+      <div class="wtheme">Peak Cycle 1 · charges max · RPE 7.5 · bilan fin de phase · brick 4'50/km <span class="status-badge sb-now">semaine en cours</span></div>
       <div class="renfo-grid">
         <div class="renfo-box">
           <div class="renfo-hdr lun">💪 Renfo S1 — Lundi midi · RPE 7.5 · repos 2'–2'30"</div>
@@ -438,7 +531,8 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
           </table>
         </div>
       </div>
-      <div class="note g">📊 Bilan S3 : allure naturelle brick sam ? Sled pull fluide ? Sensations Bran RC ? → calibrent les cibles Phase 2</div>
+      <div class="note o">📊 BILAN S3 à compléter : allure naturelle brick sam ? Sled pull fluide ? Sensations Bran RC ? → calibrent les cibles Phase 2<br>
+⚠ Rattrapage : pas de Brick Baseline S1 ni Brick Intro S2 → le Brick S3 sera la 1ère mesure d'allure sous fatigue station</div>
     </div>
   </div>
 </div>
@@ -702,6 +796,6 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 </div>
 
 </div>
-<footer>Programme Rémi Tierpel · HYROX Lyon Doubles 21 Mai 2026 + Paris Solo Automne 2026 · 12 semaines · 2 Mars → 21 Mai · Renfo : Lun midi + Jeu midi · Box Oria : Mer+Ven+Sam</footer>
+<footer>Programme Rémi Tierpel · HYROX Lyon Doubles 21 Mai 2026 · 12 semaines (2 Mars → 21 Mai) · Mis à jour 17 Mars 2026 · S3 en cours · Données Intervals.icu</footer>
 </body>
 </html>
