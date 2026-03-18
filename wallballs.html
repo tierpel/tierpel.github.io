@@ -149,7 +149,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
   <div class="hdr-inner">
     <div>
       <h1>🏐 <span class="y">WALL</span> <span class="o">BALLS</span></h1>
-      <div class="hdr-meta">Analyse FC · Programmation EMOM 10' densité croissante · S1→Lyon</div>
+      <div class="hdr-meta">Analyse FC · Programmation EMOM 10' × densité croissante (WB/min) · Objectif 100 WB unbroken</div>
     </div>
     <div class="hdr-right">
       <div class="big-stat" style="color:var(--o)">1271</div>
@@ -224,8 +224,8 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
   </div>
   <div class="card lg">
     <div class="ct cg">Densité record</div>
-    <div class="cv" style="color:var(--g)">12<span class="cv-sub">/min</span></div>
-    <div class="cs">120 WB en 10' @9kg · 17 Mars 🔥</div>
+    <div class="cv" style="color:var(--g)">12<span class="cv-sub">WB/min</span></div>
+    <div class="cs">EMOM 10' × 12 reps/min = 120 WB @9kg · 17 Mars 🔥</div>
   </div>
 </div>
 
@@ -950,69 +950,79 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
   <div class="card lb">
     <div class="ct cb">Évolution du ratio travail/repos</div>
     <div style="font-family:var(--fm);font-size:10px;line-height:1.6;color:var(--dim2);">
-      <strong style="color:var(--text);">Tempo ~3s/rep :</strong><br><br>
-      <span style="color:var(--dim);">S1-S2 :</span> 10 WB → 30s/30s <span style="color:var(--g);">(50/50)</span><br>
-      <span style="color:var(--g);">S3 :</span> 11 WB → 33s/27s <span style="color:var(--g);">(55/45)</span><br>
-      <span style="color:var(--g);">S4 :</span> 12 WB → 36s/24s <span style="color:var(--b);">(60/40)</span><br>
-      <span style="color:var(--b);">S5 :</span> 13 WB → 39s/21s <span style="color:var(--b);">(65/35)</span><br>
-      <span style="color:var(--b);">S6 :</span> 14 WB → 42s/18s <span style="color:var(--y);">(70/30)</span><br>
-      <span style="color:var(--y);">S7 :</span> décharge 12 WB<br>
-      <span style="color:var(--o);">S8 :</span> 16 WB → 48s/12s <span style="color:var(--o);">(80/20)</span><br>
-      <span style="color:var(--o);">S9 :</span> 17 WB → 51s/9s <span style="color:var(--r);">(85/15) 🔥</span><br>
-      <span style="color:var(--y);">S10 :</span> taper 14 WB<br>
-      <span style="color:var(--y);">S11 :</span> taper 12 WB
+      <strong style="color:var(--text);">Format : EMOM 10' fixe · Tempo ~3s/rep</strong><br><br>
+      <span style="color:var(--dim);">S1 :</span> 10 WB/min → 30s work / 30s rest <span style="color:var(--g);">(50/50)</span> = 100 WB<br>
+      <span style="color:var(--dim);">S2 :</span> 11 WB/min → 33s/27s <span style="color:var(--g);">(55/45)</span> = 110 WB<br>
+      <span style="color:var(--g);">S3 ✅ :</span> 12 WB/min → 36s/24s <span style="color:var(--b);">(60/40)</span> = 120 WB @9kg<br>
+      <span style="color:var(--b);">S4 :</span> 13 WB/min → 39s/21s <span style="color:var(--b);">(65/35)</span> = 130 WB<br>
+      <span style="color:var(--b);">S5 :</span> 14 WB/min → 42s/18s <span style="color:var(--y);">(70/30)</span> = 140 WB<br>
+      <span style="color:var(--y);">S6 :</span> 15 WB/min → 45s/15s <span style="color:var(--y);">(75/25)</span> = 150 WB 🎯<br>
+      <span style="color:var(--y);">S7 :</span> décharge 12 WB/min<br>
+      <span style="color:var(--o);">S8 :</span> 16 WB/min → 48s/12s <span style="color:var(--o);">(80/20)</span> = 160 WB<br>
+      <span style="color:var(--o);">S9 :</span> 17 WB/min → 51s/9s <span style="color:var(--r);">(85/15) 🔥</span> = 170 WB<br>
+      <span style="color:var(--y);">S10 :</span> taper 14 WB/min<br>
+      <span style="color:var(--y);">S11 :</span> taper 12 WB/min
     </div>
   </div>
 </div>
 
 <!-- Visualisation ratio travail/repos -->
 <div class="chart-wrap" style="margin-top:12px;">
-  <div class="chart-title">⏱ Ratio travail / repos par minute · Évolution S1 → S11</div>
+  <div class="chart-title">⏱ Ratio travail / repos par minute · EMOM 10' fixe · +1 WB/min par semaine</div>
   <div style="max-width:700px;">
-    <!-- S1-S2 baseline -->
+    <!-- S1 -->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);width:55px;text-align:right;">S1-S2</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);width:55px;text-align:right;">S1 ✅</span>
       <div class="ratio-bar" style="flex:1;">
-        <div class="ratio-work" style="width:50%;background:var(--g);">30s TRAVAIL</div>
-        <div class="ratio-rest" style="width:50%;">30s REPOS</div>
+        <div class="ratio-work" style="width:50%;background:var(--g);opacity:.5;">30s WORK</div>
+        <div class="ratio-rest" style="width:50%;">30s REST</div>
       </div>
-      <span style="font-family:var(--fm);font-size:9px;color:var(--g);width:50px;">10 WB</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);width:70px;">10 WB/min</span>
     </div>
-    <!-- S3 -->
+    <!-- S2 -->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);width:55px;text-align:right;">S3</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);width:55px;text-align:right;">S2 ✅</span>
       <div class="ratio-bar" style="flex:1;">
-        <div class="ratio-work" style="width:55%;background:var(--g);">33s</div>
+        <div class="ratio-work" style="width:55%;background:var(--g);opacity:.5;">33s</div>
         <div class="ratio-rest" style="width:45%;">27s</div>
       </div>
-      <span style="font-family:var(--fm);font-size:9px;color:var(--g);width:50px;">11 WB</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--dim);width:70px;">11 WB/min</span>
     </div>
-    <!-- S4 -->
+    <!-- S3 ✅ -->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);width:55px;text-align:right;">S4</span>
+      <span style="font-family:var(--fm);font-size:9px;color:#4ade80;width:55px;text-align:right;font-weight:600;">S3 ✅</span>
       <div class="ratio-bar" style="flex:1;">
-        <div class="ratio-work" style="width:60%;background:var(--b);">36s</div>
-        <div class="ratio-rest" style="width:40%;">24s</div>
+        <div class="ratio-work" style="width:60%;background:#4ade80;">36s WORK</div>
+        <div class="ratio-rest" style="width:40%;">24s REST</div>
       </div>
-      <span style="font-family:var(--fm);font-size:9px;color:var(--b);width:50px;">12 WB</span>
+      <span style="font-family:var(--fm);font-size:9px;color:#4ade80;width:70px;font-weight:600;">12 WB/min</span>
     </div>
-    <!-- S5 -->
+    <!-- S4 ← prochain -->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);width:55px;text-align:right;">S5</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--b);width:55px;text-align:right;font-weight:600;">S4 ←</span>
       <div class="ratio-bar" style="flex:1;">
         <div class="ratio-work" style="width:65%;background:var(--b);">39s</div>
         <div class="ratio-rest" style="width:35%;">21s</div>
       </div>
-      <span style="font-family:var(--fm);font-size:9px;color:var(--b);width:50px;">13 WB</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--b);width:70px;font-weight:600;">13 WB/min</span>
     </div>
-    <!-- S6 -->
+    <!-- S5 -->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);width:55px;text-align:right;">S6</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--b);width:55px;text-align:right;">S5</span>
       <div class="ratio-bar" style="flex:1;">
         <div class="ratio-work" style="width:70%;background:var(--y);">42s</div>
         <div class="ratio-rest" style="width:30%;">18s</div>
       </div>
-      <span style="font-family:var(--fm);font-size:9px;color:var(--y);width:50px;">14 WB</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--y);width:70px;">14 WB/min</span>
+    </div>
+    <!-- S6 🎯 objectif -->
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <span style="font-family:var(--fm);font-size:9px;color:var(--y);width:55px;text-align:right;">S6 🎯</span>
+      <div class="ratio-bar" style="flex:1;">
+        <div class="ratio-work" style="width:75%;background:var(--y);">45s</div>
+        <div class="ratio-rest" style="width:25%;">15s</div>
+      </div>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--y);width:70px;">15 WB/min</span>
     </div>
     <!-- S7 deload -->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
@@ -1021,25 +1031,25 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
         <div class="ratio-work" style="width:60%;background:var(--dim);opacity:.5;">36s DÉCHARGE</div>
         <div class="ratio-rest" style="width:40%;">24s</div>
       </div>
-      <span style="font-family:var(--fm);font-size:9px;color:var(--y);width:50px;">12 WB</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--y);width:70px;">12 WB/min</span>
     </div>
     <!-- S8 -->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);width:55px;text-align:right;">S8</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--o);width:55px;text-align:right;">S8</span>
       <div class="ratio-bar" style="flex:1;">
         <div class="ratio-work" style="width:80%;background:var(--o);">48s</div>
         <div class="ratio-rest" style="width:20%;">12s</div>
       </div>
-      <span style="font-family:var(--fm);font-size:9px;color:var(--o);width:50px;">16 WB</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--o);width:70px;">16 WB/min</span>
     </div>
     <!-- S9 -->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-      <span style="font-family:var(--fm);font-size:9px;color:var(--dim2);width:55px;text-align:right;">S9 🔥</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--r);width:55px;text-align:right;">S9 🔥</span>
       <div class="ratio-bar" style="flex:1;">
         <div class="ratio-work" style="width:85%;background:var(--r);">51s</div>
         <div class="ratio-rest" style="width:15%;">9s</div>
       </div>
-      <span style="font-family:var(--fm);font-size:9px;color:var(--r);width:50px;">17 WB</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--r);width:70px;">17 WB/min</span>
     </div>
     <!-- S10 taper -->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
@@ -1048,7 +1058,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
         <div class="ratio-work" style="width:70%;background:var(--dim);opacity:.4;">42s TAPER</div>
         <div class="ratio-rest" style="width:30%;">18s</div>
       </div>
-      <span style="font-family:var(--fm);font-size:9px;color:var(--y);width:50px;">14 WB</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--y);width:70px;">14 WB/min</span>
     </div>
     <!-- S11 taper -->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
@@ -1057,7 +1067,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
         <div class="ratio-work" style="width:60%;background:var(--dim);opacity:.3;">36s TAPER</div>
         <div class="ratio-rest" style="width:40%;">24s</div>
       </div>
-      <span style="font-family:var(--fm);font-size:9px;color:var(--y);width:50px;">12 WB</span>
+      <span style="font-family:var(--fm);font-size:9px;color:var(--y);width:70px;">12 WB/min</span>
     </div>
   </div>
 </div>
@@ -1082,7 +1092,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     <!-- S1 -->
     <tr style="opacity:.7;">
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--g);">S1</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--g);">Approche volume</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--g);">EMOM 10' × 10 (11'*)</td>
       <td style="font-family:var(--fm);font-size:10px;">4 Mars</td>
       <td>EMOM 10' (11'*)</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;">10</td>
@@ -1097,7 +1107,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     <!-- S2 -->
     <tr style="opacity:.7;">
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--g);">S2</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--g);">Densité +1</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--g);">EMOM 10' × 11</td>
       <td style="font-family:var(--fm);font-size:10px;">9 Mars</td>
       <td>EMOM 10'</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;">11</td>
@@ -1112,7 +1122,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     <!-- S3 : 12/min @9kg 🔥 -->
     <tr class="current">
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S3</td>
-      <td style="font-family:var(--fm);font-size:9px;color:#4ade80;font-weight:600;">Densité +2 🔥</td>
+      <td style="font-family:var(--fm);font-size:9px;color:#4ade80;font-weight:600;">EMOM 10' × 12 🔥</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--b);">17 Mars</td>
       <td style="color:var(--b);">EMOM 10'</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4ade80;">12</td>
@@ -1124,10 +1134,10 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <td style="font-family:var(--fm);font-size:10px;color:#4ade80;">147 ✅</td>
       <td><span class="badge ok">✅ Fait</span></td>
     </tr>
-    <!-- S4 -->
+    <!-- S4 ← PROCHAIN -->
     <tr class="current">
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S4</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--b);">Densité +3</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--b);">EMOM 10' × 13</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--b);">~24 Mars</td>
       <td style="color:var(--b);">EMOM 10'</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">13</td>
@@ -1135,45 +1145,45 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <td style="font-family:var(--fm);font-size:10px;">~39s</td>
       <td style="font-family:var(--fm);font-size:10px;">~21s</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--b);">65/35</td>
-      <td>6kg</td>
-      <td style="font-family:var(--fm);font-size:10px;">< 142</td>
+      <td>9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 150</td>
       <td><span class="badge warn">⏳ Prochain</span></td>
     </tr>
     <!-- S5 -->
     <tr class="future">
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S5</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--b);">Densité +3</td>
-      <td style="font-family:var(--fm);font-size:10px;">~27 Mars</td>
-      <td>EMOM 10'</td>
-      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">13</td>
-      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">130</td>
-      <td style="font-family:var(--fm);font-size:10px;">~39s</td>
-      <td style="font-family:var(--fm);font-size:10px;">~21s</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">65/35</td>
-      <td>6kg</td>
-      <td style="font-family:var(--fm);font-size:10px;">< 142</td>
-      <td><span class="badge plan">Planifié</span></td>
-    </tr>
-    <!-- S6 -->
-    <tr class="future">
-      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">S6</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--o);">Densité +4</td>
-      <td style="font-family:var(--fm);font-size:10px;">~3 Avr</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--b);">EMOM 10' × 14</td>
+      <td style="font-family:var(--fm);font-size:10px;">~31 Mars</td>
       <td>EMOM 10'</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--y);">14</td>
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">140</td>
       <td style="font-family:var(--fm);font-size:10px;">~42s</td>
       <td style="font-family:var(--fm);font-size:10px;">~18s</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--y);">70/30</td>
-      <td>6kg</td>
-      <td style="font-family:var(--fm);font-size:10px;">< 145</td>
+      <td>9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 150</td>
+      <td><span class="badge plan">Planifié</span></td>
+    </tr>
+    <!-- S6 🎯 OBJECTIF 150 WB -->
+    <tr class="future">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">S6</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--y);">EMOM 10' × 15 🎯</td>
+      <td style="font-family:var(--fm);font-size:10px;">~7 Avr</td>
+      <td>EMOM 10'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--y);">15</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">150 🎯</td>
+      <td style="font-family:var(--fm);font-size:10px;">~45s</td>
+      <td style="font-family:var(--fm);font-size:10px;">~15s</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--y);">75/25</td>
+      <td>9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 152</td>
       <td><span class="badge plan">Planifié</span></td>
     </tr>
     <!-- S7 DELOAD -->
     <tr class="deload">
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">S7</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--y);">⬇ Décharge</td>
-      <td style="font-family:var(--fm);font-size:10px;">~10 Avr</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--y);">⬇ Décharge × 12</td>
+      <td style="font-family:var(--fm);font-size:10px;">~14 Avr</td>
       <td style="color:var(--y);">EMOM 10'</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--y);">12</td>
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">120</td>
@@ -1187,38 +1197,38 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     <!-- S8 -->
     <tr class="future">
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">S8</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--o);">Densité +6</td>
-      <td style="font-family:var(--fm);font-size:10px;">~17 Avr</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--o);">EMOM 10' × 16</td>
+      <td style="font-family:var(--fm);font-size:10px;">~21 Avr</td>
       <td>EMOM 10'</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--o);">16</td>
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--o);">160</td>
       <td style="font-family:var(--fm);font-size:10px;">~48s</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--o);">~12s</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--o);">80/20</td>
-      <td>6kg</td>
-      <td style="font-family:var(--fm);font-size:10px;">< 148</td>
+      <td>9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">< 155</td>
       <td><span class="badge plan">Planifié</span></td>
     </tr>
     <!-- S9 PEAK -->
     <tr class="future">
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--r);">S9</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--r);">🔥 Densité +7 PIC</td>
-      <td style="font-family:var(--fm);font-size:10px;">~24 Avr</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--r);">🔥 EMOM 10' × 17 PIC</td>
+      <td style="font-family:var(--fm);font-size:10px;">~28 Avr</td>
       <td style="color:var(--r);">EMOM 10' 🔥</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--r);">17</td>
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--r);">170 🔥</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--r);">~51s</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--r);">~9s</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--r);">85/15 🔥</td>
-      <td>6kg</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--r);">< 150</td>
+      <td>9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--r);">< 158</td>
       <td><span class="badge plan">Planifié</span></td>
     </tr>
     <!-- S10 taper -->
     <tr class="deload">
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">S10</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--y);">⬇ Taper</td>
-      <td style="font-family:var(--fm);font-size:10px;">~1 Mai</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--y);">⬇ Taper × 14</td>
+      <td style="font-family:var(--fm);font-size:10px;">~5 Mai</td>
       <td style="color:var(--y);">EMOM 10'</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--y);">14</td>
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">140</td>
@@ -1232,8 +1242,8 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     <!-- S11 taper -->
     <tr class="deload">
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">S11</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--y);">⬇ Taper</td>
-      <td style="font-family:var(--fm);font-size:10px;">~8 Mai</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--y);">⬇ Taper × 12</td>
+      <td style="font-family:var(--fm);font-size:10px;">~12 Mai</td>
       <td style="color:var(--y);">EMOM 10'</td>
       <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--y);">12</td>
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">120</td>
@@ -1263,61 +1273,63 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 </div>
 
 <div class="note g" style="margin-top:8px;">
-  <strong>* S1 :</strong> Format ancien (EMOM 11' × 10 WB/min = 111 reps). À partir de S2, le nouveau protocole s'applique : <strong>EMOM 10' fixe, +1 WB/min/semaine</strong>. S1 = phase d'approche volume/mouvement.<br>
-  <strong>🔥 S3 :</strong> Progression accélérée — 12 WB/min @9kg (densité S4 du plan initial) avec FC moy 147bpm. Choix délibéré de surcharger en poids pour rendre le 6kg HYROX facile.
+  <strong>Protocole :</strong> EMOM 10 minutes fixe. Chaque minute, exécuter X wall balls unbroken. Le nombre de reps/minute augmente de +1 chaque semaine. Le repos = le temps restant dans la minute après les reps.<br>
+  <strong>* S1 :</strong> Format ancien (EMOM 11' × 10 WB/min = 111 reps). À partir de S2, protocole strict : <strong>EMOM 10' fixe, +1 WB/min/semaine</strong>.<br>
+  <strong>🔥 S3 :</strong> 12 WB/min @9kg avec FC moy 147bpm. Surcharge en poids délibérée pour rendre le 6kg HYROX facile le jour J.<br>
+  <strong>🎯 Objectif final :</strong> 100 WB unbroken en course HYROX. En EMOM training, viser 15+ WB/min (150+ en 10') pour avoir une marge énorme le jour J.
 </div>
 
 <!-- Graphique projection volume + densité -->
 <div class="chart-wrap" style="margin-top:12px;">
-  <div class="chart-title">📈 Projection · Reps/min (densité) et total par séance · S1 → Lyon</div>
-  <div style="display:flex;align-items:flex-end;gap:6px;height:200px;min-width:700px;padding:0 4px;">
-    <!-- S1 -->
+  <div class="chart-title">📈 Projection · EMOM 10' fixe · WB/min croissant · S1 → Lyon</div>
+  <div style="display:flex;align-items:flex-end;gap:5px;height:200px;min-width:750px;padding:0 4px;">
+    <!-- S1 ✅ -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-      <div style="font-family:var(--fm);font-size:7px;color:var(--dim2);">10/min</div>
-      <div style="font-family:var(--fm);font-size:8px;color:var(--g);">100</div>
-      <div style="width:65%;height:59px;background:var(--g);border-radius:2px 2px 0 0;opacity:.5;"></div>
-      <div style="font-family:var(--fm);font-size:7px;color:var(--g);">S1</div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim);">10/min</div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim);">100</div>
+      <div style="width:65%;height:59px;background:var(--g);border-radius:2px 2px 0 0;opacity:.35;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim);">S1 ✅</div>
     </div>
-    <!-- S2 -->
+    <!-- S2 ✅ -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-      <div style="font-family:var(--fm);font-size:7px;color:var(--dim2);">11/min</div>
-      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);">110 ✅</div>
-      <div style="width:65%;height:65px;background:var(--g);border-radius:2px 2px 0 0;opacity:.4;"></div>
-      <div style="font-family:var(--fm);font-size:7px;color:var(--dim2);">S2 ✅</div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim);">11/min</div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim);">110</div>
+      <div style="width:65%;height:65px;background:var(--g);border-radius:2px 2px 0 0;opacity:.35;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim);">S2 ✅</div>
     </div>
-    <!-- S3 -->
+    <!-- S3 ✅ -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-      <div style="font-family:var(--fm);font-size:7px;color:#4ade80;font-weight:600;">12/min 🔥</div>
+      <div style="font-family:var(--fm);font-size:7px;color:#4ade80;font-weight:600;">12/min</div>
       <div style="font-family:var(--fm);font-size:8px;color:#4ade80;font-weight:600;">120 ✅</div>
       <div style="width:65%;height:71px;background:#4ade80;border-radius:2px 2px 0 0;"></div>
-      <div style="font-family:var(--fm);font-size:7px;color:#4ade80;font-weight:600;">S3 ←</div>
+      <div style="font-family:var(--fm);font-size:7px;color:#4ade80;font-weight:600;">S3 ✅</div>
     </div>
-    <!-- S4 -->
+    <!-- S4 ← prochain -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-      <div style="font-family:var(--fm);font-size:7px;color:var(--b);">12/min</div>
-      <div style="font-family:var(--fm);font-size:8px;color:var(--b);">120</div>
-      <div style="width:65%;height:71px;background:var(--b);border-radius:2px 2px 0 0;opacity:.6;"></div>
-      <div style="font-family:var(--fm);font-size:7px;color:var(--b);">S4</div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--b);font-weight:600;">13/min</div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--b);font-weight:600;">130</div>
+      <div style="width:65%;height:76px;background:var(--b);border-radius:2px 2px 0 0;opacity:.7;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--b);font-weight:600;">S4 ←</div>
     </div>
     <!-- S5 -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-      <div style="font-family:var(--fm);font-size:7px;color:var(--b);">13/min</div>
-      <div style="font-family:var(--fm);font-size:8px;color:var(--b);">130</div>
-      <div style="width:65%;height:76px;background:var(--b);border-radius:2px 2px 0 0;opacity:.6;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--b);">14/min</div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--b);">140</div>
+      <div style="width:65%;height:82px;background:var(--b);border-radius:2px 2px 0 0;opacity:.6;"></div>
       <div style="font-family:var(--fm);font-size:7px;color:var(--b);">S5</div>
     </div>
-    <!-- S6 -->
+    <!-- S6 🎯 -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-      <div style="font-family:var(--fm);font-size:7px;color:var(--y);">14/min</div>
-      <div style="font-family:var(--fm);font-size:8px;color:var(--y);">140</div>
-      <div style="width:65%;height:82px;background:var(--y);border-radius:2px 2px 0 0;opacity:.7;"></div>
-      <div style="font-family:var(--fm);font-size:7px;color:var(--y);">S6</div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--y);font-weight:600;">15/min 🎯</div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--y);font-weight:600;">150</div>
+      <div style="width:65%;height:88px;background:var(--y);border-radius:2px 2px 0 0;opacity:.8;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--y);font-weight:600;">S6 🎯</div>
     </div>
     <!-- S7 deload -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
       <div style="font-family:var(--fm);font-size:7px;color:var(--y);">12/min</div>
       <div style="font-family:var(--fm);font-size:8px;color:var(--y);">120</div>
-      <div style="width:65%;height:71px;background:var(--y);border-radius:2px 2px 0 0;opacity:.35;border:1px dashed var(--y);background:transparent;"></div>
+      <div style="width:65%;height:71px;border-radius:2px 2px 0 0;opacity:.35;border:1px dashed var(--y);background:transparent;"></div>
       <div style="font-family:var(--fm);font-size:7px;color:var(--y);">S7 ↓</div>
     </div>
     <!-- S8 -->
@@ -1329,23 +1341,23 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     </div>
     <!-- S9 PEAK -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-      <div style="font-family:var(--fm);font-size:7px;color:var(--r);">17/min 🔥</div>
-      <div style="font-family:var(--fm);font-size:8px;color:var(--r);">170</div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--r);font-weight:600;">17/min 🔥</div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--r);font-weight:600;">170</div>
       <div style="width:65%;height:100px;background:var(--r);border-radius:2px 2px 0 0;opacity:.8;"></div>
-      <div style="font-family:var(--fm);font-size:7px;color:var(--r);">S9 🔥</div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--r);font-weight:600;">S9 🔥</div>
     </div>
     <!-- S10 taper -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
       <div style="font-family:var(--fm);font-size:7px;color:var(--y);">14/min</div>
       <div style="font-family:var(--fm);font-size:8px;color:var(--y);">140</div>
-      <div style="width:65%;height:82px;background:var(--y);border-radius:2px 2px 0 0;opacity:.35;border:1px dashed var(--y);background:transparent;"></div>
+      <div style="width:65%;height:82px;border-radius:2px 2px 0 0;opacity:.35;border:1px dashed var(--y);background:transparent;"></div>
       <div style="font-family:var(--fm);font-size:7px;color:var(--y);">S10 ↓</div>
     </div>
     <!-- S11 taper -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
       <div style="font-family:var(--fm);font-size:7px;color:var(--y);">12/min</div>
       <div style="font-family:var(--fm);font-size:8px;color:var(--y);">120</div>
-      <div style="width:65%;height:71px;background:var(--y);border-radius:2px 2px 0 0;opacity:.25;border:1px dashed var(--y);background:transparent;"></div>
+      <div style="width:65%;height:71px;border-radius:2px 2px 0 0;opacity:.25;border:1px dashed var(--y);background:transparent;"></div>
       <div style="font-family:var(--fm);font-size:7px;color:var(--y);">S11 ↓</div>
     </div>
     <!-- S12 RACE -->
@@ -1357,17 +1369,17 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     </div>
   </div>
   <div class="legend">
-    <div class="lg-item"><div class="lg-dot" style="background:var(--g)"></div>Approche (10 WB/min)</div>
-    <div class="lg-item"><div class="lg-dot" style="background:var(--b)"></div>Densité croissante</div>
-    <div class="lg-item"><div class="lg-dot" style="background:var(--y)"></div>Décharge / Taper</div>
-    <div class="lg-item"><div class="lg-dot" style="background:var(--o)"></div>Pré-comp haute densité</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--g)"></div>Fait (S1-S3 ✅)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--b)"></div>Densité croissante (13-14/min)</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--y)"></div>🎯 Objectif 15/min + Décharge/Taper</div>
+    <div class="lg-item"><div class="lg-dot" style="background:var(--o)"></div>Pré-comp haute densité (16/min)</div>
     <div class="lg-item"><div class="lg-dot" style="background:var(--r)"></div>Pic S9 (17 WB/min · 9s repos)</div>
   </div>
 </div>
 
 <!-- Option charge ball -->
 <div class="note g" style="margin-top:12px;">
-  ✅ <strong>Surcharge en poids — Stratégie validée :</strong> Depuis S2, les EMOM sont réalisés à <strong>9kg</strong> au lieu de 6kg. Résultat : 120 WB @9kg en 10' (S3) avec FC moy 147bpm et zéro fragmentation. Le poids HYROX (6kg) sera perçu comme léger le jour J — c'est exactement l'objectif. La progression en densité continue avec la surcharge.
+  ✅ <strong>Surcharge en poids — Stratégie validée :</strong> Depuis S2, les EMOM sont réalisés à <strong>9kg</strong> (vs 6kg HYROX). Résultat : 120 WB @9kg en 10' (S3) avec FC moy 147bpm et zéro fragmentation. Le poids HYROX (6kg) sera perçu comme léger le jour J. Possibilité de basculer sur 20lb ou 6kg après des séances exigeantes pour gérer la fatigue.
 </div>
 
 <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -1389,12 +1401,12 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
   <div class="card lcy">
     <div class="ct ccy">🔥 Compression du repos</div>
     <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
-      C'est la clé du protocole. En gardant <strong style="color:var(--text);">10 minutes fixes</strong> et en ajoutant 1 WB/min :<br><br>
-      <span style="color:var(--o);">•</span> Le temps de travail augmente (~3s par WB supplémentaire)<br>
-      <span style="color:var(--o);">•</span> Le temps de repos diminue d'autant<br>
-      <span style="color:var(--o);">•</span> La FC n'a pas le temps de redescendre → elle reste haute<br>
-      <span style="color:var(--o);">•</span> À S9 (17 WB/min) : seulement 9s de repos = quasi non-stop<br><br>
-      <strong style="color:var(--g);">Résultat :</strong> Le corps apprend à <strong style="color:var(--text);">maintenir le mouvement avec de moins en moins de récup</strong>. En course, 50 WB d'affilée paraîtront "faciles" comparé à 10 minutes de densité 85/15.
+      C'est la clé du protocole. <strong style="color:var(--text);">EMOM 10 minutes fixe</strong>, on augmente de +1 WB par minute chaque semaine :<br><br>
+      <span style="color:var(--o);">•</span> Chaque WB supplémentaire = ~3s de travail en plus, ~3s de repos en moins<br>
+      <span style="color:var(--o);">•</span> S3 (12/min) : 36s work / 24s rest → la FC n'a plus le temps de redescendre<br>
+      <span style="color:var(--o);">•</span> S6 (15/min) : 45s work / 15s rest → objectif intermédiaire 🎯<br>
+      <span style="color:var(--o);">•</span> S9 (17/min) : 51s work / 9s rest = quasi non-stop 🔥<br><br>
+      <strong style="color:var(--g);">Résultat :</strong> Le corps apprend à <strong style="color:var(--text);">maintenir le mouvement avec de moins en moins de récup</strong>. En course, 100 WB unbroken @6kg paraîtront "faciles" comparé à 10 minutes de densité 85/15 @9kg.
     </div>
   </div>
 </div>
@@ -1423,19 +1435,21 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
   <div class="card lo">
     <div class="ct co">🎯 Cible Lyon Doubles</div>
     <div style="font-family:var(--fm);font-size:10px;line-height:1.8;color:var(--dim2);">
-      <strong style="color:var(--o);">50 WB chacun</strong> (Rémi + Mélanie)<br><br>
-      Au pic S9, Rémi sera capable de faire <strong style="color:var(--text);">170 WB en 10' avec 9s de repos/min</strong>.<br><br>
-      50 WB en course = <strong style="color:var(--g);">29% du volume max</strong><br>
-      50 WB = ~2:30 de travail continu<br><br>
-      → Marge de sécurité énorme<br>
-      → Cible : 50 WB en <strong style="color:var(--g);">< 3:00 unbroken</strong>
+      <strong style="color:var(--o);">50 WB chacun</strong> (Rémi + Mélanie) — <strong style="color:var(--text);">100 WB unbroken</strong> en solo<br><br>
+      Au pic S9, Rémi sera capable de faire <strong style="color:var(--text);">170 WB en 10' @9kg avec 9s de repos/min</strong>.<br><br>
+      100 WB @6kg en course = <strong style="color:var(--g);">59% du volume max @9kg</strong><br>
+      100 WB @6kg = ~5:00 de travail continu<br>
+      50 WB en doubles = ~2:30 unbroken<br><br>
+      → Marge de sécurité énorme (poids + volume)<br>
+      → Cible solo : 100 WB en <strong style="color:var(--g);">< 6:00 unbroken @6kg</strong><br>
+      → Cible doubles : 50 WB en <strong style="color:var(--g);">< 3:00 unbroken</strong>
     </div>
   </div>
 </div>
 
 </div><!-- /wrap -->
 
-<footer>wallballs.html · tierpel.github.io · HYROX Lyon Doubles 21 Mai 2026 · Dernière mise à jour : 18 Mars 2026 · 7 EMOM · 1271 WB total · FC max 164bpm · Densité record 12/min @9kg</footer>
+<footer>wallballs.html · tierpel.github.io · HYROX Lyon Doubles 21 Mai 2026 · Dernière mise à jour : 18 Mars 2026 · 7 EMOM · 1271 WB total · EMOM 10' × 12 WB/min = 120 WB @9kg · Objectif : 100 WB unbroken · Prochain : S4 (13 WB/min)</footer>
 
 </body>
 </html>
