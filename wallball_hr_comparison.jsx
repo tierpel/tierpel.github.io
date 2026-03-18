@@ -42,12 +42,20 @@ const sessions = [
     hr:   [107,109,116,125,133,135,132,130,128,129,129,134,141,143,141,138,135,131,128,128,132,140,145,144,142,139,138,138,139,139,143,147,148,147,143,140,138,136,136,139,145,147,146,142,141,140,138,136,137,143,149,149,148,144,142,141,137,139,144,150,152,150,146,145,141,139,140,145,150,150,147,144,144,142,139,135,138,143,148,148,145,141,140,139,137,139,144,150,150,146,143,142,140,140,138,140,146,149,149,147]
   },
   {
-    label: "09/03 ★",
-    name: "09/03 ★",
+    label: "09/03",
+    name: "09/03",
     color: "#facc15",
     avg: 130, max: 164, start: 74, wbs: "110 WB / 10'",
     time: [0,6,13,19,25,32,38,44,50,57,63,69,76,82,88,95,101,107,113,120,126,132,139,145,151,158,164,170,176,183,189,195,202,208,214,221,227,233,240,246,252,258,265,271,277,284,290,296,303,309,315,321,328,334,340,347,353,359,366,372,378,384,391,397,403,410,416,422,429,435,441,448,454,460,466,473,479,485,492,498,504,511,517,523,529,536,542,548,555,561,567,574,580,586,592,599,605,611,618,624],
     hr:   [74,73,76,80,86,87,97,98,107,109,109,102,97,97,88,85,87,88,89,89,87,85,119,120,112,116,117,120,117,115,140,140,136,130,129,129,132,135,141,141,132,141,138,137,135,139,141,144,139,149,146,144,141,137,134,141,142,149,151,145,147,145,148,145,150,146,147,146,148,145,152,148,151,154,156,159,160,164,150,149,142,144,138,137,145,145,138,138,134,133,136,145,143,142,145,147,147,147,151,154]
+  },
+  {
+    label: "17/03 ★",
+    name: "17/03 ★",
+    color: "#4ade80",
+    avg: 147, max: 161, start: 95, wbs: "120 WB / 10'",
+    time: [0,6,12,19,25,31,37,44,50,56,62,69,75,81,87,93,100,106,112,118,125,131,137,143,150,156,162,168,175,181,187,193,199,206,212,218,224,231,237,243,249,256,262,268,274,280,287,293,299,305,312,318,324,330,337,343,349,355,361,368,374,380,386,393,399,405,411,418,424,430,436,442,449,455,461,467,474,480,486,492,499,505,511,517,524,530,536,542,548,555,561,567,573,580,586,592,598,605,611,617],
+    hr:   [95,98,111,125,133,137,135,130,127,126,126,131,138,144,148,146,141,137,135,134,134,138,143,148,150,148,144,142,138,134,136,142,148,154,154,152,148,146,145,144,147,152,156,158,155,151,149,147,144,144,149,153,157,159,158,155,153,149,146,148,153,157,160,160,158,154,152,148,147,150,155,159,161,161,157,155,152,150,151,154,157,160,160,161,159,156,153,152,152,156,158,159,160,159,158,156,154,150,147,144]
   }
 ];
 
@@ -89,6 +97,9 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
+// Trend data for mini chart
+const trendData = sessions.map(s => ({ label: s.label.replace(" ★",""), avg: s.avg, max: s.max, wbs: parseInt(s.wbs) }));
+
 export default function App() {
   const emomMarkers = Array.from({ length: 10 }, (_, i) => (i + 1) * 60);
 
@@ -98,32 +109,33 @@ export default function App() {
         🏋️ Évolution FC – EMOM Wall Balls
       </h1>
       <p style={{ textAlign: "center", color: "#555", fontSize: 12, marginBottom: 20 }}>
-        6 séances · 20 fév → 09 mars 2026
+        7 séances · 20 fév → 17 mars 2026
       </p>
 
       {/* Stats cards */}
-      <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 22, flexWrap: "wrap" }}>
-        {sessions.map((s) => (
-          <div key={s.label} style={{
-            background: s.label.includes("★") ? "#1e1a00" : "#1a1a2e",
-            borderRadius: 10, padding: "10px 12px", minWidth: 108,
-            borderTop: `3px solid ${s.color}`,
-            boxShadow: s.label.includes("★") ? `0 0 12px ${s.color}44` : "none"
-          }}>
-            <p style={{ margin: 0, fontWeight: 700, color: s.color, fontSize: 14 }}>{s.label}</p>
-            <p style={{ margin: "3px 0 1px", fontSize: 10, color: "#555" }}>{s.wbs}</p>
-            <p style={{ margin: "2px 0", fontSize: 11, color: "#888" }}>Moy <span style={{ color: "#ddd", fontWeight: 600 }}>{s.avg}</span></p>
-            <p style={{ margin: "2px 0", fontSize: 11, color: "#888" }}>Max <span style={{
-              color: s.max === 164 ? "#facc15" : "#ddd",
-              fontWeight: 600
-            }}>{s.max} {s.max === 164 ? "🔺" : ""}</span></p>
-            <p style={{ margin: "2px 0", fontSize: 11, color: "#888" }}>Start <span style={{ color: "#ddd", fontWeight: 600 }}>{s.start}</span></p>
-          </div>
-        ))}
+      <div style={{ display: "flex", justifyContent: "center", gap: 7, marginBottom: 22, flexWrap: "wrap" }}>
+        {sessions.map((s) => {
+          const isLatest = s.label.includes("★");
+          return (
+            <div key={s.label} style={{
+              background: isLatest ? "#0d1f0d" : "#1a1a2e",
+              borderRadius: 10, padding: "10px 11px", minWidth: 100,
+              borderTop: `3px solid ${s.color}`,
+              boxShadow: isLatest ? `0 0 14px ${s.color}55` : "none"
+            }}>
+              <p style={{ margin: 0, fontWeight: 700, color: s.color, fontSize: 13 }}>{s.label}</p>
+              <p style={{ margin: "3px 0 1px", fontSize: 10, color: "#555" }}>{s.wbs}</p>
+              <p style={{ margin: "2px 0", fontSize: 11, color: "#888" }}>Moy <span style={{ color: isLatest ? s.color : "#ddd", fontWeight: 700 }}>{s.avg}</span></p>
+              <p style={{ margin: "2px 0", fontSize: 11, color: "#888" }}>Max <span style={{ color: "#ddd", fontWeight: 600 }}>{s.max}</span></p>
+              <p style={{ margin: "2px 0", fontSize: 11, color: "#888" }}>Start <span style={{ color: "#ddd", fontWeight: 600 }}>{s.start}</span></p>
+            </div>
+          );
+        })}
       </div>
 
-      <ResponsiveContainer width="100%" height={340}>
-        <LineChart data={combined} margin={{ top: 8, right: 16, left: 0, bottom: 18 }}>
+      {/* Main chart */}
+      <ResponsiveContainer width="100%" height={320}>
+        <LineChart data={combined} margin={{ top: 8, right: 20, left: 0, bottom: 18 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#1e1e2e" />
           <XAxis
             dataKey="label"
@@ -141,10 +153,8 @@ export default function App() {
           {emomMarkers.map((t) => (
             <ReferenceLine key={t} x={`${Math.floor(t / 60)}:00`} stroke="#222240" strokeDasharray="3 3" />
           ))}
-          <ReferenceLine y={150} stroke="#f43f5e" strokeDasharray="4 3" strokeOpacity={0.2}
-            label={{ value: "150", position: "right", fill: "#f43f5e", fontSize: 10, opacity: 0.4 }} />
-          <ReferenceLine y={164} stroke="#facc15" strokeDasharray="4 3" strokeOpacity={0.3}
-            label={{ value: "164 max", position: "right", fill: "#facc15", fontSize: 10, opacity: 0.6 }} />
+          <ReferenceLine y={150} stroke="#f43f5e" strokeDasharray="4 2" strokeOpacity={0.2}
+            label={{ value: "150", position: "right", fill: "#f43f5e", fontSize: 9, opacity: 0.4 }} />
           {sessions.map((s) => (
             <Line
               key={s.name}
@@ -155,20 +165,44 @@ export default function App() {
               dot={false}
               activeDot={{ r: 4 }}
               connectNulls={false}
-              opacity={s.label.includes("★") ? 1 : 0.7}
+              opacity={s.label.includes("★") ? 1 : 0.65}
             />
           ))}
         </LineChart>
       </ResponsiveContainer>
 
+      {/* Trend mini table */}
+      <div style={{ marginTop: 16, background: "#1a1a2e", borderRadius: 10, padding: "14px 16px" }}>
+        <p style={{ margin: "0 0 10px", fontWeight: 600, color: "#eee", fontSize: 13 }}>📈 Progression FC moyenne & volume</p>
+        <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: 60 }}>
+          {sessions.map((s, i) => {
+            const isLatest = s.label.includes("★");
+            const barHeight = Math.round(((s.avg - 120) / (150 - 120)) * 50);
+            return (
+              <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+                <span style={{ fontSize: 9, color: isLatest ? s.color : "#888", fontWeight: isLatest ? 700 : 400 }}>{s.avg}</span>
+                <div style={{
+                  width: "100%", height: Math.max(barHeight, 4),
+                  background: s.color,
+                  borderRadius: 3,
+                  opacity: isLatest ? 1 : 0.55
+                }} />
+                <span style={{ fontSize: 9, color: isLatest ? s.color : "#555", fontWeight: isLatest ? 700 : 400 }}>
+                  {s.label.replace(" ★", "")}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Insight */}
-      <div style={{ marginTop: 16, background: "#1a1a2e", borderRadius: 10, padding: "14px 16px", fontSize: 12, color: "#999", lineHeight: 1.8 }}>
-        <p style={{ margin: "0 0 6px", fontWeight: 600, color: "#eee", fontSize: 13 }}>📊 Analyse · 09/03</p>
-        <p style={{ margin: 0 }}>
-          Départ à froid (74 bpm) comme le 20/02 — la montée est lente puis le moteur s'emballe fort en 2e moitié.{" "}
-          <span style={{ color: "#facc15", fontWeight: 600 }}>Max à 164 bpm</span>, nouveau record sur ces EMOM.
-          La FC moy reste à 130 grâce à la longue phase de chauffe, mais les pics sont clairement plus intenses.
-          Deux hypothèses : séance post-musculation (legs fatiguées) ou rythme de répétitions plus soutenu en fin de séance.
+      <div style={{ marginTop: 10, background: "#0d1f0d", borderRadius: 10, padding: "14px 16px", fontSize: 12, color: "#9ac", lineHeight: 1.8, border: "1px solid #1a3a1a" }}>
+        <p style={{ margin: "0 0 4px", fontWeight: 600, color: "#4ade80", fontSize: 13 }}>🔥 17/03 – Nouveau record de volume</p>
+        <p style={{ margin: 0, color: "#aaa" }}>
+          <span style={{ color: "#4ade80", fontWeight: 600 }}>120 WB en 10'</span> — meilleur ratio volume/durée à ce jour.
+          FC moy à <strong style={{ color: "#fff" }}>147 bpm</strong>, la plus haute de toutes les séances, avec un plateau soutenu entre 145–161 bpm sur les 7 dernières minutes.
+          La montée initiale est rapide (95 → 150 bpm en ~2'), puis la FC se stabilise haut sans s'emballer : signe d'une bonne tolérance à cet effort répété 💪
         </p>
       </div>
     </div>

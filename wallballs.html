@@ -152,7 +152,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <div class="hdr-meta">Analyse FC · Programmation EMOM 10' densité croissante · S1→Lyon</div>
     </div>
     <div class="hdr-right">
-      <div class="big-stat" style="color:var(--o)">1151</div>
+      <div class="big-stat" style="color:var(--o)">1271</div>
       <div class="big-lbl">Wall Balls total saison</div>
     </div>
   </div>
@@ -204,18 +204,18 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 <div class="g5">
   <div class="card ly">
     <div class="ct cy2">Total reps</div>
-    <div class="cv" style="color:var(--y)">1151</div>
-    <div class="cs">Depuis Jan 2026 · 6 EMOM + 6 WOD/Race</div>
+    <div class="cv" style="color:var(--y)">1271</div>
+    <div class="cs">Depuis Jan 2026 · 7 EMOM + 6 WOD/Race</div>
   </div>
   <div class="card lo">
     <div class="ct co">Séances EMOM</div>
-    <div class="cv" style="color:var(--o)">6</div>
+    <div class="cv" style="color:var(--o)">7</div>
     <div class="cs">EMOM dédiés post-Oria/Renfo</div>
   </div>
   <div class="card lb">
     <div class="ct cb">FC moy EMOM</div>
-    <div class="cv" style="color:var(--b)">135<span class="cv-sub">bpm</span></div>
-    <div class="cs">Moy sur 6 EMOM · 82% LTHR</div>
+    <div class="cv" style="color:var(--b)">137<span class="cv-sub">bpm</span></div>
+    <div class="cs">Moy sur 7 EMOM · 83% LTHR</div>
   </div>
   <div class="card lp">
     <div class="ct cp">FC max EMOM</div>
@@ -223,9 +223,9 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     <div class="cs">Record @9kg · 9 Mars 🔺</div>
   </div>
   <div class="card lg">
-    <div class="ct cg">Tempo actuel</div>
-    <div class="cv" style="color:var(--g)">~3s<span class="cv-sub">/rep</span></div>
-    <div class="cs">10-11 WB en ~30-33s → 27-30s repos/min</div>
+    <div class="ct cg">Densité record</div>
+    <div class="cv" style="color:var(--g)">12<span class="cv-sub">/min</span></div>
+    <div class="cs">120 WB en 10' @9kg · 17 Mars 🔥</div>
   </div>
 </div>
 
@@ -235,7 +235,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 <div class="st orange">Évolution · FC par séance EMOM post-Oria</div>
 
 <div class="chart-wrap">
-  <div class="chart-title">❤️ FC moyenne (bleu) · FC max (rouge) · LTHR 165bpm (pointillé) · 5 séances EMOM</div>
+  <div class="chart-title">❤️ FC moyenne (bleu) · FC max (rouge) · LTHR 165bpm (pointillé) · 7 séances EMOM</div>
   
   <div style="position:relative;height:240px;min-width:600px;" id="fc-chart-area">
     <!-- Y axis labels -->
@@ -276,60 +276,65 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <!-- FC 148 → y = (170-148)/50*100 = 44 -->
       <!-- FC 152 → y = (170-152)/50*100 = 36 -->
       <!-- SVG chart: Y range 120-170 (50bpm range), bottom=120, top=170 -->
-      <!-- Y mapping: y% from bottom = (value - 120) / 50 * 100 -->
-      <!-- 6 points now: x = 42, 125, 208, 292, 375, 458 -->
-      <!-- FC max: 158,151,151,148,152,164 → y: 24,38,38,44,36,12 -->
-      <!-- FC moy: 139,138,136,127,140,130 → y: 62,64,68,86,60,80 -->
-      <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="width:100%;height:100%;overflow:visible;">
+      <!-- Y mapping: svgY = (170 - value) / 50 * 100 -->
+      <!-- 7 points: x = 36, 112, 188, 264, 340, 416, 492 -->
+      <!-- FC max: 158,151,151,148,152,164,161 → y: 24,38,38,44,36,12,18 -->
+      <!-- FC moy: 139,138,136,127,140,130,147 → y: 62,64,68,86,60,80,46 -->
+      <svg viewBox="0 0 530 100" preserveAspectRatio="none" style="width:100%;height:100%;overflow:visible;">
         <!-- FC max area fill -->
-        <polygon points="42,24 125,38 208,38 292,44 375,36 458,12 458,100 42,100" fill="#ff4455" opacity=".06"/>
+        <polygon points="36,24 112,38 188,38 264,44 340,36 416,12 492,18 492,100 36,100" fill="#ff4455" opacity=".06"/>
         <!-- FC moy area fill -->
-        <polygon points="42,62 125,64 208,68 292,86 375,60 458,80 458,100 42,100" fill="#4b9fff" opacity=".08"/>
+        <polygon points="36,62 112,64 188,68 264,86 340,60 416,80 492,46 492,100 36,100" fill="#4b9fff" opacity=".08"/>
         
         <!-- FC max line (red) -->
-        <polyline points="42,24 125,38 208,38 292,44 375,36 458,12" fill="none" stroke="#ff4455" stroke-width="2" stroke-linejoin="round"/>
+        <polyline points="36,24 112,38 188,38 264,44 340,36 416,12 492,18" fill="none" stroke="#ff4455" stroke-width="2" stroke-linejoin="round"/>
         <!-- FC moy line (blue) -->
-        <polyline points="42,62 125,64 208,68 292,86 375,60 458,80" fill="none" stroke="#4b9fff" stroke-width="2" stroke-linejoin="round"/>
+        <polyline points="36,62 112,64 188,68 264,86 340,60 416,80 492,46" fill="none" stroke="#4b9fff" stroke-width="2" stroke-linejoin="round"/>
         
         <!-- FC max points -->
-        <circle cx="42" cy="24" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="2"/>
-        <circle cx="125" cy="38" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="2"/>
-        <circle cx="208" cy="38" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="2"/>
-        <circle cx="292" cy="44" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="2"/>
-        <circle cx="375" cy="36" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="2"/>
-        <circle cx="458" cy="12" r="5" fill="#facc15" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="36" cy="24" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="112" cy="38" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="188" cy="38" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="264" cy="44" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="340" cy="36" r="4" fill="#ff4455" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="416" cy="12" r="5" fill="#facc15" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="492" cy="18" r="5" fill="#4ade80" stroke="#0b0b0d" stroke-width="2"/>
         
         <!-- FC moy points -->
-        <circle cx="42" cy="62" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
-        <circle cx="125" cy="64" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
-        <circle cx="208" cy="68" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
-        <circle cx="292" cy="86" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
-        <circle cx="375" cy="60" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
-        <circle cx="458" cy="80" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="36" cy="62" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="112" cy="64" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="188" cy="68" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="264" cy="86" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="340" cy="60" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="416" cy="80" r="4" fill="#4b9fff" stroke="#0b0b0d" stroke-width="2"/>
+        <circle cx="492" cy="46" r="5" fill="#4ade80" stroke="#0b0b0d" stroke-width="2"/>
         
         <!-- Labels FC max -->
-        <text x="42" y="16" text-anchor="middle" fill="#ff4455" font-family="DM Mono,monospace" font-size="7" font-weight="600">158</text>
-        <text x="125" y="30" text-anchor="middle" fill="#ff4455" font-family="DM Mono,monospace" font-size="7" font-weight="600">151</text>
-        <text x="208" y="30" text-anchor="middle" fill="#ff4455" font-family="DM Mono,monospace" font-size="7" font-weight="600">151</text>
-        <text x="292" y="36" text-anchor="middle" fill="#ff4455" font-family="DM Mono,monospace" font-size="7" font-weight="600">148</text>
-        <text x="375" y="28" text-anchor="middle" fill="#ff4455" font-family="DM Mono,monospace" font-size="7" font-weight="600">152</text>
-        <text x="458" y="5" text-anchor="middle" fill="#facc15" font-family="DM Mono,monospace" font-size="7" font-weight="700">164 ★</text>
+        <text x="36" y="16" text-anchor="middle" fill="#ff4455" font-family="DM Mono,monospace" font-size="7" font-weight="600">158</text>
+        <text x="112" y="30" text-anchor="middle" fill="#ff4455" font-family="DM Mono,monospace" font-size="7" font-weight="600">151</text>
+        <text x="188" y="30" text-anchor="middle" fill="#ff4455" font-family="DM Mono,monospace" font-size="7" font-weight="600">151</text>
+        <text x="264" y="36" text-anchor="middle" fill="#ff4455" font-family="DM Mono,monospace" font-size="7" font-weight="600">148</text>
+        <text x="340" y="28" text-anchor="middle" fill="#ff4455" font-family="DM Mono,monospace" font-size="7" font-weight="600">152</text>
+        <text x="416" y="5" text-anchor="middle" fill="#facc15" font-family="DM Mono,monospace" font-size="7" font-weight="700">164</text>
+        <text x="492" y="10" text-anchor="middle" fill="#4ade80" font-family="DM Mono,monospace" font-size="7" font-weight="700">161 ★</text>
         
         <!-- Labels FC moy -->
-        <text x="42" y="74" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">139</text>
-        <text x="125" y="76" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">138</text>
-        <text x="208" y="80" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">136</text>
-        <text x="292" y="96" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">127</text>
-        <text x="375" y="72" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">140</text>
-        <text x="458" y="90" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">130</text>
+        <text x="36" y="74" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">139</text>
+        <text x="112" y="76" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">138</text>
+        <text x="188" y="80" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">136</text>
+        <text x="264" y="96" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">127</text>
+        <text x="340" y="72" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">140</text>
+        <text x="416" y="90" text-anchor="middle" fill="#4b9fff" font-family="DM Mono,monospace" font-size="7" font-weight="600">130</text>
+        <text x="492" y="38" text-anchor="middle" fill="#4ade80" font-family="DM Mono,monospace" font-size="7" font-weight="700">147 ★</text>
         
         <!-- Weight + reps labels -->
-        <text x="42" y="112" text-anchor="middle" fill="#9090a8" font-family="DM Mono,monospace" font-size="5">9kg·100r</text>
-        <text x="125" y="112" text-anchor="middle" fill="#9090a8" font-family="DM Mono,monospace" font-size="5">16lb·100r</text>
-        <text x="208" y="112" text-anchor="middle" fill="#9090a8" font-family="DM Mono,monospace" font-size="5">16lb·110r</text>
-        <text x="292" y="112" text-anchor="middle" fill="#9090a8" font-family="DM Mono,monospace" font-size="5">6kg·100r</text>
-        <text x="375" y="112" text-anchor="middle" fill="#9090a8" font-family="DM Mono,monospace" font-size="5">6kg·111r</text>
-        <text x="458" y="112" text-anchor="middle" fill="#facc15" font-family="DM Mono,monospace" font-size="5" font-weight="600">9kg·110r ★</text>
+        <text x="36" y="112" text-anchor="middle" fill="#9090a8" font-family="DM Mono,monospace" font-size="5">9kg·100r</text>
+        <text x="112" y="112" text-anchor="middle" fill="#9090a8" font-family="DM Mono,monospace" font-size="5">16lb·100r</text>
+        <text x="188" y="112" text-anchor="middle" fill="#9090a8" font-family="DM Mono,monospace" font-size="5">16lb·110r</text>
+        <text x="264" y="112" text-anchor="middle" fill="#9090a8" font-family="DM Mono,monospace" font-size="5">6kg·100r</text>
+        <text x="340" y="112" text-anchor="middle" fill="#9090a8" font-family="DM Mono,monospace" font-size="5">6kg·111r</text>
+        <text x="416" y="112" text-anchor="middle" fill="#facc15" font-family="DM Mono,monospace" font-size="5" font-weight="600">9kg·110r</text>
+        <text x="492" y="112" text-anchor="middle" fill="#4ade80" font-family="DM Mono,monospace" font-size="5" font-weight="700">9kg·120r ★</text>
       </svg>
     </div>
     <!-- X axis labels -->
@@ -339,7 +344,8 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;">27 Fév</span>
       <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;">28 Fév</span>
       <span style="font-family:var(--fm);font-size:8px;color:var(--dim2);text-align:center;">4 Mars</span>
-      <span style="font-family:var(--fm);font-size:8px;color:var(--y);text-align:center;">9 Mars ★</span>
+      <span style="font-family:var(--fm);font-size:8px;color:var(--y);text-align:center;">9 Mars</span>
+      <span style="font-family:var(--fm);font-size:8px;color:#4ade80;text-align:center;font-weight:600;">17 Mars ★</span>
     </div>
   </div>
   
@@ -1089,49 +1095,49 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
       <td><span class="badge ok">✅ Fait</span></td>
     </tr>
     <!-- S2 -->
-    <tr class="current">
-      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S2</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--g);">Approche volume</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">~6 Mars</td>
-      <td style="color:var(--b);">EMOM 10'</td>
-      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">10</td>
-      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">100</td>
-      <td style="font-family:var(--fm);font-size:10px;">~30s</td>
-      <td style="font-family:var(--fm);font-size:10px;">~30s</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--g);">50/50</td>
-      <td style="color:var(--g);">6kg</td>
-      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">< 138</td>
-      <td><span class="badge warn">⏳ En cours</span></td>
-    </tr>
-    <!-- S3 : +1 starts here -->
-    <tr class="future">
-      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--g);">S3</td>
+    <tr style="opacity:.7;">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--g);">S2</td>
       <td style="font-family:var(--fm);font-size:9px;color:var(--g);">Densité +1</td>
-      <td style="font-family:var(--fm);font-size:10px;">~13 Mars</td>
+      <td style="font-family:var(--fm);font-size:10px;">9 Mars</td>
       <td>EMOM 10'</td>
-      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--g);">11</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;">11</td>
       <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">110</td>
       <td style="font-family:var(--fm);font-size:10px;">~33s</td>
       <td style="font-family:var(--fm);font-size:10px;">~27s</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--g);">55/45</td>
-      <td>6kg</td>
-      <td style="font-family:var(--fm);font-size:10px;">< 140</td>
-      <td><span class="badge plan">Planifié</span></td>
+      <td>9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;">130 ✅</td>
+      <td><span class="badge ok">✅ Fait</span></td>
     </tr>
-    <!-- S4 -->
-    <tr class="future">
-      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S4</td>
-      <td style="font-family:var(--fm);font-size:9px;color:var(--b);">Densité +2</td>
-      <td style="font-family:var(--fm);font-size:10px;">~20 Mars</td>
-      <td>EMOM 10'</td>
-      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">12</td>
-      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">120</td>
+    <!-- S3 : 12/min @9kg 🔥 -->
+    <tr class="current">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S3</td>
+      <td style="font-family:var(--fm);font-size:9px;color:#4ade80;font-weight:600;">Densité +2 🔥</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">17 Mars</td>
+      <td style="color:var(--b);">EMOM 10'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:#4ade80;">12</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:#4ade80;">120 🔥</td>
       <td style="font-family:var(--fm);font-size:10px;">~36s</td>
       <td style="font-family:var(--fm);font-size:10px;">~24s</td>
       <td style="font-family:var(--fm);font-size:10px;color:var(--b);">60/40</td>
+      <td style="color:#4ade80;font-weight:600;">9kg</td>
+      <td style="font-family:var(--fm);font-size:10px;color:#4ade80;">147 ✅</td>
+      <td><span class="badge ok">✅ Fait</span></td>
+    </tr>
+    <!-- S4 -->
+    <tr class="current">
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--b);">S4</td>
+      <td style="font-family:var(--fm);font-size:9px;color:var(--b);">Densité +3</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">~24 Mars</td>
+      <td style="color:var(--b);">EMOM 10'</td>
+      <td style="font-family:var(--fh);font-size:13px;font-weight:600;color:var(--b);">13</td>
+      <td style="font-family:var(--fh);font-size:14px;font-weight:600;color:var(--y);">130</td>
+      <td style="font-family:var(--fm);font-size:10px;">~39s</td>
+      <td style="font-family:var(--fm);font-size:10px;">~21s</td>
+      <td style="font-family:var(--fm);font-size:10px;color:var(--b);">65/35</td>
       <td>6kg</td>
       <td style="font-family:var(--fm);font-size:10px;">< 142</td>
-      <td><span class="badge plan">Planifié</span></td>
+      <td><span class="badge warn">⏳ Prochain</span></td>
     </tr>
     <!-- S5 -->
     <tr class="future">
@@ -1257,7 +1263,8 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 </div>
 
 <div class="note g" style="margin-top:8px;">
-  <strong>* S1 :</strong> Format ancien (EMOM 11' × 10 WB/min = 111 reps). À partir de S3, le nouveau protocole s'applique : <strong>EMOM 10' fixe, +1 WB/min/semaine</strong>. S1-S2 = phase d'approche volume/mouvement à 10 WB/min.
+  <strong>* S1 :</strong> Format ancien (EMOM 11' × 10 WB/min = 111 reps). À partir de S2, le nouveau protocole s'applique : <strong>EMOM 10' fixe, +1 WB/min/semaine</strong>. S1 = phase d'approche volume/mouvement.<br>
+  <strong>🔥 S3 :</strong> Progression accélérée — 12 WB/min @9kg (densité S4 du plan initial) avec FC moy 147bpm. Choix délibéré de surcharger en poids pour rendre le 6kg HYROX facile.
 </div>
 
 <!-- Graphique projection volume + densité -->
@@ -1273,17 +1280,17 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
     </div>
     <!-- S2 -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-      <div style="font-family:var(--fm);font-size:7px;color:var(--b);">10/min</div>
-      <div style="font-family:var(--fm);font-size:8px;color:var(--b);">100</div>
-      <div style="width:65%;height:59px;background:var(--b);border-radius:2px 2px 0 0;"></div>
-      <div style="font-family:var(--fm);font-size:7px;color:var(--b);">S2 ←</div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim2);">11/min</div>
+      <div style="font-family:var(--fm);font-size:8px;color:var(--dim2);">110 ✅</div>
+      <div style="width:65%;height:65px;background:var(--g);border-radius:2px 2px 0 0;opacity:.4;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:var(--dim2);">S2 ✅</div>
     </div>
     <!-- S3 -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-      <div style="font-family:var(--fm);font-size:7px;color:var(--g);">11/min</div>
-      <div style="font-family:var(--fm);font-size:8px;color:var(--g);">110</div>
-      <div style="width:65%;height:65px;background:var(--g);border-radius:2px 2px 0 0;opacity:.6;"></div>
-      <div style="font-family:var(--fm);font-size:7px;color:var(--g);">S3</div>
+      <div style="font-family:var(--fm);font-size:7px;color:#4ade80;font-weight:600;">12/min 🔥</div>
+      <div style="font-family:var(--fm);font-size:8px;color:#4ade80;font-weight:600;">120 ✅</div>
+      <div style="width:65%;height:71px;background:#4ade80;border-radius:2px 2px 0 0;"></div>
+      <div style="font-family:var(--fm);font-size:7px;color:#4ade80;font-weight:600;">S3 ←</div>
     </div>
     <!-- S4 -->
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
@@ -1359,8 +1366,8 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 </div>
 
 <!-- Option charge ball -->
-<div class="note y" style="margin-top:12px;">
-  💡 <strong>Option évolutive — Augmentation du poids de la ball :</strong> Si la progression en densité se passe bien et que la FC reste basse, on pourra envisager de passer certaines séances à <strong>9kg ou 16lb</strong> pour ajouter un stimulus de force. Cela reste à définir en fonction de la réponse FC et de la sensation. Le poids HYROX reste 6kg — l'idée serait de rendre le 6kg "facile" en s'entraînant plus lourd ponctuellement.
+<div class="note g" style="margin-top:12px;">
+  ✅ <strong>Surcharge en poids — Stratégie validée :</strong> Depuis S2, les EMOM sont réalisés à <strong>9kg</strong> au lieu de 6kg. Résultat : 120 WB @9kg en 10' (S3) avec FC moy 147bpm et zéro fragmentation. Le poids HYROX (6kg) sera perçu comme léger le jour J — c'est exactement l'objectif. La progression en densité continue avec la surcharge.
 </div>
 
 <!-- ══════════════════════════════════════════════════════════════════ -->
@@ -1428,7 +1435,7 @@ footer{padding:20px 32px;text-align:center;font-family:var(--fm);font-size:9px;c
 
 </div><!-- /wrap -->
 
-<footer>wallballs.html · tierpel.github.io · HYROX Lyon Doubles 21 Mai 2026 · Dernière mise à jour : 9 Mars 2026 · 6 EMOM · 1151 WB total · FC max 164bpm</footer>
+<footer>wallballs.html · tierpel.github.io · HYROX Lyon Doubles 21 Mai 2026 · Dernière mise à jour : 18 Mars 2026 · 7 EMOM · 1271 WB total · FC max 164bpm · Densité record 12/min @9kg</footer>
 
 </body>
 </html>
